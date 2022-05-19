@@ -22,12 +22,19 @@ function Navigation({ isLoaded }){
   }
 
   return (
+    <nav className="nav-container">
+      <div className="nav-container-left">
+        <NavLink exact to="/">
+          <img src="/images/logos.svg" alt="logo" />
+        </NavLink>
+
+      </div>
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>
+    </nav>
   );
 }
 
