@@ -12,19 +12,19 @@ module.exports = {
    return queryInterface.bulkInsert('Notebooks', [{
         userId:1,
         title:"Module 1",
-        tags:["App Academy", "Module 1", "School"],
+
       },{
         userId:1,
         title:"Recipe Book",
-        tags:["Recipes", "Fun"],
+
       },{
         userId:2,
         title:"Diary",
-        tags:["Diary", "Personal"],
+
       },{
         userId:3,
         title:"Random thoughts of the day",
-        tags:["Personal", "Random"]
+
       }
     ], {});
   },

@@ -8,18 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model:"Users"}
-      },
       notebookId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {model:"Notebooks"}
-
       },
-      header: {
+      title: {
         type: Sequelize.STRING
       },
       content: {

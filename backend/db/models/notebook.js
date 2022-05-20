@@ -9,19 +9,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
         validate: {
-          len: [4, 30],
+          len: [1, 255],
         }
       },
-    tags: {
-     type: DataTypes.ARRAY(DataTypes.STRING),
-    },
     trashed: {
+      allowNull: false,
       type: DataTypes.BOOLEAN
     }
   }, {});
   Notebook.associate = function(models) {
     // associations can be defined here
     Notebook.belongsTo(models.User, {foreignKey: "userId"});
+    Notebook.hasMany(models.Note, {foreignKey:"notebookId"})
   };
   return Notebook;
 };

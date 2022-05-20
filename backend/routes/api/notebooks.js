@@ -22,12 +22,7 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
   const userId = parseInt(req.user.id, 10);
 
   const userNotebooks = await Notebook.findAll({
-    include: {
-      model: Note,
-        where:{
-        notebookId
-      }
-    },
+    include: [{model: Note}],
     where:{
       userId
     }
@@ -38,9 +33,10 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
 router.post('/',notebookValidations, requireAuth, asyncHandler(async(req,res) =>{
   const userId = parseInt(req.user.id, 10);
 
-  const { title, tags} = req.body();
+  const {title, tags} = req.body;
 
-  const newNotebook = await Notebook.create( userId, title, tags)
+  newNotebook = await Notebook.create( userId, title, tags)
+
 
   return res.json(newNotebook);
 }))
@@ -48,7 +44,7 @@ router.post('/',notebookValidations, requireAuth, asyncHandler(async(req,res) =>
 router.put('/:notebookId/edit',notebookValidations, requireAuth, asyncHandler(async(req, res) =>{
   const id = parseInt(req.params.notebookId)
 
-  const { title, tags} = req.body();
+  const { title, tags} = req.body;
 
   const editNotebook = await Notebook.update( title,tags,
     {

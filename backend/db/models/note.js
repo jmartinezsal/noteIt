@@ -1,18 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Note = sequelize.define('Note', {
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+
     notebookId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    header: {
+    title: {
     type: DataTypes.STRING,
       validate: {
-        len: [4, 30],
+        len: [1,255],
       }
     },
     content: {
@@ -24,8 +21,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Note.associate = function(models) {
     // associations can be defined here
-    Note.belongsTo(models.User, {foreignKey: "userId"});
     Note.belongsTo(models.Notebook, {foreignKey: "notebookId"});
+    Note.hasOne(models.Favorite, { foreignKey: "noteId" });
+    Note.belongsToMany(models.Tag, {
+      through: 'tag_note',
+      otherKey: 'tagId',
+      foreignKey: 'noteId'
+    })
+
   };
   return Note;
 };

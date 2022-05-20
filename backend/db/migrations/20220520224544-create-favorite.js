@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Notebooks', {
+    return queryInterface.createTable('Favorites', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,16 +11,12 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references:{model:"Users"}
+        references: {model:"Users"}
       },
-      title: {
+      noteId: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      trashed: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.INTEGER,
+        refernces:{models:"Notes"}
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Notebooks');
+    return queryInterface.dropTable('Favorites');
   }
 };

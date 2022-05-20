@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
-const {Note} = require('../../db/models');
+const {Note, Notebook, Tag} = require('../../db/models');
 
 
 const router = express.Router();
@@ -13,17 +13,40 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
   const userId = parseInt(req.user.id, 10);
 
   const userNotes = await Note.findAll({
-    where:{
-      userId
-    }
+    include: [ {
+      model: Notebook,
+      where:{
+        userId
+      }},
+      {model: Tag },
+  ],
+    where: {
+      trashed: false
+    },
+    order: [["updatedAt", "DESC"]],
   })
+
+  return res.json(userNotes)
+}));
+
+router.get('/:noteId(\\+d)', requireAuth, asyncHandler(async(req,res) =>{
+  const noteId = req.params("noteId")
+
+  const userNotes = await Note.findAll({
+    include: [ Notebook, Tag],
+    where: {
+      noteId
+    },
+    order: [["updatedAt", "DESC"]],
+  })
+
   return res.json(userNotes)
 }));
 
 router.post('/', requireAuth, asyncHandler(async(req,res) =>{
   const userId = parseInt(req.user.id, 10);
 
-  const { notebookId, header, content} = req.body();
+  const { notebookId, header, content} = req.body;
 
   const newNote = await Note.create( userId, notebookId, header, content)
 
