@@ -25,7 +25,7 @@ router.post('/', requireAuth, asyncHandler(async(req,res) =>{
 
   const { notebookId, header, content} = req.body();
 
-  const newNote = await Image.create( userId, notebookId, header, content)
+  const newNote = await Note.create( userId, notebookId, header, content)
 
   return res.json(newNote);
 }))
@@ -35,7 +35,7 @@ router.put('/:noteId/edit', requireAuth, asyncHandler(async(req, res) =>{
 
   const { notebookId, header, content} = req.body;
 
-  const editNote = await Image.update( notebookId, header, content,
+  const editNote = await Note.update( notebookId, header, content,
     {
       where:{
         id,
