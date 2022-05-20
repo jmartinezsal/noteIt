@@ -65,4 +65,4 @@ router.delete('/:noteId/delete', requireAuth, asyncHandler(async(req, res) =>{
 
 
 
-export default router;
+module.exports = router;

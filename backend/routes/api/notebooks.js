@@ -63,9 +63,9 @@ router.put('/:notebookId/edit',notebookValidations, requireAuth, asyncHandler(as
 }))
 
 
-router.delete('/:noteId/delete', requireAuth, asyncHandler(async(req, res) =>{
+router.delete('/:notebookId/delete', requireAuth, asyncHandler(async(req, res) =>{
 
-  const id = parseInt(req.params.noteId);
+  const id = parseInt(req.params.notebookId);
 
   const deleteNotebook = await Notebook.findByPk(id);
   const deleteNotesFromNotebook= await Note.findAll({where:{
@@ -86,4 +86,4 @@ router.delete('/:noteId/delete', requireAuth, asyncHandler(async(req, res) =>{
 
 
 
-export default router;
+module.exports = router;
