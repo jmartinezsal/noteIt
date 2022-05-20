@@ -10,9 +10,11 @@ module.exports = {
 
       */
    return queryInterface.bulkInsert('Notebooks', [{
-     name: 'John Doe',
-     isBetaMember: false
-   }], {});
+      userId:1,
+      title:"Module 1",
+      tag:["App Academy", "Module 1"],
+   },
+  ], {});
   },
 
   down: (queryInterface, Sequelize) => {
