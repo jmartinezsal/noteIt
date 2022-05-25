@@ -15,12 +15,12 @@ module.exports = {
       },
       tagName: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(10)
       },
       color: {
         allowNull: false,
         type: Sequelize.STRING,
-        defaultValue: "green"
+        defaultValue: "grey"
       },
       createdAt: {
         allowNull: false,

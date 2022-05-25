@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Favorite.associate = function(models) {
     // associations can be defined here
-    Favorite.belongsTo(models.User, { foreignKey: "userId" });
-		Favorite.belongsTo(models.Note, { foreignKey: "noteId" });
+    // Favorite.belongsTo(models.User, { foreignKey: "userId" });
+		// Favorite.belongsTo(models.Note, { foreignKey: "noteId" });
   };
   return Favorite;
 };

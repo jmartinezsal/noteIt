@@ -9,12 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
         validate: {
-          len: [1, 255],
+          len: [4, 30],
         }
       },
     trashed: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      type: DataTypes.BOOLEAN
+      defaultValue: false,
     }
   }, {});
   Notebook.associate = function(models) {

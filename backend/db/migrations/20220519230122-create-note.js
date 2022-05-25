@@ -14,7 +14,8 @@ module.exports = {
         references: {model:"Notebooks"}
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       content: {
         type: Sequelize.TEXT

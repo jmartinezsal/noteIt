@@ -6,8 +6,8 @@ const notebooksRouter = require('./notebooks.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/notes', notesRouter);
 router.use('/notebooks', notebooksRouter);
+router.use('/notes', notesRouter);
 
 // router.post('/test', function(req,res){
 //   res.json({ requestBody: req.body });

@@ -9,16 +9,25 @@ const {Note, Notebook, Tag} = require('../../db/models');
 
 const router = express.Router();
 
+const noteValidations = [
+	check("title")
+		.exists({ checkFalsy: true })
+		.isLength({ min: 1, max: 255 })
+		.withMessage("Title must be between 1 and 255 characters."),
+	handleValidationErrors,
+];
+
+//Get all hte notes of the user that are not currently trashed
 router.get('/', requireAuth, asyncHandler(async(req,res) =>{
-  const userId = parseInt(req.user.id, 10);
+  const userId = req.user.id;
 
   const userNotes = await Note.findAll({
     include: [ {
       model: Notebook,
+      attributes: ['title'],
       where:{
         userId
       }},
-      {model: Tag },
   ],
     where: {
       trashed: false
@@ -29,13 +38,22 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
   return res.json(userNotes)
 }));
 
-router.get('/:noteId(\\+d)', requireAuth, asyncHandler(async(req,res) =>{
-  const noteId = req.params("noteId")
+//Get single note by the noteId
+router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
+  const id = req.params.noteId
+  const userId = req.user.id;
 
-  const userNotes = await Note.findAll({
-    include: [ Notebook, Tag],
+  const userNotes = await Note.findOne({
+    include: [ {
+      model: Notebook,
+      attributes: ['title'],
+      where:{
+        userId
+      },
+    },
+  ],
     where: {
-      noteId
+      id: id
     },
     order: [["updatedAt", "DESC"]],
   })
@@ -43,37 +61,35 @@ router.get('/:noteId(\\+d)', requireAuth, asyncHandler(async(req,res) =>{
   return res.json(userNotes)
 }));
 
-router.post('/', requireAuth, asyncHandler(async(req,res) =>{
-  const userId = parseInt(req.user.id, 10);
+//Create a new note for a notebook
+router.post('/', requireAuth, noteValidations, asyncHandler(async(req,res) =>{
 
-  const { notebookId, header, content} = req.body;
+  const { notebookId, title, content, trashed} = req.body;
 
-  const newNote = await Note.create( userId, notebookId, header, content)
+  const newNote = await Note.create( {notebookId, title, content, trashed})
 
   return res.json(newNote);
 }))
 
-router.put('/:noteId/edit', requireAuth, asyncHandler(async(req, res) =>{
-  const id = parseInt(req.params.noteId)
+router.put('/:noteId(\\d+)/edit', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
+  const id = req.params.noteId
 
-  const { notebookId, header, content} = req.body;
+  const { notebookId, title, content} = req.body;
 
-  const editNote = await Note.update( notebookId, header, content,
+  const editNote = await Note.update( {notebookId, title, content},
     {
-      where:{
-        id,
-        returning: true,
-        plain: true
-      }
+      where:{id},
+      returning: true,
+      plain: true
     })
 
   return res.json(editNote)
 }))
 
 
-router.delete('/:noteId/delete', requireAuth, asyncHandler(async(req, res) =>{
+router.delete('/:noteId(\\d+)/delete', requireAuth, asyncHandler(async(req, res) =>{
 
-  const id = parseInt(req.params.noteId);
+  const id = req.params.noteId;
 
   const deleteNote = await Note.findByPk(id);
 
@@ -81,6 +97,7 @@ router.delete('/:noteId/delete', requireAuth, asyncHandler(async(req, res) =>{
     await deleteNote.destroy();
   } else {
     deleteNote.trashed = true;
+    await deleteNote.save();
   }
 
   return res.json(deleteNote)
