@@ -27,10 +27,11 @@ const update = (notebook) => {
   }
 }
 
-const remove = (notebookId) =>{
+const remove = (notebookId, notebook) =>{
   return {
     type: DELETE,
-    notebookId
+    notebookId,
+    notebook
   }
 }
 
@@ -56,6 +57,29 @@ export const createNotebook = (payload) => async dispatch =>{
   }
 }
 
+export const updateNotebook = (payload) => async dispatch =>{
+  const response = await csrfFetch(`/api/notebooks/${payload.id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+
+  if(response.ok){
+    const notebook = await response.json();
+    dispatch(update(notebook))
+  }
+}
+export const deleteNotebook = (notebookId) => async dispatch =>{
+  const response = await csrfFetch(`/api/notebooks/${notebookId}`, {
+    method: 'DELETE',
+  })
+
+  if(response.ok){
+    const notebook = await response.json();
+    dispatch(remove(notebookId, notebook))
+  }
+}
+
 
 const initialState = {};
 
@@ -69,16 +93,24 @@ const notebooksReduceer = (state = initialState, action ) =>{
       return {...state, ...newState};
     }
     case CREATE:{
-      const newState = {};
-      if(!newState[action.notebook.id]){
-        newState[action.notebook.id] = action.notebook;
+      const newState = {...state,
+        [action.notebook.id]: action.notebook
       }
-      return {...state, ...newState};
+      return newState;
     }
-
-
-
-
+    case UPDATE:{
+      const newState = {...state, [action.notebook.id]: action.notebook}
+      return newState;
+    }
+    case DELETE:{
+      const newState = {...state };
+      if(newState[action.notebookId].trashed){
+        delete newState[action.notebookId]
+      } else {
+        newState[action.notebookId].trashed = true;
+      }
+      return newState;
+    }
     default:
       return state;
   }

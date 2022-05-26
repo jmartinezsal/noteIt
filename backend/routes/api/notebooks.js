@@ -58,7 +58,7 @@ router.post('/', notebookValidations, requireAuth, asyncHandler(async(req,res) =
 }))
 
 
-router.put('/:notebookId(\\d+)/edit',notebookValidations, requireAuth, asyncHandler(async(req, res) =>{
+router.put('/:notebookId(\\d+)',notebookValidations, requireAuth, asyncHandler(async(req, res) =>{
   const id = parseInt(req.params.notebookId)
 
   const { title, trashed} = req.body;
@@ -74,7 +74,7 @@ router.put('/:notebookId(\\d+)/edit',notebookValidations, requireAuth, asyncHand
 }))
 
 
-router.delete('/:notebookId(\\d+)/delete', requireAuth, asyncHandler(async(req, res) =>{
+router.delete('/:notebookId(\\d+)', requireAuth, asyncHandler(async(req, res) =>{
   const id = parseInt(req.params.notebookId);
 
   const deleteNotebook = await Notebook.findByPk(id);
