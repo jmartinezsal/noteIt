@@ -43,7 +43,7 @@ export const getAllNotebooks = () => async dispatch =>{
   }
 }
 
-export const createNotebooks = (payload) => async dispatch =>{
+export const createNotebook = (payload) => async dispatch =>{
   const response = await csrfFetch('/api/notebooks', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -51,7 +51,7 @@ export const createNotebooks = (payload) => async dispatch =>{
   })
 
   if(response.ok){
-    const notebook = response.json();
+    const notebook = await response.json();
     dispatch(create(notebook))
   }
 }
@@ -62,19 +62,18 @@ const initialState = {};
 const notebooksReduceer = (state = initialState, action ) =>{
   switch(action.type){
     case LOAD:{
-      const newState = {...state};
+      const newState = {};
       action.notebooks.forEach( notebook => {
         newState[notebook.id]= notebook;
       })
-      return newState;
+      return {...state, ...newState};
     }
     case CREATE:{
-
-      const newState = {...state};
+      const newState = {};
       if(!newState[action.notebook.id]){
         newState[action.notebook.id] = action.notebook;
       }
-      return newState;
+      return {...state, ...newState};
     }
 
 
