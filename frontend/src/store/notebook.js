@@ -27,11 +27,10 @@ const update = (notebook) => {
   }
 }
 
-const remove = (notebookId, notebook) =>{
+const remove = (notebookId) =>{
   return {
     type: DELETE,
     notebookId,
-    notebook
   }
 }
 
@@ -54,6 +53,7 @@ export const createNotebook = (payload) => async dispatch =>{
   if(response.ok){
     const notebook = await response.json();
     dispatch(create(notebook))
+    return notebook;
   }
 }
 
@@ -66,7 +66,8 @@ export const updateNotebook = (payload) => async dispatch =>{
 
   if(response.ok){
     const notebook = await response.json();
-    dispatch(update(notebook))
+    dispatch(update(notebook));
+    return notebook;
   }
 }
 export const deleteNotebook = (notebookId) => async dispatch =>{
@@ -76,7 +77,8 @@ export const deleteNotebook = (notebookId) => async dispatch =>{
 
   if(response.ok){
     const notebook = await response.json();
-    dispatch(remove(notebookId, notebook))
+    dispatch(remove(notebookId))
+    return notebook;
   }
 }
 
