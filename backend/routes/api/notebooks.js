@@ -89,6 +89,7 @@ router.delete('/:notebookId(\\d+)', requireAuth, asyncHandler(async(req, res) =>
   } else {
       deleteNotebook.trashed = true;
       if(deleteNotesFromNotebook.length > 0){
+        console.log("WORKING")
         deleteNotesFromNotebook.forEach(async note => {
           note.trashed = true
           await note.save();

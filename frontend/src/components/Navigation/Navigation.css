@@ -19,7 +19,7 @@
   list-style: none;
 }
 
-.nav-container-right :last-child{
+.nav-container-right .sign-up{
   padding: 10px 30px;
   margin: 0px 30px;
   color: #00a82d;
@@ -27,9 +27,6 @@
   border: 3px solid #00a82d;
 }
 
-.nav-container-right{
-
-}
 .nav-container ul{
   list-style: none;
 }
