@@ -35,30 +35,45 @@
 /* User left nav bar (when signed in)*/
 .user-nav-container {
   height: 100vh;
-  width: 20vh;
+  min-width: 20vh;
+  max-width: fit-content;
   background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  box-sizing: border-box;
 }
 
+.user-nav-selection-container{
+  margin-top: 5vh;
+
+}
 .user-nav-selection{
   display: flex;
   align-items:  center;
-  height: 30px;
-
+  height: 2.5rem;
+}
+.user-nav-selection span{
+  font-family: "Soleil",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
 }
 
-.user-nav-selection a, i{
+.selection-no-caret{
+  margin-left: 17px;
+}
+
+.user-nav-selection *{
   color: #bfbfbf;
 }
 
 .user-nav-selection .fa-circle-plus{
-  display: none;
+
 }
 
 .user-nav-container .active{
   background-color: rgba(#bfbfbf, 0.2) ;
+  color:white;
   width: 100%;
 
 }

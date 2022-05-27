@@ -5,17 +5,19 @@ import Note from './note.js';
 import Notebook from './notebook';
 import Trash from './trash';
 
-function UserNavigation(){
+function UserNavigation() {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
-    <nav className="user-nav-container">
-      <ProfileButton />
-      <Home />
-      <Note />
-      <Notebook />
-      <Trash />
-    </nav>
+    <div className="user-nav-container">
+      <ProfileButton user={sessionUser} />
+      <div className="user-nav-selection-container">
+        <Home />
+        <Note />
+        <Notebook />
+        <Trash />
+      </div>
+    </div>
   );
 }
 

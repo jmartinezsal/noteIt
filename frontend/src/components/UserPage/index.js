@@ -27,6 +27,7 @@ function UserPage(){
       <div className="user-page">
       <UserNavigation />
         <Switch>
+          
           <Route path='/notes'>
             <NotePage />
           </Route>

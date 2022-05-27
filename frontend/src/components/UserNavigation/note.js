@@ -1,15 +1,17 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
-function Note(){
+function Note() {
 
 
-  return(
+  return (
     <div className="user-nav-selection">
-      <i class="fa-solid fa-caret-right fa-s"> &nbsp;</i>
-      <NavLink exact to="/notes">
-        <i class="fa-solid fa-note-sticky">&nbsp; Note </i>
-      </NavLink>
+      <div className='selection-no-caret'>
+          <NavLink  to="/notes">
+          <i class="fa-solid fa-note-sticky "></i>
+            <span>Note</span>
+        </NavLink>
+      </div>
       <i class="fa-solid fa-circle-plus"></i>
     </div>
   )

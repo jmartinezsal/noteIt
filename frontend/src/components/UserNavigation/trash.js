@@ -1,13 +1,16 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
-function Trash(){
+function Trash() {
 
-  return(
+  return (
     <div className="user-nav-selection">
-      <NavLink exact to="/trash">
-      <i class="fa-solid fa-trash">&nbsp; Trash</i>
-      </NavLink>
+      <div className="selection-no-caret">
+        <NavLink to="/trash">
+          <i class="fa-solid fa-trash "></i>
+          <span>Trash </span>
+        </NavLink>
+      </div>
     </div>
   )
 }
