@@ -35,24 +35,20 @@ function LoginFormPage(){
             <li key={idx}>{error}</li>
             )}
           </ul>
-          <label>
-              Username or Email
-              <input type="text"
-              value={credential}
-              name="credential"
-              onChange={e => setCredential(e.target.value)}
-              required
-              />
-          </label>
-          <label>
-            Password
+          <div className="input-container">
+            <input type="text"
+            placeholder='Username or Email'
+            value={credential}
+            name="credential"
+            onChange={e => setCredential(e.target.value)}
+            />
             <input type="password"
+            placeholder='Password'
             value={password}
             onChange={e => setPassword(e.target.value)}
-            required
             />
-          </label>
-          <button type="submit">Log In</button>
+          </div>
+            <button type="submit" className="auth-btn">Sign In</button>
         </form>
       </div>
   </div>

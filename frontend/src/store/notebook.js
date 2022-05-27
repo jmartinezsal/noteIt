@@ -1,8 +1,7 @@
 import {csrfFetch} from './csrf';
 
 const LOAD = 'notebooks/LOAD';
-const CREATE = 'notebooks/CREATE';
-const UPDATE = 'notebooks/UPDATE';
+const CREATE_OR_UPDATE = 'notebooks/CREATE_OR_UPDATE';
 const DELETE = 'notebooks/DELETE';
 
 
@@ -13,16 +12,9 @@ const load = (notebooks) =>{
   }
 }
 
-const create = (notebook) =>{
+const createOrUpdate = (notebook) =>{
   return {
-    type: CREATE,
-    notebook
-  }
-}
-
-const update = (notebook) => {
-  return {
-    type: UPDATE,
+    type: CREATE_OR_UPDATE,
     notebook
   }
 }
@@ -52,7 +44,7 @@ export const createNotebook = (payload) => async dispatch =>{
 
   if(response.ok){
     const notebook = await response.json();
-    dispatch(create(notebook))
+    dispatch(createOrUpdate(notebook))
     return notebook;
   }
 }
@@ -66,7 +58,7 @@ export const updateNotebook = (payload) => async dispatch =>{
 
   if(response.ok){
     const notebook = await response.json();
-    dispatch(update(notebook));
+    dispatch(createOrUpdate(notebook));
     return notebook;
   }
 }
@@ -78,7 +70,7 @@ export const deleteNotebook = (notebookId) => async dispatch =>{
   if(response.ok){
     const notebook = await response.json();
     dispatch(remove(notebookId))
-    return notebook;
+    return notebook.id;
   }
 }
 
@@ -94,14 +86,10 @@ const notebooksReduceer = (state = initialState, action ) =>{
       })
       return {...state, ...newState};
     }
-    case CREATE:{
+    case CREATE_OR_UPDATE:{
       const newState = {...state,
         [action.notebook.id]: action.notebook
       }
-      return newState;
-    }
-    case UPDATE:{
-      const newState = {...state, [action.notebook.id]: action.notebook}
       return newState;
     }
     case DELETE:{

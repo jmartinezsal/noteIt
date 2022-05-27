@@ -9,9 +9,9 @@ function SplashPage (){
         <h1>Welcome to noteIt</h1>
       </div>
       <div className="">
-        
       </div>
     </div>
+
   )
 }
 

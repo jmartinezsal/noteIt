@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf';
 
 const LOAD = 'notes/LOAD';
-const CREATE = 'notes/CREATE';
+const CREATE_OR_UPDATE = 'notes/CREATE_OR_UPDATE';
 const UPDATE = 'notes/UPDATE';
 const DELETE = 'notes/DELETE';
 
@@ -13,19 +13,13 @@ const load = (notes) =>{
   }
 }
 
-const create = (note) =>{
+const createOrUpdate = (note) =>{
   return {
-    type: CREATE,
+    type: CREATE_OR_UPDATE,
     note
   }
 }
 
-const update = (note) => {
-  return {
-    type: UPDATE,
-    note,
-  }
-}
 
 const remove = (noteId, note) =>{
   return {
@@ -53,7 +47,7 @@ export const createNote = (payload) => async dispatch =>{
 
   if(response.ok){
     const note = await response.json();
-    dispatch(create(note))
+    dispatch(createOrUpdate(note))
     return note
   }
 }
@@ -67,7 +61,7 @@ export const updateNote = (payload) => async dispatch =>{
 
   if(response.ok){
     const note = await response.json();
-    dispatch(update(note))
+    dispatch(createOrUpdate(note))
   }
 }
 export const deleteNote = (noteId) => async dispatch =>{
@@ -93,16 +87,9 @@ const notesReduceer = (state = initialState, action ) =>{
       })
       return {...state, ...newState};
     }
-    case CREATE:{
+    case CREATE_OR_UPDATE:{
       const newState = {...state,[action.note.id]: action.note}
       return newState;
-    }
-    case UPDATE:{
-      if(state[action.note.id]){
-        const newState = {...state, [action.note.id]: action.note}
-        return newState;
-      }
-      return state
     }
     case DELETE:{
       const newState = {...state };

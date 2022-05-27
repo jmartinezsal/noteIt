@@ -81,8 +81,9 @@ router.delete('/:notebookId(\\d+)', requireAuth, asyncHandler(async(req, res) =>
   const deleteNotebook = await Notebook.findByPk(id);
   const deleteNotesFromNotebook= await Note.findAll({where:{
     notebookId: deleteNotebook.id
-  }}
-  )
+  }})
+  
+  console.log(deleteNotesFromNotebook)
   if(deleteNotebook.trashed){
     await deleteNotesFromNotebook.forEach(note => note.destroy());
     await deleteNotebook.destroy();
