@@ -26,13 +26,13 @@ function Navigation({ isLoaded }){
       <div className="nav-container-left">
         <NavLink exact to="/">
         </NavLink>
+      </div>
+      <div className="nav-container-center">
 
       </div>
-    <ul>
-      <li>
+      <div className="nav-container-right">
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
     </nav>
   );
 }
