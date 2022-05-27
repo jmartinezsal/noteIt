@@ -1,3 +1,35 @@
 .nav-container{
+  background-color: white;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  box-shadow: 0 0 5px 0 black;
+}
 
+
+.nav-container-right a{
+  color: black;
+  font-weight: 300;
+  font-size: 20px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-container-right :last-child{
+  padding: 10px 30px;
+  margin: 0px 30px;
+  color: #00a82d;
+  font-weight: 600;
+  border: 3px solid #00a82d;
+}
+
+.nav-container-right{
+
+}
+.nav-container ul{
+  list-style: none;
 }

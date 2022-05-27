@@ -25,15 +25,14 @@ function Navigation({ isLoaded }){
     <nav className="nav-container">
       <div className="nav-container-left">
         <NavLink exact to="/">
-          <img src="/images/logos.svg" alt="logo" />
         </NavLink>
+      </div>
+      <div className="nav-container-center">
 
       </div>
-    <ul>
-      <li>
+      <div className="nav-container-right">
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
     </nav>
   );
 }

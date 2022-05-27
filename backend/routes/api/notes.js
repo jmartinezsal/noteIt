@@ -32,7 +32,7 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
     where: {
       trashed: false
     },
-    order: [["updatedAt", "DESC"]],
+
   })
 
   return res.json(userNotes)
@@ -71,23 +71,26 @@ router.post('/', requireAuth, noteValidations, asyncHandler(async(req,res) =>{
   return res.json(newNote);
 }))
 
-router.put('/:noteId(\\d+)/edit', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
+router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
   const id = req.params.noteId
 
   const { notebookId, title, content} = req.body;
 
-  const editNote = await Note.update( {notebookId, title, content},
+  await Note.update( {notebookId, title, content},
     {
       where:{id},
       returning: true,
       plain: true
     })
 
+  const editNote = await Note.findByPk(id);
+  console.log(editNote)
+
   return res.json(editNote)
 }))
 
 
-router.delete('/:noteId(\\d+)/delete', requireAuth, asyncHandler(async(req, res) =>{
+router.delete('/:noteId(\\d+)', requireAuth, asyncHandler(async(req, res) =>{
 
   const id = req.params.noteId;
 

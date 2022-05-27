@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
       path.resolve(__dirname, '../../frontend', 'build', 'index.html')
     );
   });
-
+}
 
 // Add a XSRF-TOKEN cookie in development
 if (process.env.NODE_ENV !== 'production') {
@@ -36,15 +36,5 @@ if (process.env.NODE_ENV !== 'production') {
     return res.json({});
   });
 }
-
-}
-
-
-router.get('/hello/world', (req, res) =>{
-  res.cookie('XSRF-TOKEN', req.csrfToken());
-  res.send('Hello World!');
-});
-
-
 
 module.exports = router;
