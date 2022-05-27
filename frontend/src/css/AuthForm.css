@@ -1,5 +1,6 @@
+/* Login and sign up form pages */
 .auth-page{
-  background-image: url("../../../public/images/background.png") ;
+  background-image: url("../../public/images/background.png") ;
   height: 90vh;
   width: 100%;
   display: flex;
@@ -10,7 +11,6 @@
 .auth-form-container{
   background-color: white;
   box-shadow: 5px 5px 15px 10px rgba(0, 0, 0, 0.1);
-
   min-width: 40vh;
   max-width: fit-content;
   min-height: 60vh;
