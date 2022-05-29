@@ -1,13 +1,14 @@
 import {useSelector} from 'react-redux';
+import ContentNavigation from '../../ContentNavigation';
 
 function NotePage() {
 
   const notes = useSelector(state => state.note);
-  console.log(notes)
+  const notesArr = Object.values(notes);
 
   return (
-    <div className="user-content-container">
-
+    <div className="note-page">
+      <ContentNavigation content={notesArr} type={"notes"}/>
     </div>
 
   )

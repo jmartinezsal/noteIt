@@ -48,9 +48,21 @@
 .home-notes{
   display: flex;
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: scroll ;
   font-size: 12px;
+  margin-top:10px;
 
+}
+
+
+.home-notes::-webkit-scrollbar{
+  height:5px;
+  margin-top: 10px;
+  background-color: rgba(0,0,0,.1);
+}
+.home-notes::-webkit-scrollbar-thumb {
+
+  background-color: rgba(0, 0, 0, .2);
 }
 
 .home-note-card{
@@ -64,13 +76,17 @@
   text-align: left;
   margin-left: 10px;
   text-overflow: ellipsis;
+  transition: box-shadow .35s;
 }
+
 .home-note-card .note-title{
   font-weight: bold;
-
 }
 
 .home-note-card .note-content{
-  text-overflow: ellipsis;
   color: #8c8989;
+}
+
+.home-note-card:hover{
+  box-shadow:  0px 2px 7px 1px rgba(0, 0, 0, .1);
 }
