@@ -3,6 +3,7 @@
 @import url('./css/Navigation.css');
 @import url('./css/AuthForm.css');
 @import url('./css/SplashPage.css');
+@import url('./css/UserPage.css');
 
 #root,body,html {
   height: 100%;

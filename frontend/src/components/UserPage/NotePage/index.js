@@ -1,17 +1,15 @@
-import UserNavigation from "../../UserNavigation";
+import {useSelector} from 'react-redux';
 
+function NotePage() {
 
-function NotePage(){
-
+  const notes = useSelector(state => state.note);
+  console.log(notes)
 
   return (
-    <>
-    <UserNavigation/>
-    <h1>
+    <div className="user-content-container">
 
-      Working
-    </h1>
-    </>
+    </div>
+
   )
 }
 

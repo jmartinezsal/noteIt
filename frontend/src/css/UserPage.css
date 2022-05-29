@@ -1,0 +1,65 @@
+/*User page styles */
+
+.user-page{
+  width: auto;
+  height: auto;
+  display: flex;
+
+
+}
+
+
+/*Home Page Styles */
+.home-page{
+  width: 100%;
+
+}
+
+.home-background-image{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-image: url('https://media.istockphoto.com/photos/wood-table-on-blurred-of-office-building-picture-id1266428142?k=20&m=1266428142&s=612x612&w=0&h=PFu9TkyF_a9kc9WK31mLvKPa5cuzz4g6wE2wkBO6zIE=');
+
+}
+
+.home-welcome-container{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin: 0% 5%;
+
+}
+
+.home-notes-container{
+  min-width: 30%;
+  max-width: 50%;
+  margin-left: 20px;
+  height:30%;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  padding: 10px;
+  top:35%;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, .1);
+
+}
+
+.home-notes{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+}
+
+.home-note-card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bfbfbf;
+  min-width: 25%;
+  min-height: 80%;
+  gap:10px;
+}

@@ -3,9 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import SplashPage from '../SplashPage';
 import UserPage from '../UserPage';
-import LoginFormPage from '../LoginFormPage';
-import SignupFormPage from '../SignupFormPage';
-import UserNavigation from '../UserNavigation';
+
 
 function UserViewPage(){
   const sessionUser = useSelector(state => state.session.user)
@@ -13,7 +11,15 @@ function UserViewPage(){
   return(
     <>
     {sessionUser ?
-      <UserPage currUser= {sessionUser} /> : <SplashPage />}
+      (
+        <>
+        <Route path={['/home','/notes','/notebooks','/notes/:noteId',
+        '/notebooks/:notebookId', '/notebooks/:notebookId/notes/:noteId']}>
+          <UserPage currUser= {sessionUser} />
+        </Route>
+        </>
+      )
+      : <SplashPage />}
     </>
   )
 }

@@ -8,7 +8,7 @@ function Trash() {
       <div className="selection-no-caret">
         <NavLink to="/trash">
           <i class="fa-solid fa-trash "></i>
-          <span>Trash </span>
+          <span>Trash</span>
         </NavLink>
       </div>
     </div>

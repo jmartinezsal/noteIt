@@ -55,12 +55,12 @@
 .user-nav-selection span{
   font-family: "Soleil",Helvetica,Arial,sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   margin-left: 10px;
 }
 
 .selection-no-caret{
-  margin-left: 17px;
+  margin-left: 11%;
 }
 
 .user-nav-selection *{
@@ -68,18 +68,21 @@
 }
 
 .user-nav-selection .fa-circle-plus{
-
+  margin-left: auto;
+  margin-right: 10%;
+  display: none;
 }
 
 .user-nav-container .active{
   background-color: rgba(#bfbfbf, 0.2) ;
   color:white;
-  width: 100%;
 
 }
 
-
-.user-nav-selection:hover{
+.user-nav-selection:hover {
   background-color: grey ;
-  width: 100%;
+  color: white;
+}
+.user-nav-selection:hover .fa-circle-plus{
+  display: flex;
 }
