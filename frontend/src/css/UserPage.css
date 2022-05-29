@@ -5,7 +5,6 @@
   height: auto;
   display: flex;
 
-
 }
 
 
@@ -36,7 +35,7 @@
   min-width: 30%;
   max-width: 50%;
   margin-left: 20px;
-  height:30%;
+  min-height:fit-content;
   background-color: white;
   border-radius: 10px;
   position: absolute;
@@ -48,18 +47,30 @@
 
 .home-notes{
   display: flex;
-  flex-direction: row;
-  width: 100%;
   overflow-y: hidden;
-  overflow-x: auto;
+  overflow-x: scroll;
+  font-size: 12px;
 
 }
 
 .home-note-card{
   display: flex;
   flex-direction: column;
-  border: 1px solid #bfbfbf;
+  border: 1px solid rgba(184, 181, 181, 0.2);
   min-width: 25%;
-  min-height: 80%;
-  gap:10px;
+  max-height:20%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  margin-left: 10px;
+  text-overflow: ellipsis;
+}
+.home-note-card .note-title{
+  font-weight: bold;
+
+}
+
+.home-note-card .note-content{
+  text-overflow: ellipsis;
+  color: #8c8989;
 }
