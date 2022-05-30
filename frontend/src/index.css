@@ -5,6 +5,7 @@
 @import url('./css/SplashPage.css');
 @import url('./css/UserPage.css');
 @import url('./css/ContentNavigation.css');
+@import url('./css/NotebookPage.css');
 
 #root,body,html {
   height: 100%;

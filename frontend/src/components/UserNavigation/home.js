@@ -5,7 +5,7 @@ function Home() {
     <div className="user-nav-selection">
       <div className="selection-no-caret">
         <NavLink to="/home">
-          <i class="fa-solid fa-house "></i>
+          <i className="fa-solid fa-house "></i>
           <span>Home</span>
         </NavLink>
       </div>

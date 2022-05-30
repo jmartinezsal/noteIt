@@ -36,6 +36,10 @@
   overflow:auto;
 }
 
+.content-item-card{
+  margin-right: 7px;
+  padding-left: 10px;
+}
 
 .content-item-card:hover{
   background-color: white;

@@ -8,11 +8,11 @@ function Note() {
     <div className="user-nav-selection">
       <div className='selection-no-caret'>
           <NavLink  to="/notes">
-          <i class="fa-solid fa-note-sticky "></i>
+          <i className="fa-solid fa-note-sticky "></i>
             <span>Note</span>
         </NavLink>
       </div>
-      <i class="fa-solid fa-circle-plus"></i>
+      <i className="fa-solid fa-circle-plus"></i>
     </div>
   )
 }

@@ -10,7 +10,6 @@ function HomePage() {
   const today = new Date();
   const notesArr = Object.values(notes);
 
-  console.log(today)
   let welcomeMessage = today => {
 
   }
@@ -25,11 +24,11 @@ function HomePage() {
         </div>
 
         <div className="home-notes-container">
-          
+
           <NavLink to="/notes">
             NOTES
           </NavLink>
-          <i class="fa-solid fa-file-circle-plus"></i>
+          <i className="fa-solid fa-file-circle-plus"></i>
           <div className="home-notes">
           {notesArr.map(note =>(
             <div className="home-note-card" key={note.id}>

@@ -7,6 +7,7 @@ import { getAllNotes } from '../../store/note'
 import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
+import NotebookPage from "./NotebookPage";
 
 
 function UserPage() {
@@ -31,6 +32,9 @@ function UserPage() {
         </Route>
         <Route path='/notes'>
           <NotePage />
+        </Route>
+        <Route path='/notebooks'>
+          <NotebookPage />
         </Route>
       </Switch>
     </div>

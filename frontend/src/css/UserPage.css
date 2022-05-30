@@ -65,7 +65,7 @@
   background-color: rgba(0, 0, 0, .2);
 }
 
-.home-note-card{
+.home-note-card {
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(184, 181, 181, 0.2);

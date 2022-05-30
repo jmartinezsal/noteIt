@@ -84,7 +84,6 @@ router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(re
     })
 
   const editNote = await Note.findByPk(id);
-  console.log(editNote)
 
   return res.json(editNote)
 }))

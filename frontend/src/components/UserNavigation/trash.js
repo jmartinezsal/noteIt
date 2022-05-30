@@ -7,7 +7,7 @@ function Trash() {
     <div className="user-nav-selection">
       <div className="selection-no-caret">
         <NavLink to="/trash">
-          <i class="fa-solid fa-trash "></i>
+          <i className="fa-solid fa-trash "></i>
           <span>Trash</span>
         </NavLink>
       </div>
