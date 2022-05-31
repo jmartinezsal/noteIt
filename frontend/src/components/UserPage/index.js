@@ -9,6 +9,7 @@ import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
 import Notebook from "./NotebookPage";
+import CreateNotebookModal from "./Modal/CreateNotebookModal";
 
 
 function UserPage() {
@@ -39,6 +40,7 @@ function UserPage() {
             <Notebook />
           </Route>
         </Switch>
+
       </ModalProvider>
     </div>
   )

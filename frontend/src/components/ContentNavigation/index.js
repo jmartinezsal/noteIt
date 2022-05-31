@@ -16,8 +16,8 @@ function ContentNavigation({ content, type }) {
             <i className="fa-solid fa-book "></i>
             <p>{type}</p>
             <div className="content-actions">
-              <i class="fa-solid fa-file-pen"></i>
-              <i class="fa-solid fa-trash"></i>
+              <i className="fa-solid fa-file-pen"></i>
+              <i className="fa-solid fa-trash"></i>
             </div>
 
           </>
