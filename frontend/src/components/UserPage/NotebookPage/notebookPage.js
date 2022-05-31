@@ -16,10 +16,9 @@ function NotebookPage() {
    return notes;
   }
 
-  console.log(notesFromNotebook())
   return (
     <>
-      <ContentNavigation content={notesFromNotebook()} type={currNotebook.title} />
+      <ContentNavigation currNotebook={currNotebook} content={notesFromNotebook()} type={currNotebook.title} />
     </>
   )
 }

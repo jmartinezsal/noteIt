@@ -1,6 +1,10 @@
+import { useState } from 'react';
+import {Modal} from '../../context/Modal';
+import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
 
-function ContentNavigation({ content, type }) {
+function ContentNavigation({ content, type, currNotebook }) {
 
+  const [showModal, setShowModal] =useState(false);
 
   return (
     <div className="content-nav">
@@ -9,6 +13,7 @@ function ContentNavigation({ content, type }) {
           <>
             <img src='/images/note-icon.svg' alt="note-icon"></img>
             <p>All Notes</p>
+            <p>{content.length}</p>
           </>
 
         ) : (
@@ -16,7 +21,13 @@ function ContentNavigation({ content, type }) {
             <i className="fa-solid fa-book "></i>
             <p>{type}</p>
             <div className="content-actions">
-              <i className="fa-solid fa-file-pen"></i>
+              <p>{content.length} Notes</p>
+              <i onClick={() => setShowModal(true)} className="fa-solid fa-file-pen"></i>
+              {showModal &&
+              <Modal onClose={() => setShowModal(false)} >
+                <EditNotebookModal notebook={currNotebook} setShowModal={setShowModal} />
+              </Modal>
+              }
               <i className="fa-solid fa-trash"></i>
             </div>
 
