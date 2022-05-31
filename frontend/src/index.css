@@ -1,8 +1,19 @@
 /* TODO Add site wide styles */
 
+@import url('./css/Navigation.css');
+@import url('./css/AuthForm.css');
+@import url('./css/SplashPage.css');
+@import url('./css/UserPage.css');
+@import url('./css/ContentNavigation.css');
+@import url('./css/NotebookPage.css');
+
 #root,body,html {
   height: 100%;
   margin: 0;
   width: 100%;
   font-family: "Soleil",Helvetica,Arial,sans-serif;
+}
+
+a{
+  text-decoration: none;
 }

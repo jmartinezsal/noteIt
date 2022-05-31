@@ -4,11 +4,10 @@ import { Route, Switch } from "react-router-dom";
 
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import Navigation from "./components/Navigation";
 import UserViewPage from "./components/UserViewPage";
 import * as sessionActions from "./store/session";
-import * as notebookActions from './store/notebook';
-import * as noteActions from './store/note';
+import UserPage from "./components/UserPage";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,11 +21,11 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
         <Switch>
           <Route path='/' exact>
-            <UserViewPage />
+            <SplashPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -34,7 +33,10 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-
+          <Route path={['/','/notes','/notebooks','/notes/:noteId',
+        '/notebooks/:notebookId', '/notebooks/:notebookId/notes/:noteId']}>
+          <UserPage />
+        </Route>
         </Switch>
       )}
     </>

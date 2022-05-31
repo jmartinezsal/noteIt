@@ -1,0 +1,88 @@
+/* Top nav bar for the splash page */
+.nav-container{
+  background-color: white;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  box-shadow: 0 0 5px 0 black;
+}
+
+
+.nav-container-right a{
+  color: black;
+  font-weight: 300;
+  font-size: 20px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-container-right .sign-up{
+  padding: 10px 30px;
+  margin: 0px 30px;
+  color: #00a82d;
+  font-weight: 600;
+  border: 3px solid #00a82d;
+}
+
+.nav-container ul{
+  list-style: none;
+}
+
+/* User left nav bar (when signed in)*/
+.user-nav-container {
+  height: 100vh;
+  min-width: 20vh;
+  max-width: fit-content;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.user-nav-selection-container{
+  margin-top: 5vh;
+
+}
+.user-nav-selection{
+  display: flex;
+  align-items:  center;
+  height: 2.5rem;
+}
+.user-nav-selection span{
+  font-family: "Soleil",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.selection-no-caret{
+  margin-left: 11%;
+}
+
+.user-nav-selection *{
+  color: #bfbfbf;
+}
+
+.user-nav-selection .fa-circle-plus{
+  margin-left: auto;
+  margin-right: 10%;
+  display: none;
+}
+
+.user-nav-container .active{
+  background-color: rgba(#bfbfbf, 0.2) ;
+  color:white;
+
+}
+
+.user-nav-selection:hover {
+  background-color: grey ;
+  color: white;
+}
+.user-nav-selection:hover .fa-circle-plus{
+  display: flex;
+}

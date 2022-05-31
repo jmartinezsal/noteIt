@@ -1,0 +1,49 @@
+.notebook-page{
+  padding: 30px;
+  width: 100%
+}
+
+.notebook-table{
+  width: 100%;
+  text-align: left;
+  color: #5e5b5b;
+
+}
+
+.notebook-page tr{
+  line-height: 10px;
+}
+.notebook-page th{
+  padding: 8px;
+  font-size: 11px;
+}
+
+.notebook-page td{
+  padding: 12px;
+  font-size: 14px;
+}
+
+.notebook-page td span{
+  padding-left: 5px;
+}
+
+.notebook-actions {
+  width: fit-content;
+  margin: auto;
+  padding: 5px;
+  font-size: 20px;
+}
+
+
+.notebook-table tr:nth-child(even){
+  background-color: rgba(191, 191, 191, 0.255);
+}
+
+.notebook-table tr:hover{
+  background-color: rgba(191, 191, 191, 0.505);
+}
+
+.notebook-actions:hover{
+  background-color: rgba(191, 191, 191, 0.77);
+  cursor: pointer;
+}

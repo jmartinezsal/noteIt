@@ -1,25 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import './Navigation.css';
 
-function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
+function Navigation(){
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
+  let sessionLinks = (
       <>
         <NavLink to="/login">Log In</NavLink>
         <NavLink className="sign-up" to="/signup">Sign Up</NavLink>
       </>
     );
-  }
+
 
   return (
     <nav className="nav-container">
@@ -31,7 +21,7 @@ function Navigation({ isLoaded }){
 
       </div>
       <div className="nav-container-right">
-        {isLoaded && sessionLinks}
+        {sessionLinks}
       </div>
     </nav>
   );
