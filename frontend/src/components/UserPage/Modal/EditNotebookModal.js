@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { updateNotebook, getAllNotebooks } from '../../../store/notebook';
 
-function EditNotebookModal({ notebook, setShowModal }) {
+function EditNotebookModal({ notebook, setShowEditModal }) {
   const dispatch = useDispatch();
   const id = notebook.id;
   const [title, setTitle] = useState(notebook.title);
@@ -16,7 +16,7 @@ function EditNotebookModal({ notebook, setShowModal }) {
     setErrors([]);
     dispatch((updateNotebook({title, id})))
       .then(() => dispatch(getAllNotebooks()))
-      .then(() => setShowModal(false))
+      .then(() => setShowEditModal(false))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) {
@@ -27,7 +27,7 @@ function EditNotebookModal({ notebook, setShowModal }) {
 
   const cancelHandler = e => {
     e.preventDefault();
-    setShowModal(false);
+    setShowEditModal(false);
   }
 
   return (

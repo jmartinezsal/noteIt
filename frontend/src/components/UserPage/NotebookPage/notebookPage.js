@@ -12,13 +12,13 @@ function NotebookPage() {
 
 
   const notesFromNotebook = () => {
-   let notes = notesArr.filter(note => parseInt(notebookId, 10) === note.notebookId)
+   let notes = notesArr?.filter(note => parseInt(notebookId, 10) === note.notebookId)
    return notes;
   }
 
   return (
     <>
-      <ContentNavigation currNotebook={currNotebook} content={notesFromNotebook()} type={currNotebook.title} />
+      <ContentNavigation currNotebook={currNotebook} content={notesFromNotebook()} type={currNotebook?.title} />
     </>
   )
 }

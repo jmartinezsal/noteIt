@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import {Modal} from '../../context/Modal';
+import { Modal } from '../../context/Modal';
+import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
 
 function ContentNavigation({ content, type, currNotebook }) {
 
-  const [showModal, setShowModal] =useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   return (
     <div className="content-nav">
@@ -22,13 +24,18 @@ function ContentNavigation({ content, type, currNotebook }) {
             <p>{type}</p>
             <div className="content-actions">
               <p>{content.length} Notes</p>
-              <i onClick={() => setShowModal(true)} className="fa-solid fa-file-pen"></i>
-              {showModal &&
-              <Modal onClose={() => setShowModal(false)} >
-                <EditNotebookModal notebook={currNotebook} setShowModal={setShowModal} />
-              </Modal>
+              <i className="fa-solid fa-file-pen"onClick={() => setShowEditModal(true)} ></i>
+              {showEditModal &&
+                <Modal onClose={() => setShowEditModal(false)} >
+                  <EditNotebookModal notebook={currNotebook} setShowEditModal={setShowEditModal} />
+                </Modal>
               }
-              <i className="fa-solid fa-trash"></i>
+              <i  className="fa-solid fa-trash" onClick={() => setShowDeleteModal(true)}></i>
+              {showDeleteModal && (
+                <Modal onClose={() => setShowDeleteModal(false)} >
+                  <DeleteModalNotebook id={currNotebook.id} setShowDeleteModal={setShowDeleteModal} />
+                </Modal>
+              )}
             </div>
 
           </>
@@ -39,7 +46,7 @@ function ContentNavigation({ content, type, currNotebook }) {
           <div className="content-item-card" key={item?.id}>
             <p className="note-title">{item?.title}</p>
             <p className="note-content">{item?.content} </p>
-            <p className="note-content">{item.updatedAt.slice(5, 10)}-{item.updatedAt.slice(0, 4)}</p>
+            <p className="note-content">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
           </div>
         ))}
       </div>

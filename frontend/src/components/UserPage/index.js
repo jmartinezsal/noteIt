@@ -27,6 +27,7 @@ function UserPage() {
 
   return (
     <div className="user-page">
+
       <ModalProvider>
         <UserNavigation />
         <Switch>
