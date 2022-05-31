@@ -79,12 +79,13 @@
   transition: box-shadow .35s;
 }
 
-.home-note-card .note-title{
+ .note-title{
   font-weight: bold;
 }
 
-.home-note-card .note-content{
+.note-content{
   color: #8c8989;
+  text-overflow: ellipsis;
 }
 
 .home-note-card:hover{

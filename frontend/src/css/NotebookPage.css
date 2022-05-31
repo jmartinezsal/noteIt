@@ -1,5 +1,5 @@
 .notebook-page{
-  padding: 0px 30px;
+  padding: 30px;
   width: 100%
 }
 
@@ -34,7 +34,8 @@
   font-size: 20px;
 }
 
-.notebook-table tr:nth-child(odd){
+
+.notebook-table tr:nth-child(even){
   background-color: rgba(191, 191, 191, 0.255);
 }
 

@@ -1,47 +1,61 @@
 import { useState } from 'react';
-import {useSelector} from 'react-redux';
-import {Tooltip} from 'reactstrap'
+import { useSelector } from 'react-redux';
+import { Tooltip } from 'reactstrap'
+import NoteList from './noteList';
 
 
-function NotebookPage(){
+function NotebookPage() {
 
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [notesOpen, setNotesOpen] = useState(false);
 
   const notebooks = useSelector(state => state.notebook);
-  const sessionUser = useSelector(state => state.session)
+  const notes = useSelector(state => state.note);
+  const sessionUser = useSelector(state => state.session);
   const notebookArr = Object.values(notebooks);
+  const notesArr = Object.values(notes);
 
-  return(
+
+  const notesFromNotebook = (notebookId) => notesArr.filter(note => notebookId=== note.notebookId)
+  
+  return (
     <div className="notebook-page">
       <div className="notebook-page-header">
         <p>Notebooks</p>
       </div>
       <table className='notebook-table'>
-        <tr>
-          <th>Title</th>
-          <th>Created By</th>
-          <th>Updated</th>
-          <th>Actions</th>
-        </tr>
-        {notebookArr.map(notebook => (
-          <tr key={notebook.id}>
-              <td><i class="fa-solid fa-caret-right"> &nbsp;</i>
-              <i className="fa-solid fa-book "></i><span>{notebook.title}</span></td>
-              <td>{sessionUser.user.username}</td>
-              <td>{notebook.updatedAt.slice(5,10)}-{notebook.updatedAt.slice(0,4)}</td>
-              <td><div className='notebook-actions' id="actionTooltip">...</div>
-            </td>
-              <Tooltip
-                isOpen={tooltipOpen}
-                placement="top"
-                target="actionTooltip"
-                toggle={() => setTooltipOpen(!tooltipOpen)}>
-                More Actions
-            </Tooltip>
-
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Created By</td>
+            <td>Updated</td>
+            <td>Actions</td>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {notebookArr.map(notebook => (
+            <tr key={notebook.id}>
+              <td><span onClick={() => setNotesOpen(!notesOpen)}><i className="fa-solid fa-caret-right"> &nbsp;</i></span>
+                {notesOpen && <NoteList notes={notesFromNotebook(notebook.id)} />}
+                <i className="fa-solid fa-book "></i><span>{notebook.title}</span></td>
+              <td>{sessionUser.user.username}</td>
+              <td>{notebook.updatedAt.slice(5, 10)}-{notebook.updatedAt.slice(0, 4)}</td>
+              <td><div className='notebook-actions' id="actionTooltip">...</div>
+              </td>
+
+            </tr>
+          ))}
+        </tbody>
       </table>
+      <Tooltip
+        isOpen={tooltipOpen}
+        placement="top"
+        target="actionTooltip"
+        toggle={() => {
+          setTooltipOpen(!tooltipOpen);
+        }}>
+        More Actions
+      </Tooltip>
     </div>
   )
 }
