@@ -34,7 +34,21 @@
   border-radius: 5px;
 }
 
- input [type=text]:focus{
+ input:focus{
   border: none;
   border: 1px solid #00a82d;
+}
+
+/*Demo button */
+.demo-button {
+  background-color: #00a82d;
+  color: white;
+  font-weight: 700;
+  border-radius: 3px;
+  width:40%;
+  height: 3em;
+}
+
+.demo-button:hover{
+  opacity: .8;
 }

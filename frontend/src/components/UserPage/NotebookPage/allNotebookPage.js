@@ -13,6 +13,7 @@ function AllNotebookPage() {
   const notes = useSelector(state => state.note);
   const sessionUser = useSelector(state => state.session);
   const notebookArr = Object.values(notebooks);
+
   const notesArr = Object.values(notes);
 
 
@@ -35,6 +36,7 @@ function AllNotebookPage() {
         </thead>
         <tbody>
           {notebookArr.map(notebook => (
+            !notebook.trashed &&
             <tr key={notebook.id}>
               <td><span onClick={() => setNotesOpen(!notesOpen)}><i className="fa-solid fa-caret-right"> &nbsp;</i></span>
                 {/* {notesOpen && <NoteList notes={notesFromNotebook(notebook.id)} />} */}

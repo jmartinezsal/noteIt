@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
 import Navigation from '../SplashPage/navigation';
+import Demo from '../Demo';
 
 function LoginFormPage(){
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ function LoginFormPage(){
                 />
               </div>
                 <button type="submit" className="auth-btn">Sign In</button>
+                <Demo />
             </form>
           </div>
       </div>
