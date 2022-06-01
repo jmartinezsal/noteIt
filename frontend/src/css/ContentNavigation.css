@@ -1,48 +1,78 @@
 /* Content Navigation style */
 
 
-.content-nav{
+.content-nav {
   max-width: 300px;
   max-height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
-  border: 1px solid black;
 }
 
-.content-nav-header img{
+.content-nav-header img {
   height: 20px;
+  width: 20px;
+  margin-right: 3px;
 }
 
-.content-nav-header{
+.content-nav-header {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: max-content;
-  display: flex;
-  padding: 5px 10px ;
-  box-sizing: border-box;
+  padding: 5px 10px;
   border-bottom: 1px solid rgb(191, 191, 191);
-
 }
 
 
 
-.content-nav-header p{
-  margin-left: 10px;
+.content-nav-header .content-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
   font-size: 20px;
   font-weight: 350;
 }
 
-.content-selection-container{
-  overflow:auto;
+
+
+.content-nav-header .content-actions {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  margin-left: 10px;
+  font-size: 14px;
+  color: #7a7676;
+
+}
+.content-actions i{
+  font-size: 16px;
 }
 
-.content-item-card{
+
+.content-selection-container {
+  overflow: auto;
+}
+
+.content-item-card {
   margin-right: 7px;
   padding-left: 10px;
+  width: 200px;
+  font-size: 10px;
+  border-bottom: #7a767660 1px solid;
+
 }
 
-.content-item-card:hover{
+.content-item-card .note-content {
+  line-height: 1.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  text-overflow: ellipsis;
+}
+
+.content-item-card:hover {
   background-color: white;
 }

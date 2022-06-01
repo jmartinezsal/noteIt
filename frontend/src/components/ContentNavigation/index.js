@@ -13,8 +13,10 @@ function ContentNavigation({ content, type, currNotebook }) {
       <div className="content-nav-header">
         {type === "notes" ? (
           <>
-            <img src='/images/note-icon.svg' alt="note-icon"></img>
-            <p className="content-title">All Notes</p>
+            <div className="content-title">
+              <img src='/images/note-icon.svg' alt="note-icon"></img>
+              <p>All Notes</p>
+            </div>
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
@@ -22,10 +24,12 @@ function ContentNavigation({ content, type, currNotebook }) {
 
         ) : (
           <>
-            <i className="fa-solid fa-book "></i>
-            <p className="content-title">{type}</p>
+            <div className="content-title">
+              <i className="fa-solid fa-book "></i>
+              <p>{type}</p>
+            </div>
             <div className="content-actions">
-              <p>Total Notes: {content.length} Notes</p>
+              <p>Total Notes: {content.length} </p>
               <i className="fa-solid fa-file-pen" onClick={() => setShowEditModal(true)} ></i>
               {showEditModal &&
                 <Modal onClose={() => setShowEditModal(false)} >
@@ -48,7 +52,7 @@ function ContentNavigation({ content, type, currNotebook }) {
           <div className="content-item-card" key={item?.id}>
             <p className="note-title">{item?.title}</p>
             <p className="note-content">{item?.content} </p>
-            <p className="note-content">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
+            <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
           </div>
         ))}
       </div>
