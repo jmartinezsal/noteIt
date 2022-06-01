@@ -1,8 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
-const { check } = require('express-validator');
 
-const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
 const {Notebook, Note} = require('../../db/models');
 
@@ -10,6 +8,8 @@ const {Notebook, Note} = require('../../db/models');
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler(async (req,res) =>{
+  const userId = req.user.id;
+  
   const trash = await Note.findAll({
     include: [
     {

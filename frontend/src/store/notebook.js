@@ -77,9 +77,9 @@ export const deleteNotebook = (notebookId) => async dispatch =>{
   })
 
   if(response.ok){
-    const notebook = await response.json();
+    const id = await response.json();
     dispatch(remove(notebookId))
-    return notebook.id;
+    return id;
   }
 }
 

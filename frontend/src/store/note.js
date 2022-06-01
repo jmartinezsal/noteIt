@@ -32,7 +32,6 @@ const remove = (noteId) =>{
   return {
     type: DELETE,
     noteId,
-
   }
 }
 

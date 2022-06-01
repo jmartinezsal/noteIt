@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { getAllNotes } from '../../../store/note';
 import { deleteNotebook, getAllNotebooks } from '../../../store/notebook';
+import { getAllTrash } from '../../../store/trash';
 
 function DeleteModalNotebook({ id, setShowDeleteModal }) {
   const dispatch = useDispatch();
@@ -11,8 +12,8 @@ function DeleteModalNotebook({ id, setShowDeleteModal }) {
   const deleteHandler = e => {
     e.preventDefault();
     dispatch(deleteNotebook(id))
-      .then(() => dispatch(getAllNotebooks()))
-      .then(() => dispatch(getAllNotes()));
+      .then(() => dispatch(getAllNotes()))
+      .then(() => dispatch(getAllTrash()));
     setShowDeleteModal(false);
     history.push('/notebooks')
   }
