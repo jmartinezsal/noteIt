@@ -4,10 +4,11 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import { getAllNotebooks } from '../../store/notebook'
 import { getAllNotes } from '../../store/note'
+import { ModalProvider } from '../../context/Modal.js'
 import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
-import NotebookPage from "./NotebookPage";
+import Notebook from "./NotebookPage";
 
 
 function UserPage() {
@@ -25,18 +26,22 @@ function UserPage() {
 
   return (
     <div className="user-page">
-      <UserNavigation />
-      <Switch>
-        <Route path='/home'>
-          <HomePage note={notes} />
-        </Route>
-        <Route path='/notes'>
-          <NotePage />
-        </Route>
-        <Route path='/notebooks'>
-          <NotebookPage />
-        </Route>
-      </Switch>
+
+        <ModalProvider>
+          <UserNavigation />
+          <Switch>
+            <Route path='/home'>
+              <HomePage note={notes} />
+            </Route>
+            <Route path='/notes'>
+              <NotePage />
+            </Route>
+            <Route path={['/notebooks', '/notebooks/:notebookId']}>
+              <Notebook />
+            </Route>
+          </Switch>
+
+        </ModalProvider>
     </div>
   )
 }

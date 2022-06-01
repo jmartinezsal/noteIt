@@ -33,8 +33,8 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path={['/','/notes','/notebooks','/notes/:noteId',
-        '/notebooks/:notebookId', '/notebooks/:notebookId/notes/:noteId']}>
+          <Route path={['/home','/notes','/notebooks',
+          '/notebooks/:notebookId/notes/:noteId']}>
           <UserPage />
         </Route>
         </Switch>
