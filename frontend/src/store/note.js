@@ -91,7 +91,7 @@ const notesReduceer = (state = initialState, action ) =>{
       action.notes.forEach( note => {
         newState[note.id]= note;
       })
-      return {...state, ...newState};
+      return { ...newState};
     }
     case CREATE:{
       const newState = {...state,[action.note.id]: action.note}

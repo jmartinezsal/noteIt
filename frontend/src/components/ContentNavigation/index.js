@@ -39,7 +39,7 @@ function ContentNavigation({ content, type, currNotebook }) {
               <i className="fa-solid fa-trash" onClick={() => setShowDeleteModal(true)}></i>
               {showDeleteModal && (
                 <Modal onClose={() => setShowDeleteModal(false)} >
-                  <DeleteModalNotebook id={currNotebook.id} setShowDeleteModal={setShowDeleteModal} />
+                  <DeleteModalNotebook id={currNotebook?.id} setShowDeleteModal={setShowDeleteModal} />
                 </Modal>
               )}
             </div>

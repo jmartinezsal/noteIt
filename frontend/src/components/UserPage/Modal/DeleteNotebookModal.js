@@ -9,7 +9,7 @@ function DeleteModalNotebook({ id, setShowDeleteModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const deleteHandler = e => {
+  const deleteHandler = async e => {
     e.preventDefault();
     dispatch(deleteNotebook(id))
       .then(() => dispatch(getAllNotes()))
