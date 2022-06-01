@@ -23,10 +23,13 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
   const userId = req.user.id;
 
   const userNotebooks = await Notebook.findAll({
-    include: [{model: Note}],
+    include: [{model: Note,
+      where:{
+        trashed:false
+      }
+    }],
     where:{
       userId,
-      trashed:false
     }
   })
   return res.json(userNotebooks)
@@ -78,29 +81,33 @@ router.put('/:notebookId(\\d+)', notebookValidations, requireAuth, asyncHandler(
 
 router.delete('/:notebookId(\\d+)', requireAuth, asyncHandler(async(req, res) =>{
   const id = parseInt(req.params.notebookId);
+  const userId = req.user.id;
+
+  const primaryNotebook = await Notebook.findAll({
+    where:{userId},
+    order:[['id', 'ASC']],
+    limit:1
+  })
 
   const deleteNotebook = await Notebook.findByPk(id);
   const deleteNotesFromNotebook= await Note.findAll({where:{
     notebookId: deleteNotebook.id
   }})
 
-  if(deleteNotebook.trashed){
-    await deleteNotesFromNotebook.forEach(note => note.destroy());
-    await deleteNotebook.destroy();
-  } else {
-      deleteNotebook.trashed = true;
-      if(deleteNotesFromNotebook.length > 0){
-        deleteNotesFromNotebook.forEach(async note => {
-          note.trashed = true
-          await note.save();
-        })
-      }
-      await deleteNotebook.save();
+  if(primaryNotebook[0].id !== id){
+    if(deleteNotesFromNotebook.length > 0){
+      deleteNotesFromNotebook.forEach(async note => {
+        note.trashed = true
+        await note.save();
+      })
     }
-
-  return res.json(deleteNotebook)
+    await deleteNotebook.destroy();
+    await deleteNotebook.save();
+    return res.json(deleteNotebook)
+  } else {
+    const error = new Error('Cannot delete the first notebook you created, only edit')
+    next(error);
+  }
 }))
-
-
 
 module.exports = router;

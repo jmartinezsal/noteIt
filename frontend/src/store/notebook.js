@@ -109,11 +109,7 @@ const notebooksReduceer = (state = initialState, action ) =>{
     }
     case DELETE:{
       const newState = {...state };
-      if(newState[action.notebookId].trashed){
         delete newState[action.notebookId]
-      } else {
-        newState[action.notebookId].trashed = true;
-      }
       return newState;
     }
     default:
