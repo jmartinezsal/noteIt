@@ -28,11 +28,11 @@ const update = (note) =>{
 }
 
 
-const remove = (noteId, note) =>{
+const remove = (noteId) =>{
   return {
     type: DELETE,
     noteId,
-    note
+
   }
 }
 
@@ -78,7 +78,7 @@ export const deleteNote = (noteId) => async dispatch =>{
 
   if(response.ok){
     const note = await response.json();
-    dispatch(remove(noteId, note))
+    dispatch(remove(noteId))
   }
 }
 

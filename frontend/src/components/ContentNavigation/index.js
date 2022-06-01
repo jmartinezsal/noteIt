@@ -14,23 +14,25 @@ function ContentNavigation({ content, type, currNotebook }) {
         {type === "notes" ? (
           <>
             <img src='/images/note-icon.svg' alt="note-icon"></img>
-            <p>All Notes</p>
-            <p>{content.length}</p>
+            <p className="content-title">All Notes</p>
+            <div className="content-actions">
+              <p>Total Notes: {content.length}</p>
+            </div>
           </>
 
         ) : (
           <>
             <i className="fa-solid fa-book "></i>
-            <p>{type}</p>
+            <p className="content-title">{type}</p>
             <div className="content-actions">
-              <p>{content.length} Notes</p>
-              <i className="fa-solid fa-file-pen"onClick={() => setShowEditModal(true)} ></i>
+              <p>Total Notes: {content.length} Notes</p>
+              <i className="fa-solid fa-file-pen" onClick={() => setShowEditModal(true)} ></i>
               {showEditModal &&
                 <Modal onClose={() => setShowEditModal(false)} >
                   <EditNotebookModal notebook={currNotebook} setShowEditModal={setShowEditModal} />
                 </Modal>
               }
-              <i  className="fa-solid fa-trash" onClick={() => setShowDeleteModal(true)}></i>
+              <i className="fa-solid fa-trash" onClick={() => setShowDeleteModal(true)}></i>
               {showDeleteModal && (
                 <Modal onClose={() => setShowDeleteModal(false)} >
                   <DeleteModalNotebook id={currNotebook.id} setShowDeleteModal={setShowDeleteModal} />

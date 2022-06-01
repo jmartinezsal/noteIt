@@ -9,7 +9,6 @@ import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
 import Notebook from "./NotebookPage";
-import CreateNotebookModal from "./Modal/CreateNotebookModal";
 
 
 function UserPage() {
@@ -28,21 +27,21 @@ function UserPage() {
   return (
     <div className="user-page">
 
-      <ModalProvider>
-        <UserNavigation />
-        <Switch>
-          <Route path='/home'>
-            <HomePage note={notes} />
-          </Route>
-          <Route path='/notes'>
-            <NotePage />
-          </Route>
-          <Route path={['/notebooks', '/notebooks/:notebookId']}>
-            <Notebook />
-          </Route>
-        </Switch>
+        <ModalProvider>
+          <UserNavigation />
+          <Switch>
+            <Route path='/home'>
+              <HomePage note={notes} />
+            </Route>
+            <Route path='/notes'>
+              <NotePage />
+            </Route>
+            <Route path={['/notebooks', '/notebooks/:notebookId']}>
+              <Notebook />
+            </Route>
+          </Switch>
 
-      </ModalProvider>
+        </ModalProvider>
     </div>
   )
 }
