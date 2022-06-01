@@ -29,10 +29,10 @@ function DeleteModalNotebook({ id, setShowDeleteModal }) {
         belong to the notebook to the trash )
       </label>
       <div className="button-container-modal">
-        <button className="cancel-button" type="button" onClick={cancleHandler}>
+        <button className="cancel-btn" type="button" onClick={cancleHandler}>
           Cancel
         </button>
-        <button className="delete-button" type="submit">
+        <button className="submit-btn" type="submit">
           Delete
         </button>
       </div>
