@@ -22,7 +22,7 @@ function AllNotebookPage() {
     <div className="notebook-page">
       <div className="notebook-page-header">
         <p>Notebooks</p>
-        <p>Total Notebooks: {notebookArr.length}</p>
+        <p>Total Notebooks: {notebookArr?.length}</p>
       </div>
       <table className='notebook-table'>
         <thead>
@@ -39,7 +39,7 @@ function AllNotebookPage() {
               <td><span onClick={() => setNotesOpen(!notesOpen)}><i className="fa-solid fa-caret-right"> &nbsp;</i></span>
                 {/* {notesOpen && <NoteList notes={notesFromNotebook(notebook.id)} />} */}
               <NavLink to={`/notebooks/${notebook.id}`}>
-                <i className="fa-solid fa-book "></i><span>{notebook.title} ({notebook.Notes.length})</span>
+                <i className="fa-solid fa-book "></i><span>{notebook.title} ({notebook.Notes?.length})</span>
               </NavLink>
                 </td>
               <td>{sessionUser.user.username}</td>
@@ -51,7 +51,7 @@ function AllNotebookPage() {
           ))}
         </tbody>
       </table>
-      <Tooltip
+      {/* <Tooltip
         isOpen={tooltipOpen}
         placement="top"
         target="actionTooltip"
@@ -59,7 +59,7 @@ function AllNotebookPage() {
           setTooltipOpen(!tooltipOpen);
         }}>
         More Actions
-      </Tooltip>
+      </Tooltip> */}
     </div>
   )
 }
