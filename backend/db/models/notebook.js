@@ -12,11 +12,6 @@ module.exports = (sequelize, DataTypes) => {
           len: [4, 30],
         }
       },
-    trashed: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    }
   }, {});
   Notebook.associate = function(models) {
     // associations can be defined here

@@ -52,8 +52,8 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
       </div>
 
       <div className="auth-btn-container">
-        <button className="auth-btn" type="submit">Update</button>
-        <button className="demo-button btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="cancel-btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="submit-btn" type="submit">Update</button>
       </div>
     </form>
   )

@@ -51,8 +51,8 @@ function CreateNotebookModal({ setShowModal }) {
       </div>
 
       <div className="auth-btn-container">
-        <button className="auth-btn" type="submit">Create</button>
-        <button className="demo-button btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="cancel-btn btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="submit-btn" type="submit">Create</button>
       </div>
     </form>
   )

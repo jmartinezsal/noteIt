@@ -40,7 +40,7 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
 
 //Get single note by the noteId
 router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
-  const id = req.params.noteId
+  const id = parseInt(req.params.noteId, 10);
   const userId = req.user.id;
 
   const userNotes = await Note.findOne({
@@ -72,11 +72,11 @@ router.post('/', requireAuth, noteValidations, asyncHandler(async(req,res) =>{
 }))
 
 router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
-  const id = req.params.noteId
+  const id = paseInt(req.params.noteId,10)
 
-  const { notebookId, title, content} = req.body;
+  const { notebookId, title, content, trashed} = req.body;
 
-  await Note.update( {notebookId, title, content},
+  await Note.update( {notebookId, title, content, trashed},
     {
       where:{id},
       returning: true,

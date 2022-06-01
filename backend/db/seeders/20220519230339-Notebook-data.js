@@ -18,11 +18,11 @@ module.exports = {
         title:"Recipe Book",
 
       },{
-        userId:2,
+        userId:1,
         title:"Diary",
 
       },{
-        userId:3,
+        userId:1,
         title:"Random thoughts of the day",
 
       }

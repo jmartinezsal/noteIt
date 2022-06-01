@@ -3,16 +3,17 @@ import { useHistory } from 'react-router-dom';
 
 import { getAllNotes } from '../../../store/note';
 import { deleteNotebook, getAllNotebooks } from '../../../store/notebook';
+import { getAllTrash } from '../../../store/trash';
 
 function DeleteModalNotebook({ id, setShowDeleteModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const deleteHandler = e => {
+  const deleteHandler = async e => {
     e.preventDefault();
     dispatch(deleteNotebook(id))
-      .then(() => dispatch(getAllNotebooks()))
-      .then(() => dispatch(getAllNotes()));
+      .then(() => dispatch(getAllNotes()))
+      .then(() => dispatch(getAllTrash()));
     setShowDeleteModal(false);
     history.push('/notebooks')
   }
@@ -29,10 +30,10 @@ function DeleteModalNotebook({ id, setShowDeleteModal }) {
         belong to the notebook to the trash )
       </label>
       <div className="button-container-modal">
-        <button className="cancel-button" type="button" onClick={cancleHandler}>
+        <button className="cancel-btn" type="button" onClick={cancleHandler}>
           Cancel
         </button>
-        <button className="delete-button" type="submit">
+        <button className="submit-btn" type="submit">
           Delete
         </button>
       </div>

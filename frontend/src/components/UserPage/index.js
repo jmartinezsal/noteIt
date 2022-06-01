@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import { getAllNotebooks } from '../../store/notebook'
-import { getAllNotes } from '../../store/note'
+import { getAllNotes } from '../../store/note';
+import { getAllTrash } from '../../store/trash';
 import { ModalProvider } from '../../context/Modal.js'
 import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
@@ -20,6 +21,7 @@ function UserPage() {
   useEffect(() => {
     dispatch(getAllNotebooks());
     dispatch(getAllNotes());
+    dispatch(getAllTrash())
   }, [dispatch])
 
 
@@ -27,21 +29,21 @@ function UserPage() {
   return (
     <div className="user-page">
 
-        <ModalProvider>
-          <UserNavigation />
-          <Switch>
-            <Route path='/home'>
-              <HomePage note={notes} />
-            </Route>
-            <Route path='/notes'>
-              <NotePage />
-            </Route>
-            <Route path={['/notebooks', '/notebooks/:notebookId']}>
-              <Notebook />
-            </Route>
-          </Switch>
+      <ModalProvider>
+        <UserNavigation />
+        <Switch>
+          <Route path='/home'>
+            <HomePage note={notes} />
+          </Route>
+          <Route path='/notes'>
+            <NotePage />
+          </Route>
+          <Route path={['/notebooks', '/notebooks/:notebookId']}>
+            <Notebook />
+          </Route>
+        </Switch>
 
-        </ModalProvider>
+      </ModalProvider>
     </div>
   )
 }

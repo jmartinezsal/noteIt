@@ -13,6 +13,7 @@ function AllNotebookPage() {
   const notes = useSelector(state => state.note);
   const sessionUser = useSelector(state => state.session);
   const notebookArr = Object.values(notebooks);
+  const availableNotebooks = notebookArr.filter(notebook => !notebook.trashed)
 
   const notesArr = Object.values(notes);
 
@@ -23,7 +24,7 @@ function AllNotebookPage() {
     <div className="notebook-page">
       <div className="notebook-page-header">
         <p>Notebooks</p>
-        <p>Total Notebooks: {notebookArr?.length}</p>
+        <p>Total Notebooks: {availableNotebooks?.length}</p>
       </div>
       <table className='notebook-table'>
         <thead>
@@ -35,7 +36,7 @@ function AllNotebookPage() {
           </tr>
         </thead>
         <tbody>
-          {notebookArr.map(notebook => (
+          {availableNotebooks.map(notebook => (
             !notebook.trashed &&
             <tr key={notebook.id}>
               <td><span onClick={() => setNotesOpen(!notesOpen)}><i className="fa-solid fa-caret-right"> &nbsp;</i></span>
