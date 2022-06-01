@@ -25,7 +25,8 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
   const userNotebooks = await Notebook.findAll({
     include: [{model: Note}],
     where:{
-      userId
+      userId,
+      trashed:false
     }
   })
   return res.json(userNotebooks)
@@ -40,7 +41,7 @@ router.get('/:notebookId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
     include: [{model: Note}],
     where:{
       id,
-      userId
+      userId,
     }
   })
   return res.json(userNotebooks)
