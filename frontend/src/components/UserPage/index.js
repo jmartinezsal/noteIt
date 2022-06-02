@@ -15,7 +15,8 @@ import Notebook from "./NotebookPage";
 function UserPage() {
   const dispatch = useDispatch();
 
-  const notebooks = useSelector(state => state.notebooks);
+  const sessionUser = useSelector(state => state.session.user)
+  const notebooks = useSelector(state => state.notebook);
   const notes = useSelector(state => state.note);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function UserPage() {
     dispatch(getAllTrash())
   }, [dispatch])
 
-
+  if(!sessionUser) return <Redirect to="/"/>
 
   return (
     <div className="user-page">
@@ -35,10 +36,10 @@ function UserPage() {
           <Route path='/home'>
             <HomePage note={notes} />
           </Route>
-          <Route path='/notes'>
+          <Route path='/notes' >
             <NotePage />
           </Route>
-          <Route path={['/notebooks', '/notebooks/:notebookId']}>
+          <Route path='/notebooks'>
             <Notebook />
           </Route>
         </Switch>
