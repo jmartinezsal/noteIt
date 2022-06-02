@@ -9,7 +9,7 @@ function QuillEditor({ content, setContent }) {
     toolbar: [
       [{ header: [1, 2, 3] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
-      [{ font: ["Soleil", 'Helvetica', 'Arial', 'sans-serif', 'serif'] }],
+      [{ font: [ 'monospace','sans-serif', 'serif'] }],
       [{ size: [] }],
       [{
         color: ['#000000', '#2F4F4F',

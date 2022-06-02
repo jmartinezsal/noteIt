@@ -21,6 +21,9 @@ function ContentNavigation({ content, type, currNotebook }) {
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
+            <NavLink to="/notes/create">
+              New Note
+            </NavLink>
           </>
 
         ) : (

@@ -7,7 +7,6 @@ import NoteCreator from './noteCreator';
 import { getAllNotes } from '../../../store/note';
 
 function NotePage() {
-  const dispatch = useDispatch();
 
 
   const notes = useSelector(state => state.note);
@@ -21,6 +20,7 @@ function NotePage() {
       <Route path="/notes/:noteId">
         <NoteCreator />
       </Route>
+
     </div>
 
   )

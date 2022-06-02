@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Route } from 'react-router-dom';
 import ContentNavigation from '../../ContentNavigation';
+import NoteCreator from '../NotePage/noteCreator';
 
 
 function NotebookPage() {
@@ -19,6 +20,9 @@ function NotebookPage() {
   return (
     <>
       <ContentNavigation currNotebook={currNotebook} content={notesFromNotebook()} type={currNotebook?.title} />
+      <Route path="/notebooks/:notebookId/notes/:noteId">
+        <NoteCreator />
+      </Route>
     </>
   )
 }
