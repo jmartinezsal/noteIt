@@ -52,7 +52,7 @@ function ContentNavigation({ content, type, currNotebook }) {
       <div className="content-selection-container">
         {content?.map(item => (
 
-          <NavLink to= {type === "notes" ?  (`/notes/${item.id}`) : (`/notebooks/${item.notebookId}/notes/${item.id}`) }>
+          <NavLink key={item.id} to= {type === "notes" ?  (`/notes/${item.id}`) : (`/notebooks/${item.notebookId}/notes/${item.id}`) }>
             <div className="content-item-card" >
               <p className="note-title">{item?.title}</p>
               <p className="note-content">{item?.content} </p>

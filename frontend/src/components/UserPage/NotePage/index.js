@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
 import ContentNavigation from '../../ContentNavigation';
+import NoteCreator from './noteCreator';
 
 function NotePage() {
 
@@ -9,6 +10,7 @@ function NotePage() {
   return (
     <div className="note-page">
       <ContentNavigation content={notesArr} type={"notes"}/>
+      <NoteCreator />
     </div>
 
   )

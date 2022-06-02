@@ -1,15 +1,16 @@
-import {useState} from 'react';
-
 import ReactQuill from 'react-quill';
 
-function QuillEditor( {content, setContent}) {
+import 'react-quill/dist/quill.snow.css';
+
+
+function QuillEditor({ content, setContent }) {
 
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ font: ["Soleil", 'Helvetica', 'Arial', 'sans-serif', 'serif'] }],
-      [{size: []}],
+      [{ size: [] }],
       [{
         color: ['#000000', '#2F4F4F',
           '#708090', '#778899',
@@ -71,14 +72,14 @@ function QuillEditor( {content, setContent}) {
   return (
     <div className="note-editor">
 
-    <ReactQuill
-      theme="snow"
-      className="notes-editor"
-      modules={modules}
-      formats={formats}
-      value={content}
-      onChange={ setContent }
-      placeholder="Start writing, will be saved automatically after typing..."
+      <ReactQuill
+        theme="snow"
+        className="notes-editor"
+        modules={modules}
+        formats={formats}
+        value={content}
+        onChange={setContent}
+        placeholder="Start writing, will be saved automatically after typing..."
       />
     </div>
   )

@@ -6,6 +6,8 @@
 @import url('./css/ContentNavigation.css');
 @import url('./css/NotebookPage.css');
 
+@import url('./css/NotePage.css');
+
 #root,body,html {
   height: 100%;
   margin: 0;
