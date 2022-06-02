@@ -81,14 +81,14 @@ export const updateNote = (payload) => async dispatch =>{
     dispatch(update(note))
   }
 }
-export const deleteNote = (noteId) => async dispatch =>{
-  const response = await csrfFetch(`/api/notes/${noteId}`, {
-    method: 'DELETE',
+export const trashNote = (payload) => async dispatch =>{
+  const response = await csrfFetch(`/api/notes/${payload.id}`, {
+    method: 'PUT',
   })
 
   if(response.ok){
-    const note = await response.json();
-    dispatch(remove(noteId))
+    const note = await response.json(payload);
+    dispatch(update(note))
   }
 }
 

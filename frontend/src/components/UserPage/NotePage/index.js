@@ -13,7 +13,7 @@ function NotePage() {
   const notes = useSelector(state => state.note);
   const notesArr = Object.values(notes);
 
-  
+
 
   return (
     <div className="note-page">
