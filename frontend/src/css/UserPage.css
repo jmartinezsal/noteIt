@@ -18,8 +18,8 @@
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: 100% 50%;
-  background-image: url('https://media.istockphoto.com/photos/wood-table-on-blurred-of-office-building-picture-id1266428142?k=20&m=1266428142&s=612x612&w=0&h=PFu9TkyF_a9kc9WK31mLvKPa5cuzz4g6wE2wkBO6zIE=');
+  background-size: 100%  100% ;
+  background-image: url('../../public/images/wallpaper.jpg');
 
 }
 
@@ -27,15 +27,14 @@
   display: flex;
   justify-content: space-between;
   color: white;
-  margin: 0% 5%;
-
+  margin: 0% 10%;
 }
 
+
 .home-notes-container{
-  min-width: 30%;
-  max-width: 50%;
+  max-width: 45%;
+  max-height: max-content;
   margin-left: 20px;
-  min-height:fit-content;
   background-color: white;
   border-radius: 10px;
   position: absolute;
@@ -51,18 +50,17 @@
   overflow-x: scroll ;
   font-size: 12px;
   margin-top:10px;
-
 }
 
 
 .home-notes::-webkit-scrollbar{
-  height:5px;
-  margin-top: 10px;
-  background-color: rgba(0,0,0,.1);
+  height:7px;
+  border-radius: 10px;
+  background-color: rgba(0, 198, 49, 0.1);
 }
 .home-notes::-webkit-scrollbar-thumb {
 
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.701);
 }
 
 .home-note-card {
@@ -76,6 +74,7 @@
   text-align: left;
   margin-left: 10px;
   text-overflow: ellipsis;
+
   transition: box-shadow .35s;
 }
 
@@ -85,7 +84,11 @@
 
 .note-content{
   color: #8c8989;
-  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-height: 1.3rem;
+  -webkit-box-orient: vertical;
 }
 
 .home-note-card:hover{

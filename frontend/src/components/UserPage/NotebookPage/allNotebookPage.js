@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { Tooltip } from 'reactstrap'
 
 
 function AllNotebookPage() {
@@ -54,15 +53,7 @@ function AllNotebookPage() {
           ))}
         </tbody>
       </table>
-      {/* <Tooltip
-        isOpen={tooltipOpen}
-        placement="top"
-        target="actionTooltip"
-        toggle={() => {
-          setTooltipOpen(!tooltipOpen);
-        }}>
-        More Actions
-      </Tooltip> */}
+
     </div>
   )
 }

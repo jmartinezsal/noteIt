@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import UserViewPage from "./components/UserViewPage";
 import * as sessionActions from "./store/session";
 import UserPage from "./components/UserPage";
 import SplashPage from "./components/SplashPage";
