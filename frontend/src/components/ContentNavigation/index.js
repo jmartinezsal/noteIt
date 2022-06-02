@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
-
 function ContentNavigation({ content, type, currNotebook }) {
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -51,7 +50,6 @@ function ContentNavigation({ content, type, currNotebook }) {
       </div>
       <div className="content-selection-container">
         {content?.map(item => (
-
           <NavLink key={item.id} to= {type === "notes" ?  (`/notes/${item.id}`) : (`/notebooks/${item.notebookId}/notes/${item.id}`) }>
             <div className="content-item-card" >
               <p className="note-title">{item?.title}</p>
@@ -59,9 +57,9 @@ function ContentNavigation({ content, type, currNotebook }) {
               <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
             </div>
           </NavLink>
-
         ))}
       </div>
+
 
     </div>
   )

@@ -8,5 +8,35 @@
 .note-view-page{
   width: 100%;
   height: 100%;
-  margin: 20px 40px;
+  margin: 40px 40px;
+}
+
+.editor-note-title{
+  display: flex;
+  align-items: center;
+}
+
+.editor-note-title i {
+  font-size: x-large;
+  margin-right: 10px;
+}
+
+.editor-note-title input{
+  border: none;
+  outline:none;
+  width:100%;
+  font-size: 32px;
+  white-space: wrap;
+}
+
+.editor-note-title input:active{
+  border:none;
+  outline:none;
+}
+
+
+/* Quill Editor */
+
+.ql-container div {
+  height: 100%;
 }

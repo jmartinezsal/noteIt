@@ -44,6 +44,15 @@ export const getAllNotes = () => async dispatch =>{
   }
 }
 
+export const getNote = (noteId) => async dispatch =>{
+  const response = await csrfFetch(`/api/notes/${noteId}`);
+
+  if(response.ok){
+    const note = await response.json();
+    dispatch(create(note));
+  }
+}
+
 export const createNote = (payload) => async dispatch =>{
   const response = await csrfFetch('/api/notes', {
     method: 'POST',
@@ -59,11 +68,13 @@ export const createNote = (payload) => async dispatch =>{
 }
 
 export const updateNote = (payload) => async dispatch =>{
+  console.log(payload)
   const response = await csrfFetch(`/api/notes/${payload.id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(payload)
   })
+
 
   if(response.ok){
     const note = await response.json();

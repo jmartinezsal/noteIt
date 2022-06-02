@@ -53,7 +53,6 @@ function QuillEditor({ content, setContent }) {
         ]
       }]
       [{ list: "ordered" }, { list: "bullet" }],
-      ["bold", "italic", "underline", "strike"],
       [{ indent: "-1" }, { indent: "+1" },
       { align: [] }],
       ["link", "image", "video"],
@@ -81,6 +80,7 @@ function QuillEditor({ content, setContent }) {
         onChange={setContent}
         placeholder="Start writing, will be saved automatically after typing..."
       />
+
     </div>
   )
 }
