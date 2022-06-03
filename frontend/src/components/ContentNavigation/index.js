@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import ReactHtmlParser from 'html-react-parser';
+
 import { Modal } from '../../context/Modal';
 import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
@@ -14,7 +16,7 @@ function ContentNavigation({ content, type, currNotebook }) {
   const emptyTrashClick = () =>{
     dispatch(trashDeleteAll())
   }
- 
+
 
   const switchComponent = (type) => {
 
@@ -102,7 +104,7 @@ function ContentNavigation({ content, type, currNotebook }) {
             (`/notebooks/${item.notebookId}/notes/${item.id}`)}>
             <div className="content-item-card" >
               <p className="note-title">{item?.title}</p>
-              <p className="note-content">{item?.content} </p>
+              <p className="note-content">{ReactHtmlParser(item?.content)} </p>
               <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
             </div>
           </NavLink>

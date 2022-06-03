@@ -93,7 +93,7 @@ const notebooksReduceer = (state = initialState, action ) =>{
       action.notebooks.forEach( notebook => {
         newState[notebook.id]= notebook;
       })
-      return {...state, ...newState};
+      return { ...newState};
     }
     case CREATE:{
       const newState = {...state,

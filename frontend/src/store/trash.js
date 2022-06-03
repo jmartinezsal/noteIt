@@ -88,5 +88,4 @@ const trashReduceer = (state = initialState, action) => {
 
 }
 
-
 export default trashReduceer;

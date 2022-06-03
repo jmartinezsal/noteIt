@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jmartinezsal/noteIt#readme",
   "dependencies": {
+    "html-react-parser": "^1.4.14",
     "react-quill": "^2.0.0-beta.4"
   }
 }
