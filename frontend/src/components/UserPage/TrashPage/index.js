@@ -1,4 +1,7 @@
+
 import {useSelector} from 'react-redux';
+
+import TrashView from './trashView';
 import ContentNavigation from '../../ContentNavigation';
 
 
@@ -12,7 +15,7 @@ function Trash(){
     <>
       <ContentNavigation  content={trashArr} type={"trash"} />
 
-      
+
 
     </>
   )
