@@ -2,6 +2,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { trashDeleteOne} from '../../../store/trash';
+import ReactHtmlParser from 'html-react-parser';
+
 
 
 function TrashView(){
@@ -33,8 +35,7 @@ function TrashView(){
         <i className="fa-solid fa-floppy-disk" onClick={onClickSave}></i>
         <i className="fa-solid fa-trash" onClick={onClickDelete}></i>
       </div>
-        <p>{trash?.content}</p>
-
+        <p>{ReactHtmlParser(trash?.content)}</p>
     </div>
     </>
   )

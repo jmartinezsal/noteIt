@@ -15,6 +15,7 @@ function Navigation(){
     <nav className="nav-container">
       <div className="nav-container-left">
         <NavLink exact to="/">
+          <img src='/images/logo.svg' alt='logo'></img>
         </NavLink>
       </div>
       <div className="nav-container-center">
