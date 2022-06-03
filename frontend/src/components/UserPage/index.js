@@ -10,6 +10,7 @@ import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
 import Notebook from "./NotebookPage";
+import Trash from './TrashPage';
 
 
 function UserPage() {
@@ -41,6 +42,9 @@ function UserPage() {
           </Route>
           <Route path='/notebooks'>
             <Notebook />
+          </Route>
+          <Route path='/trash'>
+            <Trash />
           </Route>
         </Switch>
 
