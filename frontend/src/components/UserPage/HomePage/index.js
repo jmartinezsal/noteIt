@@ -28,17 +28,19 @@ function HomePage() {
           <NavLink to="/notes">
             NOTES
           </NavLink>
-          <i className="fa-solid fa-file-circle-plus"></i>
+          <NavLink to="/notes/create">
+            <i className="fa-solid fa-file-circle-plus"></i>
+          </NavLink>
           <div className="home-notes">
-          {notesArr.map(note =>(
-            <div className="home-note-card" key={note.id}>
-              <NavLink key={note.id} to= {`/notes/${note.id}`}>
-              <p className="note-title">{note.title}</p>
-              <p className="note-content">{note.content} </p>
-              <p className="note-content">{note.updatedAt.slice(5,10)}-{note.updatedAt.slice(0,4)}</p>
-            </NavLink>
-            </div>
-          ))}
+            {notesArr.map(note => (
+              <div className="home-note-card" key={note.id}>
+                <NavLink key={note.id} to={`/notes/${note.id}`}>
+                  <p className="note-title">{note.title}</p>
+                  <p className="note-content">{note.content} </p>
+                  <p className="note-content">{note.updatedAt.slice(5, 10)}-{note.updatedAt.slice(0, 4)}</p>
+                </NavLink>
+              </div>
+            ))}
           </div>
 
 

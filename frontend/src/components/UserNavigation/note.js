@@ -7,12 +7,14 @@ function Note() {
   return (
     <div className="user-nav-selection">
       <div className='selection-no-caret'>
-          <NavLink  to="/notes">
+        <NavLink to="/notes">
           <i className="fa-solid fa-note-sticky "></i>
-            <span>Note</span>
+          <span>Note</span>
         </NavLink>
       </div>
-      <i className="fa-solid fa-circle-plus"></i>
+      <NavLink to="/notes/create">
+        <i className="fa-solid fa-circle-plus"></i>
+      </NavLink>
     </div>
   )
 }

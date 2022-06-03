@@ -13,7 +13,7 @@ const notebookValidations = [
   check('title')
     .exists({ checkFalsy: true })
     .withMessage("Please provide a title to create a notebook.")
-    .exists({ isLength: { min: 4, max: 30 } })
+    .isLength ({ min: 4, max: 30 } )
     .withMessage("Title must be between 4 to 30 characters."),
   handleValidationErrors
 ]

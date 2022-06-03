@@ -43,7 +43,7 @@ router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
   const id = parseInt(req.params.noteId, 10);
   const userId = req.user.id;
 
-  const userNotes = await Note.findOne({
+  const userNote = await Note.findOne({
     include: [ {
       model: Notebook,
       attributes: ['title'],
@@ -58,7 +58,7 @@ router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
     order: [["updatedAt", "DESC"]],
   })
 
-  return res.json(userNotes)
+  return res.json(userNote)
 }));
 
 //Create a new note for a notebook

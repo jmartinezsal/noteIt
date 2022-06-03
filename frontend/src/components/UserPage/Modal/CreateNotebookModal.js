@@ -1,27 +1,31 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { createNotebook, getAllNotebooks } from '../../../store/notebook';
 
 function CreateNotebookModal({ setShowModal }) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [title, setTitle] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
-    dispatch((createNotebook({ title })))
-      .then(() => dispatch(getAllNotebooks()))
-      .then(() => setShowModal(false))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) {
-          setErrors(data.errors);
-        }
-      });
+    const notebook = await dispatch((createNotebook({ title })))
+    .then(() => dispatch(getAllNotebooks()))
+    .then(() => setShowModal(false))
+    .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+        setErrors(data.errors);
+      }
+    });
+    history.push(`/notebooks`)
   }
+
 
   const cancelHandler = e => {
     e.preventDefault();
@@ -35,7 +39,6 @@ function CreateNotebookModal({ setShowModal }) {
           {errors.map((error, idx) =>
             <>
               <li key={idx}>
-                <i class="fa-solid fa-exclamation fa-pulse"></i>
                 &nbsp; {error}
               </li>
             </>
