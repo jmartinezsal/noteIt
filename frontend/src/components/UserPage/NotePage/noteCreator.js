@@ -11,6 +11,9 @@ function NoteCreator() {
   const dispatch = useDispatch();
   const history = useHistory()
   let { noteId, notebookId } = useParams();
+
+  let path = useParams()
+
   const notes = useSelector(state => state.note);
   const notesArr = Object.values(notes);
   const currNote = notes[noteId];
@@ -43,8 +46,9 @@ function NoteCreator() {
     if (noteId !== 'create') {
     dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }));
     } else {
-      dispatch(createNote({title, content, notebookId}))
-      history.push(`/notes/${notesArr[notesArr.length-1]}`)
+       const note = await dispatch(createNote({title, content, notebookId}))
+
+       history.push( Object.values(path).length ===2 ? `/notebooks/${notebookId}/notes/${note.id}`: `/notes/${note.id}`)
     }
   }
 
@@ -52,7 +56,8 @@ function NoteCreator() {
     dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[notebooksArr.length - 1].id }))
       .then(() => dispatch(getAllNotes()))
       .then(() => dispatch(getAllTrash()))
-    history.push(`/notes/${notesArr[0].id}`);
+
+    history.push(Object.values(path).length ===2 ? `/notebooks/${notebookId}/notes/${notesArr[0].id}`:`/notes/${notesArr[0].id}`);
   }
 
   return (

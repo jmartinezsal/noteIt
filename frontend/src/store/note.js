@@ -77,6 +77,7 @@ export const updateNote = (payload) => async dispatch =>{  const response = awai
   if(response.ok){
     const note = await response.json();
     dispatch(update(note))
+    return note.id
   }
 }
 export const trashNote = (payload) => async dispatch =>{
