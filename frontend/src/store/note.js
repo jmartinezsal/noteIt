@@ -81,7 +81,6 @@ export const updateNote = (payload) => async dispatch =>{  const response = awai
   }
 }
 export const trashNote = (payload) => async dispatch =>{
-  console.log(payload)
 
   const response = await csrfFetch(`/api/notes/${payload.id}`, {
     method: 'PUT',
@@ -115,15 +114,7 @@ const notesReduceer = (state = initialState, action ) =>{
       const newState = {...state,[action.note.id]: action.note}
       return newState;
     }
-    case DELETE:{
-      const newState = {...state };
-      if(newState[action.noteId].trashed){
-        delete newState[action.noteId]
-      } else {
-        newState[action.noteId].trashed = true;
-      }
-      return newState;
-    }
+  
     default:
       return state;
   }

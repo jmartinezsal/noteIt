@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler(async (req,res) =>{
   const userId = req.user.id;
-  
+
   const trash = await Note.findAll({
     include: [
     {
@@ -23,6 +23,17 @@ router.get('/', requireAuth, asyncHandler(async (req,res) =>{
 
   return res.json(trash)
 
+}))
+
+
+
+router.delete('/:noteId(\\d+)', requireAuth, asyncHandler(async(req, res) =>{
+
+  const id = parseInt(req.params.noteId,10);
+
+  const deleteNote = await Note.findByPk(id);
+  await deleteNote.destroy();
+  return res.json(deleteNote.id)
 }))
 
 

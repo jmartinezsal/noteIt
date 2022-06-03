@@ -89,22 +89,4 @@ router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(re
 }))
 
 
-router.delete('/:noteId(\\d+)', requireAuth, asyncHandler(async(req, res) =>{
-
-  const id = req.params.noteId;
-
-  const deleteNote = await Note.findByPk(id);
-
-  if(deleteNote.trashed){
-    await deleteNote.destroy();
-  } else {
-    deleteNote.trashed = true;
-    await deleteNote.save();
-  }
-
-  return res.json(deleteNote)
-}))
-
-
-
 module.exports = router;
