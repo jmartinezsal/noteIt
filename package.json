@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jmartinezsal/noteIt/issues"
   },
-  "homepage": "https://github.com/jmartinezsal/noteIt#readme"
+  "homepage": "https://github.com/jmartinezsal/noteIt#readme",
+  "dependencies": {
+    "react-quill": "^2.0.0-beta.4"
+  }
 }

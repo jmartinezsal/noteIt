@@ -72,7 +72,7 @@ router.post('/', requireAuth, noteValidations, asyncHandler(async(req,res) =>{
 }))
 
 router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
-  const id = paseInt(req.params.noteId,10)
+  const id = parseInt(req.params.noteId,10)
 
   const { notebookId, title, content, trashed} = req.body;
 

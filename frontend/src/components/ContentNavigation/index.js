@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
-
 function ContentNavigation({ content, type, currNotebook }) {
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -22,6 +21,9 @@ function ContentNavigation({ content, type, currNotebook }) {
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
+            <NavLink className="create-note-btn" to="/notes/create">
+              New Note
+            </NavLink>
           </>
 
         ) : (
@@ -44,6 +46,9 @@ function ContentNavigation({ content, type, currNotebook }) {
                   <DeleteModalNotebook id={currNotebook?.id} setShowDeleteModal={setShowDeleteModal} />
                 </Modal>
               )}
+              <NavLink className="create-note-btn" to={`/notebooks/${currNotebook.id}/notes/create`}>
+                New Note
+              </NavLink>
             </div>
 
           </>
@@ -51,17 +56,16 @@ function ContentNavigation({ content, type, currNotebook }) {
       </div>
       <div className="content-selection-container">
         {content?.map(item => (
-
-          <NavLink to= {type === "notes" ?  (`/notes/${item.id}`) : (`/notebooks/${item.notebookId}/notes/${item.id}`) }>
+          <NavLink key={item.id} to={type === "notes" ? (`/notes/${item.id}`) : (`/notebooks/${item.notebookId}/notes/${item.id}`)}>
             <div className="content-item-card" >
               <p className="note-title">{item?.title}</p>
               <p className="note-content">{item?.content} </p>
               <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
             </div>
           </NavLink>
-
         ))}
       </div>
+
 
     </div>
   )
