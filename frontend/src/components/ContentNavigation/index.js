@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
-function ContentNavigation({ content, type, currNotebook }) {
+import {trashDeleteAll} from '../../store/trash';
 
+function ContentNavigation({ content, type, currNotebook }) {
+  const dispatch = useDispatch();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const emptyTrashClick = () =>{
+    dispatch(trashDeleteAll())
+  }
+ 
 
   const switchComponent = (type) => {
 
@@ -37,6 +45,10 @@ function ContentNavigation({ content, type, currNotebook }) {
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
+           <button className='delele-all-btn' onClick={emptyTrashClick}>
+              Empty Trash
+            </button>
+
           </>
         )
       }

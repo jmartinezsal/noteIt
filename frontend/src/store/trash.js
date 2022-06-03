@@ -49,6 +49,16 @@ export const trashDeleteOne = (noteId) => async dispatch => {
     dispatch(deleteOne(noteId));
   }
 }
+export const trashDeleteAll = (noteId) => async dispatch => {
+  const response = await csrfFetch(`/api/trash`,{
+    method: 'DELETE'
+});
+
+  if (response.ok) {
+    const notes = await response.json();
+    dispatch(deleteAll());
+  }
+}
 
 
 
