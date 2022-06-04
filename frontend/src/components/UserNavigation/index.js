@@ -6,11 +6,10 @@ import Notebook from './notebook';
 import Trash from './trash';
 
 function UserNavigation() {
-  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <div className="user-nav-container">
-      <ProfileButton user={sessionUser} />
+      <ProfileButton />
       <div className="user-nav-selection-container">
         <Home />
         <Note />
