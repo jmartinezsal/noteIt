@@ -120,7 +120,7 @@
 
  .plus{
   margin-left: auto;
-  margin-right: 10%;
+  margin-right: 6%;
   display: none;
   transition: all .5s ease-in-out;
 }
@@ -141,4 +141,54 @@
 
 .plus:hover{
  color: rgb(0, 168, 45)  ;
+}
+
+
+@media screen and (max-width: 576px){
+  .user-nav-container{
+    max-width: 6.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-btn p{
+    display: none;
+  }
+
+  .profile-btn img{
+   max-width: 80%;
+  }
+
+  .nav-logout .react-icons{
+    padding-bottom: 30px;
+
+  }
+  .nav-logout p{
+    display: none;
+  }
+
+  .profile-btn {
+    max-height: 5vh;
+  }
+
+
+  .user-nav-selection span,  .user-nav-selection i {
+    display: none;
+  }
+
+  .user-nav-selection{
+   padding-bottom: 30px;
+  }
+
+  .user-nav-selection .react-icons{
+    font-size: 35px;
+  }
+  .user-nav-selection:hover {
+    background-color: black;
+  }
+  
+  .user-nav-selection:hover .plus{
+    display: none;
+  }
 }
