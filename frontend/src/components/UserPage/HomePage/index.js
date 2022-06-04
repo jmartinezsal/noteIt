@@ -56,14 +56,8 @@ function HomePage() {
                 <VscNewFile />
               </NavLink>
             </div>
-
           </div>
-
-
-
         </div>
-
-
       </div>
     </div>
   )

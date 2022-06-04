@@ -23,3 +23,9 @@ ul{
   list-style: none;
   padding: 0px;
 }
+
+.react-icons{
+  transition: transform .5s ease-in-out;
+}
+
+

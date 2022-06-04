@@ -45,25 +45,25 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left:10px;
+  padding-left: 10%;
   margin: 3vh 0px 2vh 0px;
-  width: fit-content;
   background-color:rgb(0, 168, 45) ;
   border-top: 2px solid rgb(255, 255, 255);
   border-bottom: 2px solid rgb(255, 255, 255);
   cursor: pointer;
-  font-weight: 600;
+  overflow-x: hidden;
+  font-weight: 400;
 }
 
 .profile-btn img{
   max-width:20%;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 
 .profile-btn:hover{
-  opacity: .95;
+  opacity: .90;
 }
 
 .nav-logout{
@@ -81,36 +81,45 @@
   font-size: 12px;
 }
 
-.nav-logout:hover{
+.nav-logout:hover *{
   color: rgb(255, 0, 0);
-
+  cursor: pointer;
 }
 
 
 .user-nav-selection-container{
-  margin-top: 2vh;
+  margin-top: 5vh;
 }
 
 .user-nav-selection{
   display: flex;
   align-items:  center;
-  height: 2.5rem;
+  height: 3.0rem;
   transition: all .3s ease-in-out;
+  /* This might be taken out of when the list */
+  padding-left: 15%;
+
 
 }
 .user-nav-selection span{
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 300;
   margin-left: 10px;
 }
 
-.selection-no-caret{
-  margin-left: 11%;
-}
+/* .user-nav-selection-caret{
+  margin-left: 3%;
+  margin-right: 2%;
+} */
+
+/* .selection-no-caret{
+  margin-left: 15%;
+} */
 
 .user-nav-selection .react-icons{
   font-size:1.3em;
   color: #bfbfbf;
+
 }
 
 .user-nav-selection *{
@@ -127,8 +136,6 @@
 
 .active-nav *{
   color:rgb(0, 168, 45) ;
-  font-weight: bold;
-
 }
 
 .user-nav-selection:hover{
@@ -152,18 +159,22 @@
     align-items: center;
   }
 
+  .user-nav-selection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .profile-btn p{
     display: none;
   }
 
   .profile-btn img{
    max-width: 80%;
+   margin: auto;
   }
 
-  .nav-logout .react-icons{
-    padding-bottom: 30px;
 
-  }
   .nav-logout p{
     display: none;
   }
@@ -173,12 +184,12 @@
   }
 
 
-  .user-nav-selection span,  .user-nav-selection i {
+  .user-nav-selection span,  .user-nav-selection .user-nav-selection-caret{
     display: none;
   }
 
   .user-nav-selection{
-   padding-bottom: 30px;
+   padding-bottom: 3vh;
   }
 
   .user-nav-selection .react-icons{
@@ -187,8 +198,14 @@
   .user-nav-selection:hover {
     background-color: black;
   }
-  
+
   .user-nav-selection:hover .plus{
     display: none;
   }
+
+  .user-nav-selection .react-icons:hover{
+    color: rgb(0, 168, 45);
+    transform: scale(1.2);
+  }
+
 }

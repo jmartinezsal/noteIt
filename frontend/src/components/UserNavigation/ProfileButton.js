@@ -40,7 +40,7 @@ function ProfileButton() {
     <>
       <div onClick={openMenu} className='profile-btn'>
         <img src="/images/avatarImage.png" alt="avatar"></img>
-        <p> {user?.username} </p>
+        <p> {user?.username}</p>
       </div>
       {showMenu && (
         <div className='nav-logout' onClick={logout} >

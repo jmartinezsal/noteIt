@@ -2,18 +2,20 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
+import { IoTrashOutline } from 'react-icons/io5'
+
 
 import { Modal } from '../../context/Modal';
 import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
-import {trashDeleteAll} from '../../store/trash';
+import { trashDeleteAll } from '../../store/trash';
 
 function ContentNavigation({ content, type, currNotebook }) {
   const dispatch = useDispatch();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-  const emptyTrashClick = () =>{
+  const emptyTrashClick = () => {
     dispatch(trashDeleteAll())
   }
 
@@ -41,13 +43,13 @@ function ContentNavigation({ content, type, currNotebook }) {
         return (
           <>
             <div className="content-title">
-              <img src='/images/note-icon.svg' alt="note-icon"></img>
+              <IoTrashOutline />
               <p>Trash</p>
             </div>
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
-           <button className='delele-all-btn' onClick={emptyTrashClick}>
+            <button className='delele-all-btn' onClick={emptyTrashClick}>
               Empty Trash
             </button>
 

@@ -1,19 +1,21 @@
-import { NavLink } from 'react-router-dom';
-import { Modal } from '../../context/Modal';
 import { useState } from 'react';
-import {GiNotebook} from 'react-icons/gi'
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { GiNotebook } from 'react-icons/gi'
 
+import { Modal } from '../../context/Modal';
+import ListExpander from '../UserPage/Actions/listExpander';
 import CreateNotebookModal from '../UserPage/Modal/CreateNotebookModal';
 
 
 function Notebook() {
   const [showModal, setShowModal] = useState(false);
-
+  const notebooks = useSelector(state => state.notebook);
+  const notebooksArr = Object.values(notebooks);
   return (
-    <div className="user-nav-selection">
-      &nbsp;
-      <i className="fa-solid fa-caret-right"> &nbsp;</i>
-      <NavLink to="/notebooks"  activeClassName="active-nav">
+    <div className="user-nav-selection ">
+        {/* <ListExpander content={notebooksArr}/> */}
+      <NavLink to="/notebooks" activeClassName="active-nav">
         <GiNotebook />
         <span>Notebook</span>
       </NavLink>
