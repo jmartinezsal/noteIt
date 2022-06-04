@@ -17,6 +17,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    userAvatar:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: '/images/avatarImage.png',
+      },
     email: {
       type: DataTypes.STRING,
       allowNull: false,

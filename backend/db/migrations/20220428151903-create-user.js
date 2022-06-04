@@ -13,6 +13,11 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      userAvatar: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+        defaultValue: '/images/avatarImage.png'
+      },
       email: {
         type: Sequelize.STRING(255),
         allowNull: false,
