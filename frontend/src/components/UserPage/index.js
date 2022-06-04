@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { IconContext } from "react-icons";
 
 import { getAllNotebooks } from '../../store/notebook'
 import { getAllNotes } from '../../store/note';
@@ -26,29 +27,30 @@ function UserPage() {
     dispatch(getAllTrash())
   }, [dispatch])
 
-  if(!sessionUser) return <Redirect to="/"/>
+  if (!sessionUser) return <Redirect to="/" />
 
   return (
     <div className="user-page">
+      <IconContext.Provider value={{className:"react-icons"}}>
+        <ModalProvider>
+          <UserNavigation />
+          <Switch>
+            <Route path='/home'>
+              <HomePage note={notes} />
+            </Route>
+            <Route path='/notes' >
+              <NotePage />
+            </Route>
+            <Route path='/notebooks'>
+              <Notebook />
+            </Route>
+            <Route path='/trash'>
+              <Trash />
+            </Route>
+          </Switch>
 
-      <ModalProvider>
-        <UserNavigation />
-        <Switch>
-          <Route path='/home'>
-            <HomePage note={notes} />
-          </Route>
-          <Route path='/notes' >
-            <NotePage />
-          </Route>
-          <Route path='/notebooks'>
-            <Notebook />
-          </Route>
-          <Route path='/trash'>
-            <Trash />
-          </Route>
-        </Switch>
-
-      </ModalProvider>
+        </ModalProvider>
+      </IconContext.Provider>
     </div>
   )
 }

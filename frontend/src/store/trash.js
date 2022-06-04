@@ -72,7 +72,7 @@ const trashReduceer = (state = initialState, action) => {
       action.notes.forEach(note => {
         newState[note.id] = note;
       })
-      return { ...state, ...newState };
+      return { ...newState };
     }
     case DELETE: {
       const newState = { ...state };

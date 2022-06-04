@@ -15,7 +15,6 @@ function CreateNotebookModal({ setShowModal }) {
     e.preventDefault();
     setErrors([]);
     const notebook = await dispatch((createNotebook({ title })))
-    .then(() => dispatch(getAllNotebooks()))
     .then(() => setShowModal(false))
     .catch(async (res) => {
       const data = await res.json();
