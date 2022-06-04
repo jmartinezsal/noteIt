@@ -13,11 +13,11 @@ function Notebook() {
     <div className="user-nav-selection">
       &nbsp;
       <i className="fa-solid fa-caret-right"> &nbsp;</i>
-      <NavLink to="/notebooks">
+      <NavLink to="/notebooks"  activeClassName="active-nav">
         <GiNotebook />
         <span>Notebook</span>
       </NavLink>
-      <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus"></i>
+      <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus plus"></i>
       {showModal &&
         <Modal onClose={() => setShowModal(false)}>
           <CreateNotebookModal setShowModal={setShowModal} />

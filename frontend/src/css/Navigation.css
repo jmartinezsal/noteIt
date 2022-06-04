@@ -47,7 +47,7 @@
   align-items: center;
   padding-left:10px;
   margin: 3vh 0px 2vh 0px;
-  width:100%;
+  width: fit-content;
   background-color:rgb(0, 168, 45) ;
   border-top: 2px solid rgb(255, 255, 255);
   border-bottom: 2px solid rgb(255, 255, 255);
@@ -63,7 +63,6 @@
 
 
 .profile-btn:hover{
-  width: fit-content;
   opacity: .95;
 }
 
@@ -117,19 +116,18 @@
 .user-nav-selection *{
   color: #bfbfbf;
   cursor: pointer;
-
 }
 
- .fa-circle-plus{
+ .plus{
   margin-left: auto;
   margin-right: 10%;
   display: none;
-  transition: all .3s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
-.user-nav-container.active{
-  background-color: rgba(#bfbfbf, 0.2) ;
-  color:white;
+.active-nav *{
+  color:rgb(0, 168, 45) ;
+  font-weight: bold;
 
 }
 
@@ -137,12 +135,10 @@
   background-color: grey ;
 
 }
-.user-nav-selection:hover .fa-circle-plus{
+.user-nav-selection:hover .plus{
   display: flex;
 }
 
-.fa-circle-plus:hover{
-  color: white;
-  font-size: 1.1em;
-
+.plus:hover{
+ color: rgb(0, 168, 45)  ;
 }

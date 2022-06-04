@@ -7,7 +7,7 @@ function Trash() {
   return (
     <div className="user-nav-selection">
       <div className="selection-no-caret">
-        <NavLink to="/trash">
+        <NavLink to="/trash"  activeClassName="active-nav">
           <IoTrashOutline />
           <span>Trash</span>
         </NavLink>

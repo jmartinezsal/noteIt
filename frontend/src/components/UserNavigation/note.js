@@ -8,14 +8,16 @@ function Note() {
   return (
     <div className="user-nav-selection">
       <div className='selection-no-caret'>
-        <CgNotes />
-        <NavLink to="/notes">
+        <NavLink to="/notes" activeClassName="active-nav">
+          <CgNotes />
           <span>Note</span>
         </NavLink>
       </div>
-      <NavLink to="/notes/create">
-        <i className="fa-solid fa-circle-plus"></i>
-      </NavLink>
+      <div className="plus">
+        <NavLink to="/notes/create">
+          <i className="fa-solid fa-circle-plus plus"></i>
+        </NavLink>
+      </div>
     </div>
   )
 }
