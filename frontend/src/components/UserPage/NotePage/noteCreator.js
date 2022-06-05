@@ -60,9 +60,11 @@ function NoteCreator() {
 
   const onClickTrashed = async () => {
 
-    dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[0].id }))
+    if(noteId !== 'create'){
+      dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[0].id }))
       .then(() => dispatch(getAllNotes()))
       .then(() => dispatch(getAllTrash()))
+    }
 
     history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}` : `/notes`);
   }

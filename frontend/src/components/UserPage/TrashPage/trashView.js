@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { trashDeleteOne} from '../../../store/trash';
 import ReactHtmlParser from 'html-react-parser';
@@ -8,7 +8,9 @@ import ReactHtmlParser from 'html-react-parser';
 
 function TrashView(){
   const dispatch = useDispatch();
+  const history = useHistory();
   const {noteId} = useParams();
+
 
   const trash = useSelector(state => state.trash[noteId] )
 
@@ -23,6 +25,7 @@ function TrashView(){
     dispatch( trashDeleteOne(trash?.id))
       // .then(() => dispatch(getAllNotes()))
       // .then(() => dispatch(getAllTrash()))
+      history.push('/trash')
 
   }
 

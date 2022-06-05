@@ -16,9 +16,6 @@ function Trash(){
       <Route path="/trash/:noteId">
         <TrashView />
       </Route>
-
-
-
     </>
   )
 }

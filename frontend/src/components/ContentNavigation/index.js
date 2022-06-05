@@ -50,7 +50,7 @@ function ContentNavigation({ content, type, currNotebook }) {
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
             </div>
-            <button className='delele-all-btn' onClick={emptyTrashClick}>
+            <button className='delele-all-btn' onClick={emptyTrashClick} disabled={content.length === 0}>
               Empty Trash
             </button>
 
