@@ -51,8 +51,8 @@ function HomePage() {
               </div>
             ))}
             <div className="home-note-card home-note-create">
+              <p className="note-title"> Create a new note by clicking </p>
               <NavLink to="/notes/create">
-                <p className="note-title"> Create a new note by clicking </p>
                 <VscNewFile />
               </NavLink>
             </div>

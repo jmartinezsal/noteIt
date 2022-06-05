@@ -25,18 +25,17 @@ function UserPage() {
   useEffect(() => {
     dispatch(getAllNotebooks());
     dispatch(getAllNotes());
-    dispatch(getAllTrash())
+    dispatch(getAllTrash());
+
   }, [dispatch])
 
   if (!sessionUser) return <Redirect to="/" />
 
-  if(Object.keys(notebooks).length === 0){
-    <CreateNotebookModal />
-  }
+
 
   return (
     <div className="user-page">
-      <IconContext.Provider value={{className:"react-icons"}}>
+      <IconContext.Provider value={{ className: "react-icons" }}>
         <ModalProvider>
           <UserNavigation />
           <Switch>

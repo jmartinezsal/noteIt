@@ -31,9 +31,8 @@
 
 
 .home-notes-container {
-  min-width: fit-content;
+  min-width: 30%;
   max-width: 40%;
-
   margin-left: 5%;
   background-color: white;
   border-radius: 10px;

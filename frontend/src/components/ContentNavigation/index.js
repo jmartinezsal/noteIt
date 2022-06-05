@@ -115,7 +115,7 @@ function ContentNavigation({ content, type, currNotebook }) {
         ) : (
           <div className="no-content-message">
             {type === 'trash' ? (
-              <p> There is currently no trash, until you begin deleting your work.  All your trash will appear here and can either be restored or permantly deleted.</p>
+              <p> There is currently no trash, until you begin deleting your work.  All your trash will appear here and can either be restored or permanently deleted.</p>
             ) : (
               <>
                 <p>You currently hae no notes saved, so let's begin creating!</p>
@@ -129,8 +129,7 @@ function ContentNavigation({ content, type, currNotebook }) {
             )}
 
           </div>
-        )
-        }
+        )}
       </div>
     </div>
   )
