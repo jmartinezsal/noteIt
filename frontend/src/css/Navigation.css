@@ -32,8 +32,8 @@
 /* User left nav bar (when signed in)*/
 .user-nav-container {
   height: 100vh;
-  min-width: 20vh;
-  max-width: 20vh;
+  min-width: 23vh;
+  max-width: 23vh;
   background-color: black;
   display: flex;
   flex-direction: column;
