@@ -7,6 +7,7 @@ import { getAllNotebooks } from '../../store/notebook'
 import { getAllNotes } from '../../store/note';
 import { getAllTrash } from '../../store/trash';
 import { ModalProvider } from '../../context/Modal.js'
+import CreateNotebookModal from "./Modal/CreateNotebookModal";
 import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
@@ -28,6 +29,10 @@ function UserPage() {
   }, [dispatch])
 
   if (!sessionUser) return <Redirect to="/" />
+
+  if(Object.keys(notebooks).length === 0){
+    <CreateNotebookModal />
+  }
 
   return (
     <div className="user-page">

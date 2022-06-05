@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
 import { IoTrashOutline } from 'react-icons/io5'
+import {VscNewFile} from 'react-icons/vsc';
 
 
 import { Modal } from '../../context/Modal';
@@ -96,24 +97,41 @@ function ContentNavigation({ content, type, currNotebook }) {
     <div className="content-nav">
       <div className="content-nav-header">
         {switchComponent(type)}
-
       </div>
       <div className="content-selection-container">
-        {content?.map(item => (
-          <NavLink key={item.id} to={
-            (type === "notes" && (`/notes/${item.id}`)) ||
-            (type === "trash" && (`/trash/${item.id}`)) ||
-            (`/notebooks/${item.notebookId}/notes/${item.id}`)}>
-            <div className="content-item-card" >
-              <p className="note-title">{item?.title}</p>
-              <p className="note-content">{ReactHtmlParser(item?.content)} </p>
-              <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
-            </div>
-          </NavLink>
-        ))}
+        {content.length > 0 ? (
+          content?.map(item => (
+            <NavLink key={item.id} to={
+              (type === "notes" && (`/notes/${item.id}`)) ||
+              (type === "trash" && (`/trash/${item.id}`)) ||
+              (`/notebooks/${item.notebookId}/notes/${item.id}`)}>
+              <div className="content-item-card" >
+                <p className="note-title">{item?.title}</p>
+                <p className="note-content">{ReactHtmlParser(item?.content)} </p>
+                <p className="note-date">{item?.updatedAt.slice(5, 10)}-{item?.updatedAt.slice(0, 4)}</p>
+              </div>
+            </NavLink>
+          ))
+        ) : (
+          <div className="no-content-message">
+            {type === 'trash' ? (
+              <p> There is currently no trash, until you begin deleting your work.  All your trash will appear here and can either be restored or permantly deleted.</p>
+            ) : (
+              <>
+                <p>You currently hae no notes saved, so let's begin creating!</p>
+                <div className="home-note-card home-note-create">
+                <NavLink className="create-note-btn" to={`/notebooks/${currNotebook?.id}/notes/create`}>
+                    <p className="note-title"> Create a new note by clicking </p>
+                    <VscNewFile />
+                  </NavLink>
+                </div>
+              </>
+            )}
+
+          </div>
+        )
+        }
       </div>
-
-
     </div>
   )
 }

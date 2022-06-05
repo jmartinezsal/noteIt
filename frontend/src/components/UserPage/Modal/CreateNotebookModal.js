@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { createNotebook, getAllNotebooks } from '../../../store/notebook';
+import { createNotebook} from '../../../store/notebook';
 
 function CreateNotebookModal({ setShowModal }) {
   const dispatch = useDispatch();
