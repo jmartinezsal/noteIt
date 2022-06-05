@@ -76,12 +76,12 @@
 .home-notes::-webkit-scrollbar {
   height: 5px;
   border-radius: 10px;
-  background-color: rgba(0, 198, 49, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .home-notes::-webkit-scrollbar-thumb {
 
-  background-color: rgba(0, 0, 0, 0.701);
+  background-color: rgba(0, 0, 0, 0.986);
 }
 
 .home-note-card {

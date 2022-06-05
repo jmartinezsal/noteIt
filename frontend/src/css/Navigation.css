@@ -32,7 +32,8 @@
 /* User left nav bar (when signed in)*/
 .user-nav-container {
   height: 100vh;
-  max-width: 25%;
+  min-width: 20vh;
+  max-width: 20vh;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -95,7 +96,7 @@
   height: 3.0rem;
   transition: all .3s ease-in-out;
   /* This might be taken out of when the list */
-  padding-left: 13%;
+  padding-left: 15%;
 }
 
 .user-nav-selection span{
@@ -149,7 +150,8 @@
 
 @media screen and (max-width: 576px){
   .user-nav-container{
-    width: 7.5vh  !important;
+    min-width: 7.0vh ;
+    max-width: 7.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;

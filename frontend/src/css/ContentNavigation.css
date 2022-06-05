@@ -2,60 +2,102 @@
 
 
 .content-nav {
-  max-width: 300px;
+  min-width: 24vh;
+  max-width: 26vh;
   max-height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
 }
 
-.content-nav-header img {
-  height: 20px;
-  width: 20px;
-  margin-right: 1.1rem
-}
-
 .content-nav-header {
   display: flex;
   flex-direction: column;
-  padding: 5px 10px;
+  min-height: 13vh;
+  max-height: 20vh;
+  padding: 20px 10px 0px 10px;
   border-bottom: 1px solid rgb(191, 191, 191);
+
 }
-
-
 
 .content-nav-header .content-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
-  font-size: 20px;
   font-weight: 350;
 }
 
+.content-title p{
+  color: rgb(0, 168, 45);
+}
+
+.content-title p{
+  font-size: 20px;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.content-title .react-icons{
+  font-size: 1.4rem;
+  color: rgb(0, 0, 0);
+}
+
+.content-actions .react-icons{
+  border: 1px solid black;
+  margin-right: 3px;
+  cursor: pointer;
+  transition: all .5s;
+  align-self: flex-end;
+
+}
+
+.content-actions .react-icons:hover{
+  transform: scale(1.2);
+  color: rgb(0, 168, 45)
+}
 
 
 .content-nav-header .content-actions {
   display: flex;
   align-items: center;
-  width: fit-content;
-
-  margin-left: 10px;
-  font-size: 14px;
   color: #7a7676;
-
-}
-.content-actions i{
-  font-size: 16px;
+  font-size: 14px;
 }
 
+.content-nav-header .content-actions p {
+  margin: 10%;
+}
+
+.content-nav-header .content-actions a{
+  color:black;
+  border: 1px solid black;
+  padding: 3px 6px;
+  transition: all .6s ease-in-out;
+}
+
+.content-nav-header .content-actions a:hover{
+  color: rgb(0, 168, 45);
+  border-color: rgb(0, 168, 45);
+}
 
 .content-selection-container {
   overflow: auto;
 }
 
+.content-selection-container::-webkit-scrollbar {
+  width:5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+}
+
+.content-selection-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.986);
+}
+
+
 .content-item-card {
-  margin-right: 7px;
+  padding-right: 7px;
   padding-left: 10px;
   width: 200px;
   font-size: 10px;
@@ -75,4 +117,10 @@
 
 .content-item-card:hover {
   background-color: white;
+}
+
+
+.active-nav-content *{
+  background-color: white;
+  color:black;
 }
