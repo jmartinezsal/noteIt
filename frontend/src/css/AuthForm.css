@@ -1,7 +1,7 @@
 /* Login and sign up form pages */
 .auth-page{
   background-image: url("../../public/images/background.png") ;
-  height: 90vh;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -10,11 +10,23 @@
 
 .auth-form-container{
   background-color: white;
+  padding: 10px 40px;
   box-shadow: 5px 5px 15px 10px rgba(0, 0, 0, 0.1);
   min-width: 40vh;
   max-width: fit-content;
   min-height: 60vh;
   max-height: fit-content;
+}
+
+.auth-form-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.auth-form-top img{
+  width: 60%;
 }
 
 .input-container{
@@ -29,26 +41,62 @@
   height:1.5em;
   padding: 5px 10px;
   margin-bottom: 10px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 16px;
   border-radius: 5px;
 }
 
  input:focus{
-  border: none;
-  border: 1px solid #00a82d;
+  outline: none;
+  border-color: #00000067;
+  box-shadow: 0 0 5px #00a82d7f;}
+
+.auth-btn-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.errors {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  font-family: sans-serif;
+  color:rgba(245, 0, 0, 0.797);
+  line-height: 1.3rem;
+}
+
+.auth-btn-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn{
+  color: white;
+  font-weight: 700;
+  border-radius: 5%;
+  font-size: 14px;
+  width:67%;
+  height: 3em;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.auth-btn{
+  background-color: #000000;
+
 }
 
 /*Demo button */
 .demo-button {
   background-color: #00a82d;
-  color: white;
-  font-weight: 700;
-  border-radius: 3px;
-  width:40%;
-  height: 3em;
 }
 
-.demo-button:hover{
+.btn:hover{
   opacity: .8;
 }

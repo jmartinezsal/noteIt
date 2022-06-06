@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { getNote, getAllNotes, updateNote, trashNote, createNote} from '../../../store/note';
+import { RiSave3Fill } from 'react-icons/ri';
+import { BsTrash } from 'react-icons/bs';
+
+import { getNote, getAllNotes, updateNote, trashNote, createNote } from '../../../store/note';
+import { createNotebook, getAllNotebooks } from '../../../store/notebook';
 import { getAllTrash } from '../../../store/trash';
 import QuillEditor from '../../QuillEditor';
 
@@ -36,40 +40,76 @@ function NoteCreator() {
     }
   }, [dispatch, noteId]);
 
-  if(!notebookId) {
+  if (!notebookId) {
     notebookId = notebooksArr[notebooksArr.length - 1]?.id
   }
 
 
-  const onClickSave = async() => {
+  const onClickSave = async () => {
+    if (notebooksArr.length === 0) {
+      const notebook = await dispatch(createNotebook({ title: "Primary Notebook" }));
+      notebookId = notebook.id;
+    }
 
     if (noteId !== 'create') {
-    dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }));
-    } else {
-       const note = await dispatch(createNote({title, content, notebookId}))
+      dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) {
+            setErrors(data.errors);
+          }
+        });
+      setErrors([]);
 
-       history.push( Object.values(path).length ===2 ? `/notebooks/${notebookId}/notes/${note.id}`: `/notes/${note.id}`)
+    } else {
+      const note = await dispatch(createNote({ title, content, notebookId }))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) {
+            setErrors(data.errors);
+          }
+        });
+
+      history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}/notes/${note.id}` : `/notes/${note.id}`)
+      setErrors([]);
     }
   }
 
   const onClickTrashed = async () => {
-    dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[notebooksArr.length - 1].id }))
-      .then(() => dispatch(getAllNotes()))
-      .then(() => dispatch(getAllTrash()))
 
-    history.push(Object.values(path).length ===2 ? `/notebooks/${notebookId}/notes/${notesArr[0].id}`:`/notes/${notesArr[0].id}`);
+    if (noteId !== 'create') {
+      dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[0].id }))
+        .then(() => dispatch(getAllNotes()))
+        .then(() => dispatch(getAllTrash()))
+        .then(() => dispatch(getAllNotebooks()))
+    }
+
+    history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}` : `/notes`);
   }
 
   return (
     <div className='note-view-page'>
+      <ul>
+        <div className='errors'>
+          {errors.map((error, idx) =>
+            <>
+              <li key={idx}>
+                {error}
+              </li>
+            </>
+          )}
+        </div>
+      </ul>
       <div className="editor-note-title">
         <input type="text"
           placeholder="Untitled"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <i className="fa-solid fa-floppy-disk" onClick={onClickSave}></i>
-        <i className="fa-solid fa-trash" onClick={onClickTrashed}></i>
+        <RiSave3Fill onClick={onClickSave} />
+        <BsTrash onClick={onClickTrashed} />
+
+
       </div>
       <QuillEditor content={content} setContent={setContent} />
     </div>

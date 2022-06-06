@@ -5,10 +5,10 @@
   display: flex;
   align-items: center;
   width: 100%;
+  position: fixed;
   justify-content: space-between;
   z-index: 2;
-  padding: 5px;
-  box-shadow: 0 0 5px 0 black;
+    box-shadow: 0 0 5px 0 black;
 }
 
 
@@ -25,64 +25,192 @@
   margin: 0px 20px;
   color: rgb(0, 168, 45);
   font-weight: 500;
-  border: 3px solid #00a82d;
+  border: 3px solid rgb(0, 168, 45);
 }
 
- ul{
-  list-style: none;
-}
+
 
 /* User left nav bar (when signed in)*/
 .user-nav-container {
   height: 100vh;
-  min-width: 20vh;
-  max-width: fit-content;
+  min-width: 23vh;
+  max-width: 23vh;
   background-color: black;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
+
+.profile-btn{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10%;
+  margin: 3vh 0px 2vh 0px;
+  background-color:rgb(0, 168, 45) ;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  cursor: pointer;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+.profile-btn img{
+  max-width:20%;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+.profile-btn:hover{
+  opacity: .90;
+}
+
+.nav-logout{
+  color:white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  transition: color .5s ease-in-out;
+}
+
+.nav-logout p {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.nav-logout:hover {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+}
+
 
 .user-nav-selection-container{
   margin-top: 5vh;
-
 }
+
 .user-nav-selection{
   display: flex;
   align-items:  center;
-  height: 2.5rem;
+  height: 3.0rem;
+  transition: all .3s ease-in-out;
+  /* This might be taken out of when the list */
+  padding-left: 15%;
 }
+
 .user-nav-selection span{
-  font-family: "Soleil",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   margin-left: 10px;
 }
 
-.selection-no-caret{
-  margin-left: 11%;
+/* .user-nav-selection-caret{
+  margin-left: 3%;
+  margin-right: 2%;
+} */
+
+/* .selection-no-caret{
+  margin-left: 15%;
+} */
+
+.user-nav-selection .react-icons{
+  font-size:1.3em;
+
 }
 
 .user-nav-selection *{
   color: #bfbfbf;
+  cursor: pointer;
 }
 
-.user-nav-selection .fa-circle-plus{
+ .plus{
   margin-left: auto;
-  margin-right: 10%;
+  margin-right: 6%;
   display: none;
+  transition: all .5s ease-in-out;
 }
 
-.user-nav-container .active{
-  background-color: rgba(#bfbfbf, 0.2) ;
-  color:white;
-
+.active-nav *{
+  color:rgb(0, 168, 45) ;
 }
 
-.user-nav-selection:hover {
+.user-nav-selection:hover{
   background-color: grey ;
-  color: white;
+
 }
-.user-nav-selection:hover .fa-circle-plus{
+.user-nav-selection:hover .plus{
   display: flex;
+}
+
+.plus:hover{
+ color: rgb(0, 168, 45)  ;
+}
+
+
+@media screen and (max-width: 700px){
+  .user-nav-container{
+    min-width: 7.0vh ;
+    max-width: 7.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-nav-selection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .profile-btn{
+    width: 90%;
+  }
+
+  .profile-btn p{
+    display: none;
+
+  }
+
+  .profile-btn img{
+   max-width: 50%;
+   margin: auto;
+  }
+
+
+  .nav-logout p{
+    display: none;
+  }
+
+  .profile-btn {
+    max-height: 5vh;
+  }
+
+
+  .user-nav-selection span,  .user-nav-selection .user-nav-selection-caret{
+    display: none;
+  }
+
+  .user-nav-selection{
+   padding-bottom: 3vh;
+  }
+
+  .user-nav-selection .react-icons{
+    font-size: 35px;
+  }
+  .user-nav-selection:hover {
+    background-color: black;
+  }
+
+  .user-nav-selection:hover .plus{
+    display: none;
+  }
+
+  .user-nav-selection .react-icons:hover{
+    color: rgb(0, 168, 45);
+    transform: scale(1.2);
+  }
+
 }

@@ -25,15 +25,16 @@ function DeleteModalNotebook({ id, setShowDeleteModal }) {
   return (
 
     <form className="modal-container" onSubmit={deleteHandler}>
-      <label>
-        Are you sure you want to delete this notebook? (This will also send all notes that
-        belong to the notebook to the trash )
-      </label>
+      <div className='modal-header'>
+      <h3>Delete your notebook</h3>
+       <p> Are you sure you want to delete this notebook? (This will also send all notes that
+        belong to the notebook to the trash )</p>
+      </div>
       <div className="button-container-modal">
-        <button className="cancel-btn" type="button" onClick={cancleHandler}>
+        <button className="cancel-btn modal-btn" type="button" onClick={cancleHandler}>
           Cancel
         </button>
-        <button className="submit-btn" type="submit">
+        <button className="delete-btn modal-btn" type="submit">
           Delete
         </button>
       </div>

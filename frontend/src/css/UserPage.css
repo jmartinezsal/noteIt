@@ -1,6 +1,6 @@
 /*User page styles */
 
-.user-page{
+.user-page {
   width: 100%;
   height: 100%;
   display: flex;
@@ -9,21 +9,20 @@
 
 
 /*Home Page Styles */
-.home-page{
+.home-page {
   width: 100%;
 
 }
 
-.home-background-image{
-  max-width: 100%;
+.home-background-image {
   height: 100%;
   background-repeat: no-repeat;
-  background-size: auto 100% ;
+  background-size: cover;
   background-image: url('../../public/images/wallpaper.jpg');
 
 }
 
-.home-welcome-container{
+.home-welcome-container {
   display: flex;
   justify-content: space-between;
   color: white;
@@ -31,36 +30,58 @@
 }
 
 
-.home-notes-container{
-  max-width: 45%;
-  max-height: max-content;
-  margin-left: 20px;
+.home-notes-container {
+  min-width: 30%;
+  max-width: 40%;
+  margin-left: 5%;
   background-color: white;
   border-radius: 10px;
   position: absolute;
   padding: 10px;
-  top:35%;
+  top: 40%;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, .1);
-
 }
 
-.home-notes{
+
+.home-notes-container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 10px;
+}
+
+.container-header-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-notes-container-header .react-icons{
+  font-size: 1.3em;
+}
+
+.home-notes-container a {
+  color: black;
+}
+
+.home-notes {
   display: flex;
   overflow-y: hidden;
-  overflow-x: scroll ;
+  overflow-x: scroll;
   font-size: 12px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 
-.home-notes::-webkit-scrollbar{
-  height:7px;
+.home-notes::-webkit-scrollbar {
+  height: 5px;
   border-radius: 10px;
-  background-color: rgba(0, 198, 49, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
+
 .home-notes::-webkit-scrollbar-thumb {
 
-  background-color: rgba(0, 0, 0, 0.701);
+  background-color: rgba(0, 0, 0, 0.986);
 }
 
 .home-note-card {
@@ -68,29 +89,44 @@
   flex-direction: column;
   border: 1px solid rgba(184, 181, 181, 0.2);
   min-width: 25%;
-  max-height:20%;
+  max-width: fit-content;
   padding: 10px;
   border-radius: 10px;
-  text-align: left;
   margin-left: 10px;
+  margin-bottom: 10px;
   text-overflow: ellipsis;
-
   transition: box-shadow .35s;
 }
 
- .note-title{
+
+
+
+.home-note-create .react-icons{
+  padding: 10px;
+  font-size: 2.6rem;
+  border: 2px rgba(0, 0, 0, 0.55) solid;
+  border-radius: 50%;
+  margin: auto 20px;
+}
+
+.note-title {
   font-weight: bold;
 }
 
-.note-content{
+.note-content {
   color: #8c8989;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-height: 1.3rem;
+  -webkit-line-clamp: 9;
+  line-height: 1.1rem;
   -webkit-box-orient: vertical;
 }
 
-.home-note-card:hover{
-  box-shadow:  0px 2px 7px 1px rgba(0, 0, 0, .1);
+.home-note-card:hover {
+  box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, .1);
+}
+
+.home-notes-container .react-icons:hover{
+  color: rgb(0, 168, 45);
+  transform: scale(1.2);
 }

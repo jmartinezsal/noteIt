@@ -5,16 +5,25 @@
 @import url('./css/UserPage.css');
 @import url('./css/ContentNavigation.css');
 @import url('./css/NotebookPage.css');
-
+@import url('./css/Modal.css');
 @import url('./css/NotePage.css');
 
 #root,body,html {
   height: 100%;
-  margin: 0;
+  margin: 0px;
   width: 100%;
   font-family: "Soleil",Helvetica,Arial,sans-serif;
 }
 
 a{
   text-decoration: none;
+}
+
+ul{
+  list-style: none;
+  padding: 0px;
+}
+
+.react-icons{
+  transition: transform .5s ease-in-out;
 }

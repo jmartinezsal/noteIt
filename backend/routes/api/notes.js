@@ -11,9 +11,8 @@ const router = express.Router();
 
 const noteValidations = [
 	check("title")
-		.exists({ checkFalsy: true })
-		.isLength({ min: 1, max: 255 })
-		.withMessage("Title must be between 1 and 255 characters."),
+		.isLength({ min: 1, max: 25 })
+		.withMessage("Title must be between 1 and 25 characters."),
 	handleValidationErrors,
 ];
 

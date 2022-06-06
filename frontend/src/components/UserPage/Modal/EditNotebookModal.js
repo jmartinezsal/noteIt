@@ -15,7 +15,6 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
     e.preventDefault();
     setErrors([]);
     dispatch((updateNotebook({title, id})))
-      .then(() => dispatch(getAllNotebooks()))
       .then(() => setShowEditModal(false))
       .catch(async (res) => {
         const data = await res.json();
@@ -32,6 +31,11 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='modal-header'>
+
+      <h3>Edit your notebook</h3>
+      <p>You can only edit the title of your notebook. A unique title will help in organizing your notes.  </p>
+      </div>
       <ul>
         <div className='errors'>
           {errors.map((error, idx) =>
@@ -43,7 +47,7 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
           )}
         </div>
       </ul>
-      <div className="input-container">
+      <div className="modal-input-container">
         <input type="text"
           placeholder='Title'
           value={title}
@@ -51,9 +55,9 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
         />
       </div>
 
-      <div className="auth-btn-container">
-        <button className="cancel-btn" onClick={cancelHandler} type="button">Cancel</button>
-        <button className="submit-btn" type="submit">Update</button>
+      <div className="button-container-modal">
+        <button className="cancel-btn modal-btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="submit-btn modal-btn" type="submit">Update</button>
       </div>
     </form>
   )

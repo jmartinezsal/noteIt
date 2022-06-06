@@ -1,5 +1,8 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { VscNewFile } from 'react-icons/vsc';
+
 import ReactHtmlParser from 'html-react-parser';
 
 
@@ -12,9 +15,9 @@ function HomePage() {
   const today = new Date();
   const notesArr = Object.values(notes);
 
-  let welcomeMessage = today => {
+  // let welcomeMessage = today => {
 
-  }
+  // }
 
 
   return (
@@ -27,12 +30,16 @@ function HomePage() {
 
         <div className="home-notes-container">
 
-          <NavLink to="/notes">
-            NOTES
-          </NavLink>
-          <NavLink to="/notes/create">
-            <i className="fa-solid fa-file-circle-plus"></i>
-          </NavLink>
+          <div className="home-notes-container-header">
+            <div className="container-header-left">
+              <NavLink to="/notes">
+                NOTES <AiOutlineArrowRight />
+              </NavLink>
+            </div>
+            <NavLink to="/notes/create">
+              <VscNewFile />
+            </NavLink>
+          </div>
           <div className="home-notes">
             {notesArr.map(note => (
               <div className="home-note-card" key={note.id}>
@@ -43,13 +50,14 @@ function HomePage() {
                 </NavLink>
               </div>
             ))}
+            <div className="home-note-card home-note-create">
+              <p className="note-title"> Create a new note by clicking </p>
+              <NavLink to="/notes/create">
+                <VscNewFile />
+              </NavLink>
+            </div>
           </div>
-
-
-
         </div>
-
-
       </div>
     </div>
   )

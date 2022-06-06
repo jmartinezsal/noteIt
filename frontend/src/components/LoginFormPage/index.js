@@ -5,7 +5,7 @@ import { useHistory, Redirect } from 'react-router-dom';
 import Navigation from '../SplashPage/navigation';
 import Demo from '../Demo';
 
-function LoginFormPage(){
+function LoginFormPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
@@ -13,7 +13,7 @@ function LoginFormPage(){
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if(sessionUser) return(
+  if (sessionUser) return (
     <Redirect to="/home" />
   )
 
@@ -21,47 +21,52 @@ function LoginFormPage(){
     e.preventDefault();
     setErrors([]);
     dispatch(sessionActions.login({ credential, password }))
-      .then( () =>  history.push('/home'))
-    .catch(async res =>{
-      const data = await res.json();
-      if(data && data.errors) setErrors(data.errors);
-    })
+      .then(() => history.push('/home'))
+      .catch(async res => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
 
 
 
   }
 
-  return(
+  return (
     <>
       <Navigation />
-        <div className="auth-page">
-          <div className="auth-form-container">
-          <h2>Login Here</h2>
-            <form onSubmit={handleSubmit}>
-              <ul>
-                {errors.map((error, idx) =>
+      <div className="auth-page">
+        <div className="auth-form-container">
+          <div className="auth-form-top" >
+            <img className="auth-logo" src="/images/auth-logo.svg" alt="brand" />
+            <p>Noting everyting you need.</p>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <ul className="errors">
+              {errors.map((error, idx) =>
                 <li key={idx}>{error}</li>
-                )}
-              </ul>
-              <div className="input-container">
-                <input type="text"
+              )}
+            </ul>
+            <div className="input-container">
+              <input type="text"
                 placeholder='Username or Email'
                 value={credential}
                 name="credential"
                 onChange={e => setCredential(e.target.value)}
-                />
-                <input type="password"
+              />
+              <input type="password"
                 placeholder='Password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                />
-              </div>
-                <button type="submit" className="auth-btn">Sign In</button>
-                <Demo />
-            </form>
-          </div>
+              />
+            </div>
+            <div className="auth-btn-container">
+              <button type="submit" className="auth-btn btn">Sign In</button>
+              <Demo />
+            </div>
+          </form>
+        </div>
       </div>
-  </>
+    </>
   )
 };
 

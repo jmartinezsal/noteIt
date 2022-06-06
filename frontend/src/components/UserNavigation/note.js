@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
-
+import { CgNotes } from 'react-icons/cg'
+import { AiOutlinePlusCircle } from 'react-icons/ai'
 
 function Note() {
 
@@ -7,14 +8,16 @@ function Note() {
   return (
     <div className="user-nav-selection">
       <div className='selection-no-caret'>
-        <NavLink to="/notes">
-          <i className="fa-solid fa-note-sticky "></i>
+        <NavLink to="/notes" activeClassName="active-nav">
+          <CgNotes />
           <span>Note</span>
         </NavLink>
       </div>
-      <NavLink to="/notes/create">
-        <i className="fa-solid fa-circle-plus"></i>
-      </NavLink>
+      <div className="plus">
+        <NavLink to="/notes/create">
+          <i className="fa-solid fa-circle-plus plus"></i>
+        </NavLink>
+      </div>
     </div>
   )
 }

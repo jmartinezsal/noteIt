@@ -22,7 +22,7 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       setErrors([]);
       dispatch(sessionActions.signup({ email, username, password }))
-        .then( () =>  history.push('/home'))
+        .then(() => history.push('/home'))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -34,50 +34,54 @@ function SignupFormPage() {
   return (
     <>
       <Navigation />
-        <div className="auth-page">
-          <div className="auth-form-container">
-            <form onSubmit={handleSubmit}>
-              <ul className="errors">
-                {errors.map((error, idx) =>
-                <>
-                <li key={idx}>
-                {error}
-                </li>
-                </>
-                )}
-              </ul>
-              <div className="input-container">
-                <input
-                  type="text"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  />
-                <input
-                  type="text"
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  />
-                <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-              </div>
-              <div className="auth-btn-container">
-                <button type="submit" className="auth-btn">Sign Up</button>
-              </div>
-            </form>
+      <div className="auth-page">
+        <div className="auth-form-container">
+          <div className="auth-form-top" >
+            <img className="auth-logo" src="/images/auth-logo.svg" alt="brand" />
+            <p>Noting everyting you need.</p>
           </div>
+          <form onSubmit={handleSubmit}>
+            <ul className="errors">
+              {errors.map((error, idx) =>
+                <>
+                  <li key={idx}>
+                    {error}
+                  </li>
+                </>
+              )}
+            </ul>
+            <div className="input-container">
+              <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div className="auth-btn-container">
+              <button type="submit" className="auth-btn btn">Sign Up</button>
+            </div>
+          </form>
         </div>
+      </div>
     </>
   );
 }

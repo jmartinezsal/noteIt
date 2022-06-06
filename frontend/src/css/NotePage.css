@@ -4,40 +4,52 @@
   flex-direction: row;
   width: 100%;
   height: 100%;
+  background-image: url('../../public/images/background.png');
 }
 .note-view-page{
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 60px 40px 40px 40px;
+  padding: 0px 60px 0px 0px;
+  background-image: url('../../public/images/background.png');
+
 }
+
 
 .editor-note-title{
   display: flex;
   align-items: center;
 }
 
-.editor-note-title i {
-  font-size: x-large;
-  margin-right: 10px;
-}
 
 .editor-note-title input{
   border: none;
   outline:none;
-  width:100%;
+  width:95%;
   font-size: 32px;
-  white-space: wrap;
+  padding-left:20px;
+  background-image: url('../../public/images/background.png');
+
 }
 
-.editor-note-title input:active{
-  border:none;
-  outline:none;
+.editor-note-title .react-icons{
+  font-size: 1.4rem;
+  color: rgb(0, 0, 0);
+  transition: all .5s;
+  cursor: pointer;
+
 }
 
+.content-actions .react-icons{
+  border: 1px solid black;
+  margin-right: 3px;
+  cursor: pointer;
+  transition: all .5s;
+  align-self: flex-end;
 
-/* Quill Editor */
+}
 
-.ql-container div {
-  height: 100%;
+.editor-note-title .react-icons:hover{
+  transform: scale(1.2);
+  color: rgb(0, 168, 45)
 }

@@ -13,8 +13,8 @@ const notebookValidations = [
   check('title')
     .exists({ checkFalsy: true })
     .withMessage("Please provide a title to create a notebook.")
-    .isLength ({ min: 4, max: 30 } )
-    .withMessage("Title must be between 4 to 30 characters."),
+    .isLength ({ min: 4, max: 20 } )
+    .withMessage("Title must be between 4 to 20 characters."),
   handleValidationErrors
 ]
 
@@ -23,14 +23,8 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
   const userId = req.user.id;
 
   const userNotebooks = await Notebook.findAll({
-    include: [{
-      model: Note,
-      where: {
-        trashed: false
-      }
-    }],
     where: {
-      userId,
+      userId
     }
   })
   return res.json(userNotebooks)
