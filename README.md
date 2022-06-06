@@ -31,7 +31,7 @@ Noteit, clone to the popuplar website Evernote, allows users to create notebooks
 ## How to get started
 1. Clone this repository
 
-<code>git clone https://github.com/jmartinezsal/clickr.git</code>
+<code>git clone https://github.com/jmartinezsal/noteit.git</code>
 
 2. CD into the backend directory and install dependencies
 
