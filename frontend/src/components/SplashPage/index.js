@@ -15,7 +15,7 @@ function SplashPage() {
         <NavLink to="/signup">
           <button className="btn splash-btn">Sign up for free</button>
         </NavLink>
-        <NavLink to='/login'>
+        <NavLink to='/login' >
           Already have an acoount? Log in
         </NavLink>
       </div>
