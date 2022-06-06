@@ -17,17 +17,34 @@
   align-items: center;
 }
 
-.editor-note-title i {
-  font-size: x-large;
-  margin-right: 10px;
-}
 
 .editor-note-title input{
   border: none;
   outline:none;
-  width:100%;
-  font-size: 32px;
-  white-space: wrap;
+  width:95%;
+  font-size: 25px;
+}
+
+.editor-note-title .react-icons{
+  font-size: 1.4rem;
+  color: rgb(0, 0, 0);
+  transition: all .5s;
+  cursor: pointer;
+
+}
+
+.content-actions .react-icons{
+  border: 1px solid black;
+  margin-right: 3px;
+  cursor: pointer;
+  transition: all .5s;
+  align-self: flex-end;
+
+}
+
+.editor-note-title .react-icons:hover{
+  transform: scale(1.2);
+  color: rgb(0, 168, 45)
 }
 
 .editor-note-title input:active{
@@ -37,7 +54,9 @@
 
 
 /* Quill Editor */
+.notes-editor {
 
-.ql-container div {
-  height: 100%;
+  padding:10px;
+  max-width: 100%;
+
 }

@@ -1,6 +1,7 @@
 import ReactQuill from 'react-quill';
 
 import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.bubble.css';
 
 
 function QuillEditor({ content, setContent }) {
@@ -79,6 +80,7 @@ function QuillEditor({ content, setContent }) {
         value={content}
         onChange={setContent}
         placeholder="Start writing, will be saved automatically after typing..."
+ 
       />
 
     </div>

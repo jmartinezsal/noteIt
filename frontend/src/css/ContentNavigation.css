@@ -107,7 +107,7 @@
 
 .no-content-message{
   padding:20px;
-  width: 200px;
+  width: 220px;
   line-height: 2.0rem;
   color:#797979;
   text-align: left;
@@ -126,7 +126,7 @@
 .content-item-card {
   padding-right: 7px;
   padding-left: 10px;
-  box-sizing: border-box;
+  width:220px;
   font-size: 13px;
   border-bottom: #7a767660 1px solid;
   color: black;

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { RiSave3Fill } from 'react-icons/ri';
+import { BsTrash } from 'react-icons/bs';
 
 import { getNote, getAllNotes, updateNote, trashNote, createNote } from '../../../store/note';
 import { createNotebook, getAllNotebooks } from '../../../store/notebook';
@@ -50,20 +52,36 @@ function NoteCreator() {
     }
 
     if (noteId !== 'create') {
-      dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }));
+      dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) {
+            setErrors(data.errors);
+          }
+        });
+      setErrors([]);
+
     } else {
       const note = await dispatch(createNote({ title, content, notebookId }))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) {
+            setErrors(data.errors);
+          }
+        });
+
       history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}/notes/${note.id}` : `/notes/${note.id}`)
+      setErrors([]);
     }
   }
 
   const onClickTrashed = async () => {
 
-    if(noteId !== 'create'){
+    if (noteId !== 'create') {
       dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[0].id }))
-      .then(() => dispatch(getAllNotes()))
-      .then(() => dispatch(getAllTrash()))
-      .then(()=> dispatch(getAllNotebooks()))
+        .then(() => dispatch(getAllNotes()))
+        .then(() => dispatch(getAllTrash()))
+        .then(() => dispatch(getAllNotebooks()))
     }
 
     history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}` : `/notes`);
@@ -71,14 +89,25 @@ function NoteCreator() {
 
   return (
     <div className='note-view-page'>
+      <ul>
+        <div className='errors'>
+          {errors.map((error, idx) =>
+            <>
+              <li key={idx}>
+                {error}
+              </li>
+            </>
+          )}
+        </div>
+      </ul>
       <div className="editor-note-title">
         <input type="text"
           placeholder="Untitled"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <i className="fa-solid fa-floppy-disk" onClick={onClickSave}></i>
-        <i className="fa-solid fa-trash" onClick={onClickTrashed}></i>
+        <RiSave3Fill onClick={onClickSave} />
+        <BsTrash onClick={onClickTrashed} />
 
 
       </div>

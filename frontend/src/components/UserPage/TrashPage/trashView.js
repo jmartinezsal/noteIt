@@ -23,8 +23,6 @@ function TrashView(){
 
   const onClickDelete = async () => {
     dispatch( trashDeleteOne(trash?.id))
-      // .then(() => dispatch(getAllNotes()))
-      // .then(() => dispatch(getAllTrash()))
       history.push('/trash')
 
   }
