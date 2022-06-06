@@ -70,7 +70,7 @@ function QuillEditor({ content, setContent }) {
   ]
 
   return (
-    <div className="note-editor">
+
 
       <ReactQuill
         theme="snow"
@@ -79,11 +79,16 @@ function QuillEditor({ content, setContent }) {
         formats={formats}
         value={content}
         onChange={setContent}
-        placeholder="Start writing, will be saved automatically after typing..."
- 
+        placeholder="Start writing and save whenver you are done..."
+        style={{
+          height: "85%",
+          width: "100%",
+          backgroundColor: "white",
+          outline:"none"
+        }}
       />
 
-    </div>
+
   )
 }
 

@@ -11,12 +11,12 @@ function Trash(){
   const trashArr = Object.values(trash);
 
   return (
-    <>
+    <div className="note-page">
       <ContentNavigation  content={trashArr} type={"trash"} />
       <Route path="/trash/:noteId">
         <TrashView />
       </Route>
-    </>
+    </div>
   )
 }
 

@@ -34,7 +34,7 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
       <div className='modal-header'>
 
       <h3>Edit your notebook</h3>
-      <p>You can only edit the title of your notebook </p>
+      <p>You can only edit the title of your notebook. A unique title will help in organizing your notes.  </p>
       </div>
       <ul>
         <div className='errors'>
@@ -47,7 +47,7 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
           )}
         </div>
       </ul>
-      <div className="input-container">
+      <div className="modal-input-container">
         <input type="text"
           placeholder='Title'
           value={title}

@@ -49,7 +49,7 @@ function CreateNotebookModal({ setShowModal }) {
           )}
         </div>
       </ul>
-      <div className="input-container">
+      <div className="modal-input-container">
         <input type="text"
           placeholder='Title'
           value={title}

@@ -2,6 +2,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
 import {MdOutlineRecycling} from 'react-icons/md';
+import {BsTrash} from 'react-icons/bs';
 
 import { getAllTrash, trashDeleteOne} from '../../../store/trash';
 import { updateNote} from '../../../store/note';
@@ -26,21 +27,21 @@ function TrashView(){
 
   const onClickDelete = async () => {
     dispatch( trashDeleteOne(trash?.id))
-
+    history.push('/trash');
   }
 
 
   return (
-    <>
+
      <div className='note-view-page'>
       <div className="editor-note-title">
         <h3> {trash?.title}</h3>
         <MdOutlineRecycling onClick={onClickSave} />
-        <i className="fa-solid fa-trash" onClick={onClickDelete}></i>
+        <BsTrash onClick={onClickDelete}/>
       </div>
         <p>{ReactHtmlParser(trash?.content)}</p>
     </div>
-    </>
+
   )
 }
 

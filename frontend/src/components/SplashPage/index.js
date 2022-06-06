@@ -11,7 +11,9 @@ function SplashPage (){
     <div className="splash-page">
       <Navigation />
       <div className="welcome-container">
-        <h1>Welcome to noteIt</h1>
+        <img src="/images/splash-page.png" alt=""></img>
+        <h1>Don't worry, let us do the organizing for you</h1>
+        <p></p>
       </div>
       <div className="">
       </div>
