@@ -1,7 +1,7 @@
 /* Login and sign up form pages */
 .auth-page{
   background-image: url("../../public/images/background.png") ;
-  height: 90vh;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 
 .auth-form-container{
   background-color: white;
-  padding: 60px 20px;
+  padding: 10px 40px;
   box-shadow: 5px 5px 15px 10px rgba(0, 0, 0, 0.1);
   min-width: 40vh;
   max-width: fit-content;
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+
 }
 
 .auth-form-top img{
@@ -80,6 +80,7 @@
   color: white;
   font-weight: 700;
   border-radius: 5%;
+  font-size: 14px;
   width:67%;
   height: 3em;
   margin-bottom: 10px;
