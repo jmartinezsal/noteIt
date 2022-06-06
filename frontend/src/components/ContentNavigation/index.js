@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
 import { IoTrashOutline } from 'react-icons/io5'
 import { VscNewFile } from 'react-icons/vsc';
 import { BiEditAlt } from 'react-icons/bi';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { GrNotes } from 'react-icons/gr';
-import {VscBook} from 'react-icons/vsc';
+import { VscBook } from 'react-icons/vsc';
 
 
 import { Modal } from '../../context/Modal';
@@ -17,11 +17,13 @@ import { trashDeleteAll } from '../../store/trash';
 
 function ContentNavigation({ content, type, currNotebook }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const emptyTrashClick = () => {
     dispatch(trashDeleteAll())
+    history.push('/trash')
   }
 
 
@@ -54,9 +56,9 @@ function ContentNavigation({ content, type, currNotebook }) {
             </div>
             <div className="content-actions">
               <p>Total Notes: {content.length}</p>
-            <button className='delele-all-btn' onClick={emptyTrashClick} disabled={content.length === 0}>
-              Empty Trash
-            </button>
+              <button className='delele-all-btn' onClick={emptyTrashClick} disabled={content.length === 0}>
+                Empty Trash
+              </button>
             </div>
 
           </>
