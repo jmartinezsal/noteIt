@@ -15,13 +15,14 @@ function CreateNotebookModal({ setShowModal }) {
     e.preventDefault();
     setErrors([]);
     const notebook = await dispatch((createNotebook({ title })))
-    .then(() => setShowModal(false))
     .catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) {
         setErrors(data.errors);
       }
     });
+    history.push(`/notebooks/${notebook.id}`)
+    setShowModal(false)
   }
 
 
@@ -33,7 +34,9 @@ function CreateNotebookModal({ setShowModal }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className='modal-header'>
-        <p>Enter the title of the notebook you want to create. </p>
+        <h3>Create a notebook</h3>
+        <p>Enter the title of the notebook you want to create.
+           A unique title will help in organizing your notes. </p>
       </div>
       <ul>
         <div className='errors'>
@@ -55,8 +58,8 @@ function CreateNotebookModal({ setShowModal }) {
       </div>
 
       <div className="button-container-modal">
-        <button className="cancel-btn" onClick={cancelHandler} type="button">Cancel</button>
-        <button className="submit-btn" type="submit">Create</button>
+        <button className="cancel-btn modal-btn" onClick={cancelHandler} type="button">Cancel</button>
+        <button className="submit-btn modal-btn" type="submit">Create</button>
       </div>
     </form>
   )

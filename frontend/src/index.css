@@ -5,7 +5,7 @@
 @import url('./css/UserPage.css');
 @import url('./css/ContentNavigation.css');
 @import url('./css/NotebookPage.css');
-
+@import url('./css/Modal.css');
 @import url('./css/NotePage.css');
 
 #root,body,html {
@@ -27,5 +27,3 @@ ul{
 .react-icons{
   transition: transform .5s ease-in-out;
 }
-
-
