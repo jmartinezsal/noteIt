@@ -12,10 +12,10 @@ function SplashPage() {
       <div className="welcome-container">
         <h1>Don't worry, let us do the organizing for you.</h1>
         <p> The website that saves everything for you. Create, save and study the notes that you make anytime, anywhere.   </p>
-        <NavLink to="/signup">
+        <NavLink to="/login">
           <button className="btn splash-btn">Sign up for free</button>
         </NavLink>
-        <NavLink to='/login'>
+        <NavLink to='/signup'>
           Already have an acoount? Log in
         </NavLink>
       </div>
@@ -43,7 +43,7 @@ function SplashPage() {
             <p>Bring your notes, tasks, and schedules together to get things done more easily.</p>
           </div>
           <div className="heading">
-            <p>FIND THINGS FAST</p>
+            <p>FIND THINGS FAST"</p>
           </div>
           <div className="description">
             <p>Get what you need, when you need it with powerful, flexible search capabilities.</p>
