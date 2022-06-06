@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { getNote, getAllNotes, updateNote, trashNote, createNote } from '../../../store/note';
-import { createNotebook } from '../../../store/notebook';
+import { createNotebook, getAllNotebooks } from '../../../store/notebook';
 import { getAllTrash } from '../../../store/trash';
 import QuillEditor from '../../QuillEditor';
 
@@ -52,7 +52,6 @@ function NoteCreator() {
     if (noteId !== 'create') {
       dispatch(updateNote({ id: currNote.id, title, content, notebookId: currNote.notebookId }));
     } else {
-
       const note = await dispatch(createNote({ title, content, notebookId }))
       history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}/notes/${note.id}` : `/notes/${note.id}`)
     }
@@ -64,6 +63,7 @@ function NoteCreator() {
       dispatch(trashNote({ id: currNote.id, trashed: true, title, content, notebookId: notebooksArr[0].id }))
       .then(() => dispatch(getAllNotes()))
       .then(() => dispatch(getAllTrash()))
+      .then(()=> dispatch(getAllNotebooks()))
     }
 
     history.push(Object.values(path).length === 2 ? `/notebooks/${notebookId}` : `/notes`);

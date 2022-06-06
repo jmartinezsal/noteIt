@@ -13,9 +13,6 @@ function Notebook() {
       </Route>
       <Route path="/notebooks/:notebookId">
         <NotebookPage />
-        <Route path="/notebooks/:notebookId/notes/:noteId" >
-
-        </Route>
       </Route>
 
     </Switch>

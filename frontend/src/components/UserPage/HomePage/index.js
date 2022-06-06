@@ -15,9 +15,9 @@ function HomePage() {
   const today = new Date();
   const notesArr = Object.values(notes);
 
-  let welcomeMessage = today => {
+  // let welcomeMessage = today => {
 
-  }
+  // }
 
 
   return (

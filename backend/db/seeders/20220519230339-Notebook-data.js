@@ -23,7 +23,7 @@ module.exports = {
 
       },{
         userId:1,
-        title:"Random thoughts of the day",
+        title:"Random Thoughts",
 
       }
     ], {});

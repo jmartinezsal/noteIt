@@ -22,7 +22,6 @@ function CreateNotebookModal({ setShowModal }) {
         setErrors(data.errors);
       }
     });
-    history.push(`/notebooks`)
   }
 
 
@@ -38,7 +37,7 @@ function CreateNotebookModal({ setShowModal }) {
           {errors.map((error, idx) =>
             <>
               <li key={idx}>
-                &nbsp; {error}
+                {error}
               </li>
             </>
           )}

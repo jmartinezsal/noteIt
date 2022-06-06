@@ -148,7 +148,7 @@
 }
 
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 700px){
   .user-nav-container{
     min-width: 7.0vh ;
     max-width: 7.5vh;
