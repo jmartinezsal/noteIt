@@ -7,7 +7,10 @@
   width: 100%;
   text-align: left;
   color: #5e5b5b;
+}
 
+.notebook-table a {
+  color:black;
 }
 
 .notebook-page tr{
@@ -32,6 +35,10 @@
   margin: auto;
   padding: 5px;
   font-size: 20px;
+}
+
+thead tr {
+  background-color: rgba(191, 191, 191, 0.255);
 }
 
 

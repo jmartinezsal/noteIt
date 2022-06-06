@@ -32,6 +32,9 @@ function CreateNotebookModal({ setShowModal }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='modal-header'>
+        <p>Enter the title of the notebook you want to create. </p>
+      </div>
       <ul>
         <div className='errors'>
           {errors.map((error, idx) =>
@@ -51,8 +54,8 @@ function CreateNotebookModal({ setShowModal }) {
         />
       </div>
 
-      <div className="auth-btn-container">
-        <button className="cancel-btn btn" onClick={cancelHandler} type="button">Cancel</button>
+      <div className="button-container-modal">
+        <button className="cancel-btn" onClick={cancelHandler} type="button">Cancel</button>
         <button className="submit-btn" type="submit">Create</button>
       </div>
     </form>

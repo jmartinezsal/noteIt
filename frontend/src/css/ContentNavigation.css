@@ -2,7 +2,8 @@
 
 
 .content-nav {
-  max-width: fit-content;
+  min-width: 25vh;
+  max-width: 35vh;
   max-height: 100%;
   display: flex;
   flex-direction: column;
@@ -12,8 +13,8 @@
 .content-nav-header {
   display: flex;
   flex-direction: column;
-  min-height: 13vh;
-  max-height: fit-content;
+
+  box-sizing: content-box;
   padding: 20px 10px 0px 10px;
   border-bottom: 1px solid rgb(191, 191, 191);
 
@@ -107,15 +108,25 @@
 .no-content-message{
   padding:20px;
   width: 200px;
-  line-height: 1.6rem;
-
+  line-height: 2.0rem;
+  color:#797979;
+  text-align: left;
 }
 
+.no-content-message a{
+  color:#797979;
+  line-height: 1.6rem;
+  transition: all 1s ease-in-out;
+}
+
+.no-content-message a:hover{
+  color:black;
+}
 
 .content-item-card {
   padding-right: 7px;
   padding-left: 10px;
-  width: 200px;
+  box-sizing: border-box;
   font-size: 13px;
   border-bottom: #7a767660 1px solid;
   color: black;

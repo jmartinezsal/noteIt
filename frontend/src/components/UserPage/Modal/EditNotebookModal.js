@@ -32,6 +32,9 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='modal-header'>
+        <p></p>
+      </div>
       <ul>
         <div className='errors'>
           {errors.map((error, idx) =>
@@ -51,7 +54,7 @@ function EditNotebookModal({ notebook, setShowEditModal }) {
         />
       </div>
 
-      <div className="auth-btn-container">
+      <div className="button-container-modal">
         <button className="cancel-btn" onClick={cancelHandler} type="button">Cancel</button>
         <button className="submit-btn" type="submit">Update</button>
       </div>

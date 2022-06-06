@@ -125,8 +125,8 @@ function ContentNavigation({ content, type, currNotebook }) {
               <p> There is currently no trash, until you begin deleting your work.  All your trash will appear here and can either be restored or permanently deleted.</p>
             ) : (
               <>
-                <p>You currently hae no notes saved, so let's begin creating!</p>
-                <div className="home-note-card home-note-create">
+                <p>You currently have no notes saved, so let's begin creating!</p>
+                <div className="home-note-create">
                   <NavLink className="create-note-btn" to={`/notebooks/${currNotebook?.id}/notes/create`}>
                     <p className="note-title"> Create a new note by clicking </p>
                     <VscNewFile />
