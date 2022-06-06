@@ -16,7 +16,7 @@ function Footer() {
       </div>
 
       <div className="bottom-footer">
-      2022 &#169; Jose L Martinez Saldana | <a href="https://github.com/jmartinezsal"><AiFillGithub /></a> <a href="https://www.linkedin.com/in/jose-martinez-b7a1b3b8/"> <AiOutlineLinkedin></AiOutlineLinkedin> </a>
+       &#169; Jose L Martinez Saldana | 2022 | <a href="https://github.com/jmartinezsal"><AiFillGithub /></a> <a href="https://www.linkedin.com/in/jose-martinez-b7a1b3b8/"> <AiOutlineLinkedin></AiOutlineLinkedin> </a>
       </div>
     </footer>
   )
