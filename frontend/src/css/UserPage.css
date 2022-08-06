@@ -11,7 +11,6 @@
 /*Home Page Styles */
 .home-page {
   width: 100%;
-
 }
 
 .home-background-image {
@@ -19,7 +18,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('../../public/images/wallpaper.jpg');
-
 }
 
 .home-welcome-container {
@@ -39,6 +37,7 @@
   position: absolute;
   padding: 10px;
   top: 40%;
+
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, .1);
 }
 
@@ -129,4 +128,36 @@
 .home-notes-container .react-icons:hover{
   color: rgb(0, 168, 45);
   transform: scale(1.2);
+}
+
+.scratch-pad{
+  background-color: #f2eecb;
+  min-width: 25%;
+  max-width: 40%;
+  height: 30.5%;
+  top: 40%;
+  right: 10%;
+  position: absolute;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, .1);
+  border-radius: 10px;
+
+}
+.scratch-pad textarea{
+  background-color: #f2eecb;
+padding-left: 10px;
+  outline: none;
+  border: none;
+  height: 80%;
+  width: 97%;
+  line-height: 1.1rem;
+  font-size: 1.1rem;
+  resize: none;
+  border-radius: 10px;
+
+}
+.scratch-pad p{
+  opacity: .4;
+  font-weight: 200;
+  padding-left: 5px;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.399);
 }

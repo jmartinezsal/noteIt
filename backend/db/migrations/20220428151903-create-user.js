@@ -27,6 +27,9 @@ module.exports = {
         type: Sequelize.STRING.BINARY,
         allowNull: false
       },
+      scratchPad: {
+        type: Sequelize.TEXT(1000)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

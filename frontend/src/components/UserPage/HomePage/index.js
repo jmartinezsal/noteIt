@@ -2,8 +2,9 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { VscNewFile } from 'react-icons/vsc';
-
 import ReactHtmlParser from 'html-react-parser';
+
+import ScratchPad from "./ScratchPad";
 
 
 
@@ -27,9 +28,7 @@ function HomePage() {
           <h4>Welcome, {sessionUser.username}! </h4>
           <p>{today.toLocaleDateString("en-US", format)}</p>
         </div>
-
         <div className="home-notes-container">
-
           <div className="home-notes-container-header">
             <div className="container-header-left">
               <NavLink to="/notes">
@@ -58,6 +57,7 @@ function HomePage() {
             </div>
           </div>
         </div>
+        <ScratchPad />
       </div>
     </div>
   )
