@@ -32,13 +32,47 @@
 
 /* User left nav bar (when signed in)*/
 .user-nav-container {
-  height: 100vh;
-  min-width: 23vh;
-  max-width: 23vh;
+  min-width: 15vw;
+  max-width: 15vw;
   background-color: black;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
+
+.user-nav-top{
+  display: flex;
+  align-items: center;
+}
+
+  .nav-react-icons{
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: black;
+  position: absolute;
+  padding: 5px 3px;
+  top: 7px;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.153) 0px 5px 15px;
+
+}
+
+.nav-react-icons:hover{
+
+}
+
+
+
+.nav-closer{
+  right: -25px;
+}
+
+.nav-opener{
+  color:rgba(0, 168, 45, 0.982);
+  background-color: white;
+}
+
 
 .profile-btn{
   color: white;
