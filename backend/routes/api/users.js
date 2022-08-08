@@ -44,14 +44,17 @@ router.post(
 
 router.put(
   '/scratchPad',
+  requireAuth,
   asyncHandler(async(req, res) =>{
-    const {scratchPad} = res.body;
+    const {scratchPad} = req.body;
     const user = await User.findByPk(req.user.id);
     user.scratchPad = scratchPad;
 
     await user.save();
 
-    return "Scratch Pad has been saved!"
+    return res.json({
+      user
+    });
   })
 )
 

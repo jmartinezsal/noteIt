@@ -28,7 +28,8 @@ module.exports = {
         allowNull: false
       },
       scratchPad: {
-        type: Sequelize.TEXT(1000)
+        type: Sequelize.TEXT(1000),
+        defaultValue: ''
       },
       createdAt: {
         allowNull: false,

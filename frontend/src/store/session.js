@@ -68,9 +68,12 @@ export const scratchPadEditor = (payload) => async dispatch =>{
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(payload)
   })
+  const data = await res.json();
+
 
   if (res.ok){
-    return "Memo saved!"
+    dispatch(setUser(data.user));
+    return res;
   }
 }
 
