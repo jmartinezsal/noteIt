@@ -42,4 +42,17 @@ router.post(
   })
 );
 
+router.put(
+  '/scratchPad',
+  asyncHandler(async(req, res) =>{
+    const {scratchPad} = res.body;
+    const user = await User.findByPk(req.user.id);
+    user.scratchPad = scratchPad;
+
+    await user.save();
+
+    return "Scratch Pad has been saved!"
+  })
+)
+
 module.exports = router;

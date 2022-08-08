@@ -62,6 +62,18 @@ export const restoreUser = () => async dispatch =>{
   return res;
 }
 
+export const scratchPadEditor = (payload) => async dispatch =>{
+  const res = await csrfFetch('/api/users/scratchPad', {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+
+  if (res.ok){
+    return "Memo saved!"
+  }
+}
+
 const initialState = {user: null};
 
 const sessionReducer = (state = initialState, action) =>{

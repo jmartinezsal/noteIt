@@ -28,36 +28,38 @@ function HomePage() {
           <h4>Welcome, {sessionUser.username}! </h4>
           <p>{today.toLocaleDateString("en-US", format)}</p>
         </div>
-        <div className="home-notes-container">
-          <div className="home-notes-container-header">
-            <div className="container-header-left">
-              <NavLink to="/notes">
-                NOTES <AiOutlineArrowRight />
-              </NavLink>
-            </div>
-            <NavLink to="/notes/create">
-              <VscNewFile />
-            </NavLink>
-          </div>
-          <div className="home-notes">
-            {notesArr.map(note => (
-              <div className="home-note-card" key={note.id}>
-                <NavLink key={note.id} to={`/notes/${note.id}`}>
-                  <p className="note-title">{note.title}</p>
-                  <p className="note-content">{ReactHtmlParser(note.content)} </p>
-                  <p className="note-content">{note.updatedAt.slice(5, 10)}-{note.updatedAt.slice(0, 4)}</p>
+        <div className="home-middle-content">
+          <div className="home-notes-container">
+            <div className="home-notes-container-header">
+              <div className="container-header-left">
+                <NavLink to="/notes">
+                  NOTES <AiOutlineArrowRight />
                 </NavLink>
               </div>
-            ))}
-            <div className="home-note-card home-note-create">
-              <p className="note-title"> Create a new note by clicking </p>
               <NavLink to="/notes/create">
                 <VscNewFile />
               </NavLink>
             </div>
+            <div className="home-notes">
+              {notesArr.map(note => (
+                <div className="home-note-card" key={note.id}>
+                  <NavLink key={note.id} to={`/notes/${note.id}`}>
+                    <p className="note-title">{note.title}</p>
+                    <p className="note-content">{ReactHtmlParser(note.content)} </p>
+                    <p className="note-content">{note.updatedAt.slice(5, 10)}-{note.updatedAt.slice(0, 4)}</p>
+                  </NavLink>
+                </div>
+              ))}
+              <div className="home-note-card home-note-create">
+                <p className="note-title"> Create a new note by clicking </p>
+                <NavLink to="/notes/create">
+                  <VscNewFile />
+                </NavLink>
+              </div>
+            </div>
           </div>
+          <ScratchPad />
         </div>
-        <ScratchPad />
       </div>
     </div>
   )

@@ -1,11 +1,17 @@
-const { useState } = require("react");
-const { MdOutlineLeaderboard } = require("react-icons/md");
-const { useSelector } = require("react-redux")
+import {useState, useEffect} from 'react';
+import { useSelector, useDispatch} from "react-redux";
+
+import { scratchPadEditor } from "../../../store/session";
 
 function ScratchPad (){
+  const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
 
   const [scratchPad, setScratchPad] = useState(user.scratchPad);
+
+  useEffect(() =>{
+    dispatch(scratchPadEditor(scratchPad));
+  }, [dispatch, scratchPad])
 
   return(
     <form className="scratch-pad">
