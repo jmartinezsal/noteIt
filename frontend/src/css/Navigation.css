@@ -11,13 +11,10 @@
     box-shadow: 0 0 5px 0 black;
 }
 
-
-
 .nav-container-right a{
   color: black;
   font-weight: 300;
   font-size: 20px;
-
 }
 
 .nav-container-right .sign-up{
@@ -35,8 +32,16 @@
   min-width: 15vw;
   max-width: 15vw;
   background-color: black;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: -15vw;
+  transition: all 300ms;
+}
+
+.user-nav-container.active{
+  left: 0;
   position: relative;
 }
 
@@ -55,13 +60,8 @@
   top: 7px;
   border-radius: 0px 10px 10px 0px;
   box-shadow: rgba(0, 0, 0, 0.153) 0px 5px 15px;
-
+  transition: all 500ms ease;
 }
-
-.nav-react-icons:hover{
-
-}
-
 
 
 .nav-closer{
@@ -69,10 +69,26 @@
 }
 
 .nav-opener{
-  color:rgba(0, 168, 45, 0.982);
-  background-color: white;
+  color:white;
+  right: -25px;
+
+  background-color:  rgba(0, 168, 45, 0.982);
 }
 
+.nav-closer:hover{
+  color:white;
+  background-color:  rgba(0, 168, 45, 0.982);
+  transform: rotate(180deg);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.nav-opener:hover{
+  background-color: black;
+  color:white;;
+  transform: rotate(180deg);
+  border-radius: 10px 0px 0px 10px;
+
+}
 
 .profile-btn{
   color: white;

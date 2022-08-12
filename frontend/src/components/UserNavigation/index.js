@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BsArrowLeftCircle, BsArrowRightCircleFill } from 'react-icons/bs'
+import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs'
 
 import ProfileButton from './ProfileButton';
 import Home from './home.js';
@@ -10,11 +10,12 @@ import Trash from './trash';
 function UserNavigation() {
   const [nav, setNav] = useState(true);
 
-  return (
-    <>
-      {nav ?
-        <div className="user-nav-container">
 
+
+  return (
+    <div className={nav ? "user-nav-container active" : "user-nav-container"}  >
+      {nav ?
+            <>
           <div className='user-nav-top'>
             <ProfileButton />
             <BsArrowLeftCircle className='nav-closer nav-react-icons' onClick={() => setNav(!nav)} />
@@ -25,12 +26,12 @@ function UserNavigation() {
             <Notebook />
             <Trash />
           </div>
-        </div>
+          </>
+:
+<BsArrowRightCircle className='nav-react-icons nav-opener' onClick={() => setNav(!nav)} />
+      }
+      </div>
 
-        :
-
-        <BsArrowRightCircleFill className='nav-react-icons nav-opener ' onClick={() => setNav(!nav)}/>}
-    </>
   );
 }
 
