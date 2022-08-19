@@ -1,3 +1,4 @@
+import { GiSverdIFjell } from 'react-icons/gi';
 import {csrfFetch} from './csrf';
 
 const LOAD = 'notes/LOAD';
@@ -94,6 +95,18 @@ export const trashNote = (payload) => async dispatch =>{
   }
 }
 
+export const searchNotes = (payload) => async dispatch =>{
+  const response = await csrfFetch('/notes/api/search', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+
+  if(response.ok){
+   const notes = await response.json()
+   return notes;
+  }
+}
 
 const initialState = {};
 
@@ -114,7 +127,7 @@ const notesReduceer = (state = initialState, action ) =>{
       const newState = {...state,[action.note.id]: action.note}
       return newState;
     }
-  
+
     default:
       return state;
   }

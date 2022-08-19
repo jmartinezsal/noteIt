@@ -13,6 +13,7 @@ import NotePage from "./NotePage";
 import HomePage from "./HomePage";
 import Notebook from "./NotebookPage";
 import Trash from './TrashPage';
+import SearchResults from "./SearchResults";
 
 
 function UserPage() {
@@ -50,6 +51,9 @@ function UserPage() {
             </Route>
             <Route path='/trash'>
               <Trash />
+            </Route>
+            <Route path='/search'>
+              <SearchResults />
             </Route>
           </Switch>
 

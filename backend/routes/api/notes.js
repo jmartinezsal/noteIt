@@ -87,5 +87,18 @@ router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(re
   return res.json(editNote)
 }))
 
+//Search notes by title
+router.post("/search", async (req, res) => {
+  const { search } = req.query;
+  const notes = await Note.findAll({  where: { title: {
+    [Op.like]: '%' + search + '%'
+  }},
+    order: [
+    ['updatedAt', 'DESC']
+  ]
+});
+
+  return res.json(notes)
+})
 
 module.exports = router;

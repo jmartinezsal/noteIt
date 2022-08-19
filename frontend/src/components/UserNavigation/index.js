@@ -6,6 +6,7 @@ import Home from './home.js';
 import Note from './note.js';
 import Notebook from './notebook';
 import Trash from './trash';
+import Search from './search';
 
 function UserNavigation() {
   const [nav, setNav] = useState(true);
@@ -20,6 +21,7 @@ function UserNavigation() {
             <ProfileButton />
             <BsArrowLeftCircle className='nav-closer nav-react-icons' onClick={() => setNav(!nav)} />
           </div>
+            <Search />
           <div className="user-nav-selection-container">
             <Home />
             <Note />
