@@ -1,17 +1,29 @@
 
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Route, useLocation, useParams } from 'react-router-dom';
 
+import { searchNotes } from '../../../store/note';
 import ContentNavigation from '../../ContentNavigation';
+import NoteCreator from '../NotePage/noteCreator';
 
+function SearchResults() {
+  const location = useLocation();
 
-function SearchResults({notes}) {
+  const [results, setResults ] = useState([])
+  const allNotes = useSelector(state => state.note)
+
+  useEffect(( )=>{
+    setResults(location.state.results);
+  }, [location])
+
+  const resultNotes = results.map(el => allNotes[el])
 
   return (
     <div className="note-page">
-      <ContentNavigation content={notes} type={"search"} />
-      <Route path="/notes/:noteId">
+      <ContentNavigation  content={resultNotes} type={"search"} search={location.state.search}/>
+      <Route path={`/search?${location.state.search}/notes/:noteId`}>
+        <NoteCreator />
       </Route>
     </div>
 

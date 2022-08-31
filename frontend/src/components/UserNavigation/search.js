@@ -1,49 +1,58 @@
 import { useEffect, useState } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { searchNotes } from '../../store/note';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function Search() {
-  const dispatch = useDispatch()
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-
     if (search.length > 0) {
       setActive(true)
+    } else {
+      setActive(false)
     }
   }, [search])
 
-  const searchHandler = () => {
-    const notes = dispatch(searchNotes({search}));
+  const searchHandler = async (e) => {
+    e.preventDefault();
+    const results = await dispatch(searchNotes(search))
+    const resultsArr = Object.values(results);
 
-
+    history.push({
+      pathname: `/search`,
+      state: {
+        results: resultsArr,
+        search: search
+      }
+    })
+    setSearch('')
   }
 
 
-  const buttonChooser = active ? (
-    <NavLink to="/search">
 
-    <div className="search nav-btn" onClick={searchHandler}>
+  const buttonChooser = active ? (
+    <button className="search nav-btn" type="submit">
       Search
-    </div>
-    </NavLink>
+    </button>
+
   ) :
-  <NavLink to="/notes/create">
-    <div className="note nav-btn">
+    <NavLink to="/notes/create">
       New Note
-    </div>
-  </NavLink>
+    </NavLink>
     ;
 
   return (
     <div className="search-container">
-      <form >
-        <input onChange={e => setSearch(e.target.value)}  placeholder='Search' value={search} maxLength={25}>
+      <form onSubmit={searchHandler}>
+        <input onChange={e => setSearch(e.target.value)} placeholder='Search' value={search} maxLength={25}>
         </input>
+        {buttonChooser}
       </form>
-    {buttonChooser}
 
     </div>
   )
