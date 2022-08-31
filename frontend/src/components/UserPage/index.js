@@ -7,19 +7,18 @@ import { getAllNotebooks } from '../../store/notebook'
 import { getAllNotes } from '../../store/note';
 import { getAllTrash } from '../../store/trash';
 import { ModalProvider } from '../../context/Modal.js'
-import CreateNotebookModal from "./Modal/CreateNotebookModal";
 import UserNavigation from "../UserNavigation";
 import NotePage from "./NotePage";
 import HomePage from "./HomePage";
 import Notebook from "./NotebookPage";
 import Trash from './TrashPage';
+import SearchResults from "./SearchResults";
 
 
 function UserPage() {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector(state => state.session.user)
-  const notebooks = useSelector(state => state.notebook);
   const notes = useSelector(state => state.note);
 
   useEffect(() => {
@@ -51,8 +50,10 @@ function UserPage() {
             <Route path='/trash'>
               <Trash />
             </Route>
+            <Route path='/search'>
+              <SearchResults />
+            </Route>
           </Switch>
-
         </ModalProvider>
       </IconContext.Provider>
     </div>

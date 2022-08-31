@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
-import { IoTrashOutline } from 'react-icons/io5'
+import { IoTrashOutline, IoSearchOutline } from 'react-icons/io5'
 import { VscNewFile } from 'react-icons/vsc';
 import { BiEditAlt } from 'react-icons/bi';
 import { BsFillTrashFill } from 'react-icons/bs';
@@ -15,7 +15,7 @@ import DeleteModalNotebook from '../UserPage/Modal/DeleteNotebookModal';
 import EditNotebookModal from '../UserPage/Modal/EditNotebookModal';
 import { trashDeleteAll } from '../../store/trash';
 
-function ContentNavigation({ content, type, currNotebook }) {
+function ContentNavigation({ content, type, currNotebook, search }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showEditModal, setShowEditModal] = useState(false);
@@ -64,6 +64,20 @@ function ContentNavigation({ content, type, currNotebook }) {
           </>
         )
       }
+      case "search": {
+        return (
+          <>
+            <div className="content-title">
+              <IoSearchOutline />
+              <p>Search Results for <br/>`{search}`</p>
+            </div>
+            <div className="content-actions">
+              <p>Total Notes: {content.length}</p>
+            </div>
+
+          </>
+        )
+      }
 
       default: {
         return (
@@ -77,7 +91,7 @@ function ContentNavigation({ content, type, currNotebook }) {
               </div>
             </div>
             <div className="content-actions">
-              <p>Total Notes: {content.length} </p>
+              {/* <p>Total Notes: {content.length} </p> */}
               {showEditModal &&
                 <Modal onClose={() => setShowEditModal(false)} >
                   <EditNotebookModal notebook={currNotebook} setShowEditModal={setShowEditModal} />
