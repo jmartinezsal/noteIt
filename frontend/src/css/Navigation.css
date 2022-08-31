@@ -29,14 +29,14 @@
 
 /* User left nav bar (when signed in)*/
 .user-nav-container {
-  min-width: 15vw;
-  max-width: 15vw;
+  min-width: 13vw;
+  max-width: 13vw;
   background-color: black;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: -15vw;
+  left: -13vw;
   transition: all 200ms;
 }
 
@@ -50,7 +50,7 @@
   align-items: center;
 }
 
-  .nav-react-icons{
+.nav-react-icons{
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
@@ -84,7 +84,7 @@
 
 .nav-opener:hover{
   background-color: black;
-  color:white;;
+  color:white;
   transform: rotate(180deg);
   border-radius: 10px 0px 0px 10px;
 
