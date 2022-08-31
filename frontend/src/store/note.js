@@ -95,12 +95,8 @@ export const trashNote = (payload) => async dispatch =>{
   }
 }
 
-export const searchNotes = (payload) => async dispatch =>{
-  const response = await csrfFetch('/notes/api/search', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(payload)
-  })
+export const searchNotes = (search) => async dispatch =>{
+  const response = await csrfFetch(`/api/notes/search/${search}`);
 
   if(response.ok){
    const notes = await response.json()

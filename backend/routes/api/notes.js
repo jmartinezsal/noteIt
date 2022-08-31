@@ -1,33 +1,35 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
+const { Op } = require('sequelize');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
-const {Note, Notebook, Tag} = require('../../db/models');
+const { Note, Notebook, Tag } = require('../../db/models');
 
 
 const router = express.Router();
 
 const noteValidations = [
-	check("title")
-		.isLength({ min: 1, max: 25 })
-		.withMessage("Title must be between 1 and 25 characters."),
-	handleValidationErrors,
+  check("title")
+    .isLength({ min: 1, max: 25 })
+    .withMessage("Title must be between 1 and 25 characters."),
+  handleValidationErrors,
 ];
 
 //Get all hte notes of the user that are not currently trashed
-router.get('/', requireAuth, asyncHandler(async(req,res) =>{
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
   const userId = req.user.id;
 
   const userNotes = await Note.findAll({
-    include: [ {
+    include: [{
       model: Notebook,
       attributes: ['title'],
-      where:{
+      where: {
         userId
-      }},
-  ],
+      }
+    },
+    ],
     where: {
       trashed: false
     },
@@ -38,19 +40,19 @@ router.get('/', requireAuth, asyncHandler(async(req,res) =>{
 }));
 
 //Get single note by the noteId
-router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
+router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.noteId, 10);
   const userId = req.user.id;
 
   const userNote = await Note.findOne({
-    include: [ {
+    include: [{
       model: Notebook,
       attributes: ['title'],
-      where:{
+      where: {
         userId
       },
     },
-  ],
+    ],
     where: {
       id: id
     },
@@ -61,23 +63,23 @@ router.get('/:noteId(\\d+)', requireAuth, asyncHandler(async(req,res) =>{
 }));
 
 //Create a new note for a notebook
-router.post('/', requireAuth, noteValidations, asyncHandler(async(req,res) =>{
+router.post('/', requireAuth, noteValidations, asyncHandler(async (req, res) => {
 
-  const { notebookId, title, content, trashed} = req.body;
+  const { notebookId, title, content, trashed } = req.body;
 
-  const newNote = await Note.create( {notebookId, title, content, trashed})
+  const newNote = await Note.create({ notebookId, title, content, trashed })
 
   return res.json(newNote);
 }))
 
-router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(req, res) =>{
-  const id = parseInt(req.params.noteId,10)
+router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.noteId, 10)
 
-  const { notebookId, title, content, trashed} = req.body;
+  const { notebookId, title, content, trashed } = req.body;
 
-  await Note.update( {notebookId, title, content, trashed},
+  await Note.update({ notebookId, title, content, trashed },
     {
-      where:{id},
+      where: { id },
       returning: true,
       plain: true
     })
@@ -87,18 +89,53 @@ router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async(re
   return res.json(editNote)
 }))
 
-//Search notes by title
-router.post("/search", async (req, res) => {
-  const { search } = req.query;
-  const notes = await Note.findAll({  where: { title: {
-    [Op.like]: '%' + search + '%'
-  }},
-    order: [
-    ['updatedAt', 'DESC']
-  ]
-});
+//Search notes by title/content
+router.get("/search/:search", async (req, res) => {
+  const results ={};
+  let search = req.params.search;
 
-  return res.json(notes)
+  if(/\s/g.test(search)){
+    search = search.split(' ');
+  } else {
+    search = [search]
+  }
+
+  for(let i=0; i < search.length; i++){
+    const currSearch = search[i];
+    const notes = await Note.findAll(
+      {
+
+        where:
+        {
+          [Op.or]: [
+            {
+              title:
+              {
+                [Op.iLike]: '%' + currSearch + '%'
+              }
+            },
+            {
+              content:
+              {
+                [Op.iLike]: '%' + currSearch + '%'
+              }
+            }
+          ]
+        },
+        order: [
+          ['updatedAt', 'DESC']
+        ]
+      });
+
+      for (let j= 0; j < notes.length; j++){
+        let currNote = notes[j];
+        if(!results[currNote.id]){
+          results[currNote.id] = currNote.id
+        }
+      }
+    }
+
+  return res.json(results)
 })
 
 module.exports = router;
