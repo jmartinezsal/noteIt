@@ -8,7 +8,6 @@ function ScratchPad (){
   const user = useSelector(state => state.session.user)
 
   const [scratchPad, setScratchPad] = useState(user.scratchPad);
-  const [checker, setChecker ] = useState()
   const [active, setActive] = useState(true);
 
   useEffect(() =>{
