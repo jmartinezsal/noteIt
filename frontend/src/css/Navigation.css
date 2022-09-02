@@ -1,5 +1,5 @@
 /* Top nav bar for the splash page */
-.nav-container{
+.nav-container {
   background-color: white;
   height: 8.5vh;
   display: flex;
@@ -8,49 +8,48 @@
   position: fixed;
   justify-content: space-between;
   z-index: 2;
-    box-shadow: 0 0 5px 0 black;
+  box-shadow: 0 0 5px 0 black;
 }
 
-.nav-container-right a{
+.nav-container-right a {
   color: black;
   font-weight: 300;
   font-size: 20px;
 }
 
-.nav-container-right .sign-up{
+.nav-container-right .sign-up {
   padding: 10px 20px;
   margin: 0px 20px;
-  color: rgb(0, 168, 45);
+  color: var(--main-color);
   font-weight: 500;
-  border: 3px solid rgb(0, 168, 45);
+  border: 3px solid var(--main-color);
 }
 
 
 
 /* User left nav bar (when signed in)*/
 .user-nav-container {
-  min-width: 13vw;
-  max-width: 13vw;
+  width: 250px;
   background-color: black;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: -13vw;
+  left: -250px;
   transition: all 200ms;
 }
 
-.user-nav-container.active{
+.user-nav-container.active {
   left: 0;
   position: relative;
 }
 
-.user-nav-top{
+.user-nav-top {
   display: flex;
   align-items: center;
 }
 
-.nav-react-icons{
+.nav-react-icons {
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
@@ -64,40 +63,39 @@
 }
 
 
-.nav-closer{
+.nav-closer {
   right: -25px;
 }
 
-.nav-opener{
-  color:white;
+.nav-opener {
+  color: white;
   right: -25px;
-
-  background-color:  rgba(0, 168, 45, 0.982);
+  background-color: var(--main-color);
 }
 
-.nav-closer:hover{
-  color:white;
-  background-color:  rgba(0, 168, 45, 0.982);
+.nav-closer:hover {
+  color: white;
+  background-color: var(--main-color);
   transform: rotate(180deg);
   border-radius: 10px 0px 0px 10px;
 }
 
-.nav-opener:hover{
+.nav-opener:hover {
   background-color: black;
-  color:white;
+  color: white;
   transform: rotate(180deg);
   border-radius: 10px 0px 0px 10px;
 
 }
 
-.profile-btn{
+.profile-btn {
   color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 10%;
   margin: 3vh 0px 2vh 0px;
-  background-color:rgb(0, 168, 45) ;
+  background-color: var(--main-color);
   border-top: 2px solid rgb(255, 255, 255);
   border-bottom: 2px solid rgb(255, 255, 255);
   cursor: pointer;
@@ -105,19 +103,19 @@
   font-weight: 400;
 }
 
-.profile-btn img{
-  max-width:20%;
+.profile-btn img {
+  max-width: 20%;
   border-radius: 50%;
   margin-right: 5px;
 }
 
 
-.profile-btn:hover{
+.profile-btn:hover {
   opacity: .90;
 }
 
-.nav-logout{
-  color:white;
+.nav-logout {
+  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -137,20 +135,20 @@
 }
 
 
-.user-nav-selection-container{
+.user-nav-selection-container {
   margin-top: 5vh;
 }
 
-.user-nav-selection{
+.user-nav-selection {
   display: flex;
-  align-items:  center;
+  align-items: center;
   height: 3.0rem;
   transition: all .3s ease-in-out;
   /* This might be taken out of when the list */
   padding-left: 15%;
 }
 
-.user-nav-selection span{
+.user-nav-selection span {
   font-size: 16px;
   font-weight: 300;
   margin-left: 10px;
@@ -165,72 +163,73 @@
   margin-left: 15%;
 } */
 
-.user-nav-selection .react-icons{
-  font-size:1.3em;
+.user-nav-selection .react-icons {
+  font-size: 1.3em;
 
 }
 
-.user-nav-selection *{
+.user-nav-selection * {
   color: #bfbfbf;
   cursor: pointer;
 }
 
- .plus{
+.plus {
   margin-left: auto;
   margin-right: 6%;
   display: none;
   transition: all .5s ease-in-out;
 }
 
-.active-nav *{
-  color:rgb(0, 168, 45) ;
+.active-nav * {
+  color: var(--main-color);
 }
 
-.user-nav-selection:hover{
-  background-color: grey ;
+.user-nav-selection:hover {
+  background-color: grey;
 
 }
-.user-nav-selection:hover .plus{
+
+.user-nav-selection:hover .plus {
   display: flex;
 }
 
-.plus:hover{
- color: rgb(0, 168, 45)  ;
+.plus:hover {
+  color: var(--main-color);
 }
 
 
-@media screen and (max-width: 700px){
-  .user-nav-container{
-    min-width: 7.0vh ;
+@media screen and (max-width: 700px) {
+  .user-nav-container {
+    min-width: 7.0vh;
     max-width: 7.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .user-nav-selection{
+  .user-nav-selection {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: auto;
   }
 
-  .profile-btn{
+  .profile-btn {
     width: 90%;
   }
 
-  .profile-btn p{
+  .profile-btn p {
     display: none;
 
   }
 
-  .profile-btn img{
-   max-width: 50%;
-   margin: auto;
+  .profile-btn img {
+    max-width: 50%;
+    margin: auto;
   }
 
 
-  .nav-logout p{
+  .nav-logout p {
     display: none;
   }
 
@@ -239,27 +238,29 @@
   }
 
 
-  .user-nav-selection span,  .user-nav-selection .user-nav-selection-caret{
+  .user-nav-selection span,
+  .user-nav-selection .user-nav-selection-caret {
     display: none;
   }
 
-  .user-nav-selection{
-   padding-bottom: 3vh;
+  .user-nav-selection {
+    padding-bottom: 3vh;
   }
 
-  .user-nav-selection .react-icons{
+  .user-nav-selection .react-icons {
     font-size: 35px;
   }
+
   .user-nav-selection:hover {
     background-color: black;
   }
 
-  .user-nav-selection:hover .plus{
+  .user-nav-selection:hover .plus {
     display: none;
   }
 
-  .user-nav-selection .react-icons:hover{
-    color: rgb(0, 168, 45);
+  .user-nav-selection .react-icons:hover {
+    color: var(--main-color);
     transform: scale(1.2);
   }
 

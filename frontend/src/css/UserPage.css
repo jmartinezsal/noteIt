@@ -33,7 +33,7 @@
   margin: 1.5% 5%;
 }
 
-.home-middle-content{
+.home-middle-content {
   display: flex;
   justify-content: center;
   margin: auto 0;
@@ -59,13 +59,13 @@
   margin: 0px 10px;
 }
 
-.container-header-left{
+.container-header-left {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.home-notes-container-header .react-icons{
+.home-notes-container-header .react-icons {
   font-size: 1.3em;
 }
 
@@ -111,7 +111,7 @@
 
 
 
-.home-note-create .react-icons{
+.home-note-create .react-icons {
   padding: 10px;
   font-size: 2.6rem;
   border: 2px rgba(0, 0, 0, 0.55) solid;
@@ -136,12 +136,12 @@
   box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, .1);
 }
 
-.home-notes-container .react-icons:hover{
-  color: rgb(0, 168, 45);
+.home-notes-container .react-icons:hover {
+  color: var(--main-color);
   transform: scale(1.2);
 }
 
-.scratch-pad{
+.scratch-pad {
   background-color: #f2eecb;
   min-width: 30%;
   max-width: 40%;
@@ -150,7 +150,8 @@
   box-sizing: border-box;
 
 }
-.scratch-pad textarea{
+
+.scratch-pad textarea {
   background-color: #f2eecb;
   padding-left: 10px;
   outline: none;
@@ -163,9 +164,10 @@
   border-radius: 10px;
 
 }
-.scratch-pad p{
+
+.scratch-pad p {
   opacity: .4;
   font-weight: 200;
   padding: 5px;
- border-bottom: 1px solid rgba(0, 0, 0, 0.399);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.399);
 }

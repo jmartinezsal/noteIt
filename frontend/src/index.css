@@ -8,11 +8,15 @@
 @import url('./css/Modal.css');
 @import url('./css/NotePage.css');
 
+:root {
+  --main-color: rgb(0, 168, 45);
+}
+
 #root,body,html {
   height: 100%;
   margin: 0px;
   width: 100%;
-  font-family: "Soleil",Helvetica,Arial,sans-serif;
+  font-family: Helvetica,Arial,sans-serif;
 }
 
 a{
