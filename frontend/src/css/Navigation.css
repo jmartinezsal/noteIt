@@ -1,14 +1,19 @@
 /* Top nav bar for the splash page */
 .nav-container {
   background-color: white;
-  height: 8.5vh;
+  height: 75px;
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 5px 20px;
   position: fixed;
+  right: 0;
+  left: 0;
   justify-content: space-between;
+  align-items: center;
   z-index: 2;
   box-shadow: 0 0 5px 0 black;
+  box-sizing: border-box;
 }
 
 .nav-container-right a {
@@ -24,6 +29,16 @@
   font-weight: 500;
   border: 3px solid var(--main-color);
 }
+
+
+.sign-up {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.sign-up:hover {
+  box-shadow: 0 0 40px 10px black inset;
+  color: white;
+}
+
 
 
 

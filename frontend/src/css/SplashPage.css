@@ -5,11 +5,10 @@
 
 .welcome-container {
   width: 100%;
-  height: fit-content;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
   padding-top: 11.5vh;
 }
 
@@ -42,28 +41,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 60px 0px;
+  margin: 20px 0px;
 }
 .mid-container img {
-  width: 50%;
+  width: 750px;
+  margin-right: 20px;
 }
 
-.mid-left-container {
-  width: 15%;
-  margin-left: 40px;
+.mid-right-container {
+  width: 20%;
 }
 
-.mid-left-container .heading p{
+.mid-right-container .heading{
   font-weight: 900;
-  margin-top: 30px;
 }
 
-.mid-left-container .description p {
+.mid-right-container .description{
   line-height: 1.5em;
-  width: 80%;
-
+  width: 100%;
+  margin-left: 10px;
 }
-
 
 
 footer {
@@ -77,7 +74,6 @@ footer {
   width: 100%;
   display: flex;
   font-size: 12px;
-  font-weight: 600;
   justify-content: space-around;
   border-top: 1px solid rgba(0, 0, 0, 0.45);
   border-bottom: 1px solid rgba(0, 0, 0, 0.45);
@@ -94,4 +90,35 @@ footer {
 .bottom-footer a {
   color: #6f6f6f;
   margin-right: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .mid-container  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mid-container img{
+    width: 80%
+  }
+
+  .mid-right-container {
+    width: 90%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mid-right-container .mid-right-container-info{
+    padding: 0 auto;
+  }
+
+  .mid-right-container .description, .heading{
+    margin: 0px;
+    width: 100%;
+  }
 }

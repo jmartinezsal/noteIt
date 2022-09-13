@@ -22,31 +22,40 @@ function SplashPage() {
       <div className="mid-container">
         <img src="/images/splash-page.png" alt=""></img>
 
-        <div className="mid-left-container">
-          <div className="heading">
-            <p>WORK ANYWHERE</p>
-          </div>
-          <div className="description">
-            <p>Keep important info handy—your notes sync automatically to all your devices.</p>
+        <div className="mid-right-container">
+          <div className="mid-right-container-info">
+            <div className="heading">
+              <p>WORK ANYWHERE</p>
+            </div>
+            <div className="description">
+              <p>Keep important info handy—your notes sync automatically to all your devices.</p>
+            </div>
           </div>
 
-          <div className="heading">
-            <p>REMEMBER EVERYTHING</p>
+          <div className="mid-right-container-info">
+            <div className="heading">
+              <p>REMEMBER EVERYTHING</p>
+            </div>
+            <div className="description">
+              <p>Make notes more useful by adding text, images, audio, scans, PDFs, and documents.</p>
+            </div>
           </div>
-          <div className="description">
-            <p>Make notes more useful by adding text, images, audio, scans, PDFs, and documents.</p>
+
+          <div className="mid-right-container-info">
+            <div className="heading">
+              <p>TURN TO-DO INTO DONE</p>
+            </div>
+            <div className="description">
+              <p>Bring your notes, tasks, and schedules together to get things done more easily.</p>
+            </div>
           </div>
-          <div className="heading">
-            <p>TURN TO-DO INTO DONE</p>
-          </div>
-          <div className="description">
-            <p>Bring your notes, tasks, and schedules together to get things done more easily.</p>
-          </div>
-          <div className="heading">
-            <p>FIND THINGS FAST</p>
-          </div>
-          <div className="description">
-            <p>Get what you need, when you need it with powerful, flexible search capabilities.</p>
+          <div className="mid-right-container-info">
+            <div className="heading">
+              <p>FIND THINGS FAST</p>
+            </div>
+            <div className="description">
+              <p>Get what you need, when you need it with powerful, flexible search capabilities.</p>
+            </div>
           </div>
         </div>
       </div>
