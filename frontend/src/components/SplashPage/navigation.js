@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
+
+import MobileContext from '../../context/Mobile';
 
 function Navigation(){
 
+  const mobile = useContext(MobileContext)
+  
   let sessionLinks = (
       <>
         <NavLink to="/login">Log In</NavLink>
@@ -15,11 +19,8 @@ function Navigation(){
     <nav className="nav-container">
       <div className="nav-container-left">
         <NavLink exact to="/">
-          <img src='/images/logo.svg' alt='logo'></img>
+          <img src={ !mobile ? '/images/logo.svg' : '/images/avatarImage.png'} alt='logo'></img>
         </NavLink>
-      </div>
-      <div className="nav-container-center">
-
       </div>
       <div className="nav-container-right">
         {sessionLinks}
