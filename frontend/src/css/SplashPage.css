@@ -99,6 +99,10 @@ footer {
     width: 100%;
   }
 
+  .welcome-container p{
+    width: 80%;
+  }
+
   .mid-container img{
     width: 80%
   }
