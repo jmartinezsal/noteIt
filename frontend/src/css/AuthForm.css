@@ -10,12 +10,12 @@
 
 .auth-form-container{
   background-color: white;
-  padding: 10px 40px;
+  padding: 10px 20px;
+  margin-top: 20px;
   box-shadow: 5px 5px 15px 10px rgba(0, 0, 0, 0.1);
-  min-width: 40vh;
-  max-width: fit-content;
-  min-height: 60vh;
-  max-height: fit-content;
+  width: 400px;
+  max-height:  fit-content;
+
 }
 
 .auth-form-top{
@@ -37,7 +37,7 @@
 }
 
 .auth-form-container input{
-  width: 60%;
+  width: 75%;
   height:1.5em;
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -76,20 +76,8 @@
   margin-bottom: 20px;
 }
 
-.btn{
-  color: white;
-  font-weight: 700;
-  border-radius: 5%;
-  font-size: 14px;
-  width:67%;
-  height: 3em;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
 .auth-btn{
   background-color: #000000;
-
 }
 
 /*Demo button */
@@ -97,6 +85,10 @@
   background-color: #00a82d;
 }
 
-.btn:hover{
-  opacity: .8;
+
+@media screen and (max-height: 800px){
+  .auth-form-container{
+    width: 325px;
+    margin-top: 70px;
+  }
 }

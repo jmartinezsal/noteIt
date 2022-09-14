@@ -31,3 +31,18 @@ ul{
 .react-icons{
   transition: transform .5s ease-in-out;
 }
+
+.btn{
+  color: white;
+  font-weight: 700;
+  border-radius: 5%;
+  font-size: 14px;
+  width:80%;
+  height: 3em;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  opacity: .85;
+}

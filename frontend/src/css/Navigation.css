@@ -212,6 +212,15 @@
   color: var(--main-color);
 }
 
+@media screen and (max-width: 475px) {
+  .nav-container{
+    justify-content: space-evenly;
+  }
+
+  .nav-container img{
+    width: 70px;
+  }
+}
 
 @media screen and (max-width: 700px) {
   .user-nav-container {
