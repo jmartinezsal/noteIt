@@ -91,7 +91,7 @@ router.put('/:noteId(\\d+)', noteValidations, requireAuth, asyncHandler(async (r
 
 //Search notes by title/content
 router.get("/search/:search", async (req, res) => {
-  const results ={};
+  let results = new Set();
   let search = req.params.search;
 
   if(/\s/g.test(search)){
@@ -127,15 +127,12 @@ router.get("/search/:search", async (req, res) => {
         ]
       });
 
-      for (let j= 0; j < notes.length; j++){
-        let currNote = notes[j];
-        if(!results[currNote.id]){
-          results[currNote.id] = currNote.id
-        }
+      for (let note of notes){
+          results.add( note.id)
       }
     }
-
-  return res.json(results)
+    results = Array.from(results)
+  return res.json(results);
 })
 
 module.exports = router;

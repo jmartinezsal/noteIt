@@ -21,12 +21,11 @@ function Search() {
   const searchHandler = async (e) => {
     e.preventDefault();
     const results = await dispatch(searchNotes(search))
-    const resultsArr = [...results]
 
     history.push({
       pathname: `/search`,
       state: {
-        results: resultsArr,
+        results: results,
         search: search
       }
     })
