@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store';
+import {MobileProvider} from './context/Mobile';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as notebookActions from './store/notebook';
@@ -27,9 +28,11 @@ if(process.env.NODE_ENV !== 'production'){
 function Root(){
   return(
     <Provider store={store} >
+      <MobileProvider >
         <BrowserRouter>
         <App />
         </BrowserRouter>
+      </MobileProvider>
     </Provider>
   )
 }
