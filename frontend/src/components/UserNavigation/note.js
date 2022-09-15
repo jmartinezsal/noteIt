@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { CgNotes } from 'react-icons/cg'
-import { AiOutlinePlusCircle } from 'react-icons/ai'
 
 function Note() {
-
 
   return (
     <div className="user-nav-selection">
