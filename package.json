@@ -1,7 +1,7 @@
 {
   "name": "noteit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Noteit, clone to the popuplar website Evernote, allows users to create notebooks, notes and keep deleted notes safe if it ever wants to be restored.",
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
@@ -22,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/jmartinezsal/noteIt/issues"
   },
-  "homepage": "https://github.com/jmartinezsal/noteIt#readme",
-  "dependencies": {
-  
-  }
+  "homepage": "https://github.com/jmartinezsal/noteIt#readme"
 }
