@@ -5,8 +5,8 @@ import MobileContext from '../../context/Mobile';
 
 function Navigation(){
 
-  const mobile = useContext(MobileContext)
-  
+  const {mobile} = useContext(MobileContext);
+
   let sessionLinks = (
       <>
         <NavLink to="/login">Log In</NavLink>
