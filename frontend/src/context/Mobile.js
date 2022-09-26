@@ -8,12 +8,13 @@ const [mobile, setMobile] = useState(false);
 const [screenWidth, setScreenWidth ] = useState(window.innerWidth);
 
 const handleResize = () => {
-  setScreenWidth(window.innerWidth)
   if (screenWidth <= 475) {
-      setMobile(true)
+    setMobile(true)
   } else {
-      setMobile(false)
+    setMobile(false)
   }
+
+  setScreenWidth(window.outerWidth)
 }
 
 
