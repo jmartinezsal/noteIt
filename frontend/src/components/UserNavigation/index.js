@@ -19,7 +19,7 @@ function UserNavigation() {
             <>
           <div className='user-nav-top'>
             <ProfileButton />
-            <BsArrowLeftCircle className='nav-closer nav-react-icons' onClick={() => setNav(!nav)} />
+            <BsArrowLeftCircle className='nav-closer nav-react-icon' onClick={() => setNav(!nav)} />
           </div>
             <Search />
           <div className="user-nav-selection-container">
@@ -30,7 +30,7 @@ function UserNavigation() {
           </div>
           </>
 :
-<BsArrowRightCircle className='nav-react-icons nav-opener' onClick={() => setNav(!nav)} />
+<BsArrowRightCircle className='nav-react-icon nav-opener' onClick={() => setNav(!nav)} />
       }
       </div>
 

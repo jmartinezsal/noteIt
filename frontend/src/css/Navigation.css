@@ -44,13 +44,14 @@
 
 /* User left nav bar (when signed in)*/
 .user-nav-container {
-  width: 250px;
+  min-width: 225px;
+  max-width: 225px;
   background-color: black;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: -250px;
+  left: -225px;
   transition: all 200ms;
 }
 
@@ -64,7 +65,7 @@
   align-items: center;
 }
 
-.nav-react-icons {
+.nav-react-icon {
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
@@ -169,20 +170,56 @@
   margin-left: 10px;
 }
 
-/* .user-nav-selection-caret{
-  margin-left: 3%;
-  margin-right: 2%;
-} */
 
-/* .selection-no-caret{
-  margin-left: 15%;
-} */
+.user-nav-container .search-container {
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
 
-.user-nav-selection .react-icons {
-  font-size: 1.3em;
+.user-nav-container .search-container *{
+  box-sizing: border-box;
+  width: 90%;
+  text-align: center;
+  padding: 5px 0px;
+  line-height: 30px;
+}
+
+.user-nav-container .search-container input{
+  border:none;
+  outline:none;
+  margin-bottom: 2px;
+  border-radius: 0px 10px;
 
 }
 
+.user-nav-container .search-container .nav-btn{
+  border-radius: 10px 0px;
+  outline: none;
+  border: none;
+}
+
+.user-nav-container .search-container .create{
+  color: white;
+  background-color: var(--main-color);
+}
+
+.user-nav-container .search-container .search{
+  color: var(--main-color);
+  background-color: white;
+}
+
+.user-nav-selection .react-icons {
+  font-size: 1.3em;
+}
+
+
+.user-nav-container .search-container .nav-btn:hover{
+  opacity: .9;
+  cursor: pointer;
+}
 .user-nav-selection * {
   color: #bfbfbf;
   cursor: pointer;
@@ -224,8 +261,9 @@
 
 @media screen and (max-width: 700px) {
   .user-nav-container {
-    min-width: 7.0vh;
-    max-width: 7.5vh;
+    min-width: 75px;
+    max-width: 75px;
+    left: -75px;
     display: flex;
     flex-direction: column;
     align-items: center;

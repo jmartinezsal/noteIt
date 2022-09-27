@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { searchNotes } from '../../store/note';
 import { useDispatch } from 'react-redux';
 
+import {BiSearchAlt2} from 'react-icons/bi';
+import {AiOutlinePlusCircle} from 'react-icons/ai';
+import MobileContext from "../../context/Mobile";
+
 function Search() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const {screenWidth} = useContext(MobileContext);
 
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState('');
@@ -36,24 +41,21 @@ function Search() {
 
   const buttonChooser = active ? (
     <button className="search nav-btn" type="submit">
-      Search
+      {screenWidth > 700 ? "Search" : <BiSearchAlt2 /> }
     </button>
 
   ) :
-    <NavLink to="/notes/create">
-      New Note
-    </NavLink>
-    ;
+    <NavLink to="/notes/create" className="create nav-btn">
+      {screenWidth > 700 ? "New Note" : <AiOutlinePlusCircle />}
+    </NavLink>;
 
   return (
-    <div className="search-container">
-      <form onSubmit={searchHandler}>
+      <form className='search-container' onSubmit={searchHandler}>
         <input onChange={e => setSearch(e.target.value)} placeholder='Search' value={search} maxLength={25}>
         </input>
         {buttonChooser}
       </form>
 
-    </div>
   )
 }
 export default Search;
