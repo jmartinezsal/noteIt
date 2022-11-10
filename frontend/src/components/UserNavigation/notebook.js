@@ -21,7 +21,7 @@ function Notebook() {
       </NavLink>
       <i onClick={() => setShowModal(true)} className="fa-solid fa-circle-plus plus"></i>
       {showModal &&
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal onClose={() => setShowModal(false)} >
           <CreateNotebookModal setShowModal={setShowModal} />
         </Modal>
       }
