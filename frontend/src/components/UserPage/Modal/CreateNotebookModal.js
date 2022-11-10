@@ -43,7 +43,7 @@ function CreateNotebookModal({ setShowModal }) {
           {errors.map((error, idx) =>
             <>
               <li key={idx}>
-                {error}
+                {idx+1}. {error}
               </li>
             </>
           )}

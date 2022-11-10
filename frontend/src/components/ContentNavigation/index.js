@@ -91,7 +91,7 @@ function ContentNavigation({ content, type, currNotebook, search }) {
               </div>
             </div>
             <div className="content-actions">
-              {/* <p>Total Notes: {content.length} </p> */}
+              <p>Total Notes: {content.length} </p>
               {showEditModal &&
                 <Modal onClose={() => setShowEditModal(false)} >
                   <EditNotebookModal notebook={currNotebook} setShowEditModal={setShowEditModal} />
