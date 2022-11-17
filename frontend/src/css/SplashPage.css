@@ -68,6 +68,7 @@ footer {
   flex-direction: column;
   align-items: center;
   height: 12vh;
+  padding-bottom: 20px;
 }
 
 .top-footer {

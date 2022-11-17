@@ -41,9 +41,9 @@ function LoginFormPage() {
             <p>Noting everyting you need.</p>
           </div>
           <form onSubmit={handleSubmit}>
-            <ul className="errors">
+            <ul className={errors.length > 0 ? "active errors" : "errors"}>
               {errors.map((error, idx) =>
-                <li key={idx}>{error}</li>
+                <li key={idx}>{idx + 1}. {error}</li>
               )}
             </ul>
             <div className="input-container">

@@ -19,16 +19,21 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      dispatch(sessionActions.signup({ email, username, password }))
-        .then(() => history.push('/home'))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
+    setErrors([]);
+
+
+    if (password !== confirmPassword) {
+      return setErrors(['Confirm Password field must be the same as the Password field']);
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+
+    dispatch(sessionActions.signup({ email, username, password }))
+      .then(() => history.push('/home'))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+
+
   };
 
   return (
@@ -41,11 +46,11 @@ function SignupFormPage() {
             <p>Noting everyting you need.</p>
           </div>
           <form onSubmit={handleSubmit}>
-            <ul className="errors">
+            <ul className={errors.length > 0 ? "active errors" : "errors"}>
               {errors.map((error, idx) =>
-                  <li key={idx}>
-                    {error}
-                  </li>
+                <li key={idx}>
+                  {idx + 1}. {error}
+                </li>
               )}
             </ul>
             <div className="input-container">

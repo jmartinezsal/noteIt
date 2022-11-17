@@ -15,7 +15,6 @@
   box-shadow: 5px 5px 15px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
   max-height:  fit-content;
-
 }
 
 .auth-form-top{
@@ -63,12 +62,16 @@
   display: flex;
   font-weight: bold;
   flex-direction: column;
-  margin-left: 15%;
+  margin-left: 10%;
   font-size: 15px;
   font-family: sans-serif;
   color:rgba(245, 0, 0, 0.797);
   line-height: 1.5rem;
-
+  opacity: 0;
+}
+.active{
+  opacity: 1;
+  transition: opacity 800ms ease-in-out;
 }
 
 .auth-btn-container{
